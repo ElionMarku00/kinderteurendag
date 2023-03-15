@@ -21,6 +21,7 @@ function App() {
           <Route path="/gamep2" element={<GiveAnswerPage />} />
           <Route path="/correct" element={<CorrectPage />} />
           <Route path="/incorrect" element={< IncorrectPage Icon={Abc} />} />
+          
           {/* <Route path="/edit/:id" element={<EditUserPage />} /> */}
           {/* <Route path="*" element={<ErrorPage />} /> */}
         </Routes>

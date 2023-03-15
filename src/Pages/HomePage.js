@@ -8,15 +8,15 @@ import { useNavigate } from "react-router-dom";
 function HomePage() {
 
     const navigate = useNavigate()
-    const navToGuessPage = () => navigate(`/game`)
+    // const navToGuessPage = () => navigate(`/game`)
 
     const [data, setData] = React.useState([
-        { name: "Bee", Icon: (props) => <FamilyRestroomIcon {...props} /> },
-        { name: "Butterfly", Icon: (props) => <FamilyRestroomIcon {...props} /> },
-        { name: "Ladybug", Icon: (props) => <FamilyRestroomIcon {...props} /> },
-        { name: "Slug", Icon: (props) => <FamilyRestroomIcon {...props} /> },
-        { name: "Chick", Icon: (props) => <FamilyRestroomIcon {...props} /> },
-        { name: "Plane", Icon: (props) => <FamilyRestroomIcon {...props} /> },
+        { name: "Bee", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "E", solved: true },
+        { name: "Butterfly", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "M", solved: false },
+        { name: "Ladybug", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "B", solved: false },
+        { name: "Slug", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "R", solved: false },
+        { name: "Chick", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "Y", solved: false },
+        { name: "Plane", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "O", solved: false },
     ])
     return (
         <Layout>
@@ -30,8 +30,8 @@ function HomePage() {
             <Grid>
 
                 {data.map((item) => {
-                    return <ImgContainer key={item.name} onClick={() => { navToGuessPage() }}>
-                        <item.Icon />
+                    return <ImgContainer key={item.name} onClick={() => { !item.solved ? navigate(`/game`) : navigate(`/correct`) }}>
+                        {!item.solved ? <item.Icon /> : <h1> {item.letter} </h1>}
                     </ImgContainer>
                 })}
 
