@@ -1,10 +1,14 @@
 import './App.css';
 import HomePage from './Pages/HomePage';
+import Abc from '@mui/icons-material/Abc';
+
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import GuessPage from './Pages/GuessPage';
 import GamePage from './Pages/GamePage';
-import GamePage2 from './Pages/GamePage2';
+import GiveAnswerPage from './Pages/GiveAnswerPage';
+import CorrectPage from './Pages/CorrectPage';
+import IncorrectPage from './Pages/IncorrectPage';
 
 function App() {
   return (
@@ -14,7 +18,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/guess" element={<GuessPage />} />
           <Route path="/game" element={<GamePage />} />
-          <Route path="/gamep2" element={<GamePage2 />} />
+          <Route path="/gamep2" element={<GiveAnswerPage />} />
+          <Route path="/correct" element={<CorrectPage />} />
+          <Route path="/incorrect" element={< IncorrectPage Icon={Abc} />} />
           {/* <Route path="/edit/:id" element={<EditUserPage />} /> */}
           {/* <Route path="*" element={<ErrorPage />} /> */}
         </Routes>

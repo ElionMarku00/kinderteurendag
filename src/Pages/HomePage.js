@@ -4,16 +4,22 @@ import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 
 import { useNavigate } from "react-router-dom";
 
-
 // base page with a grid and icons inside for the questions. each question will reveal a letter after answered correctly
 function HomePage() {
 
-
     const navigate = useNavigate()
-    const navToGuessPage = () => navigate(`/gamep2`)
+    const navToGuessPage = () => navigate(`/game`)
+
+    const [data, setData] = React.useState([
+        { name: "Bee", Icon: (props) => <FamilyRestroomIcon {...props} /> },
+        { name: "Butterfly", Icon: (props) => <FamilyRestroomIcon {...props} /> },
+        { name: "Ladybug", Icon: (props) => <FamilyRestroomIcon {...props} /> },
+        { name: "Slug", Icon: (props) => <FamilyRestroomIcon {...props} /> },
+        { name: "Chick", Icon: (props) => <FamilyRestroomIcon {...props} /> },
+        { name: "Plane", Icon: (props) => <FamilyRestroomIcon {...props} /> },
+    ])
     return (
         <Layout>
-
 
             <FamilyRestroomIcon sx={{ fontSize: 70 }} />
 
@@ -21,39 +27,13 @@ function HomePage() {
             <CustomH6>Help Lucas and Marie find the code word the doctor needs to help the patient. With this code word you receive a lovely gift ! Choose the image below that matches the activity and answer the questions to find the code word . Good luck!
             </CustomH6>
 
-
-
             <Grid>
 
-                <ImgContainer onClick={() => { navToGuessPage('test') }}>
-
-                    <FamilyRestroomIcon sx={{ fontSize: 70 }} />
-                </ImgContainer>
-
-                <ImgContainer>
-
-                    <FamilyRestroomIcon sx={{ fontSize: 70 }} />
-                </ImgContainer>
-
-                <ImgContainer>
-
-                    <FamilyRestroomIcon sx={{ fontSize: 70 }} />
-                </ImgContainer>
-
-                <ImgContainer>
-                    <FamilyRestroomIcon sx={{ fontSize: 70 }} />
-
-                </ImgContainer >
-
-                <ImgContainer>
-
-                    <FamilyRestroomIcon sx={{ fontSize: 70 }} />
-                </ImgContainer>
-                <ImgContainer>
-
-                    <FamilyRestroomIcon sx={{ fontSize: 70 }} />
-                </ImgContainer>
-
+                {data.map((item) => {
+                    return <ImgContainer key={item.name} onClick={() => { navToGuessPage() }}>
+                        <item.Icon />
+                    </ImgContainer>
+                })}
 
             </Grid>
 
@@ -61,13 +41,10 @@ function HomePage() {
                 WHAT IS THE CODE WORD WE ARE LOOKING FOR?
             </BottomText>
 
-
-
         </Layout>
 
     )
 }
-
 
 const Layout = styled.section`
     display: grid;
