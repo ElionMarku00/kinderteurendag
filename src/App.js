@@ -10,11 +10,6 @@ import GiveAnswerPage from './Pages/GiveAnswerPage';
 import CorrectPage from './Pages/CorrectPage';
 import IncorrectPage from './Pages/IncorrectPage';
 
-// check the answer against the true answer from context
-
-// pass data to the giveAnswerPage
-//check provided answer with answer from data
-//redirect to correct or incorrect
 
 //if correct change state of data.answered to true
 

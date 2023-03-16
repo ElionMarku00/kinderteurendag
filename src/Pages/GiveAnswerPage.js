@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useContext, useState } from 'react'
+import { useNavigate, useLocation, } from "react-router-dom";
 
 import styled from 'styled-components'
 
@@ -10,16 +10,39 @@ import { AppContext } from '../context';
 
 function GiveAnswerPage() {
 
-    const { data } = useContext(AppContext)
+    const { data, setData } = useContext(AppContext)
     const navigate = useNavigate();
     const location = useLocation();
+    const [text, setText] = useState('')
+
     const currentGameName = location.state.currentGame;
 
-    const checkAnsw = (e) => {
-        e.preventDefault();
-        let ansToBeChecked = data.find((i) => i.name === currentGameName)
-        const ansToBeCheckedIndx = data.findIndex((i) => i.name === currentGameName)
-        console.log(ansToBeChecked, ansToBeCheckedIndx);
+    const checkAnsw = () => {
+        let currGameAns = data.find((i) => i.name === currentGameName).answer
+        const currGameIndx = data.findIndex((i) => i.name === currentGameName)
+
+
+
+
+        if (currGameAns === text) {
+            console.log('correct');
+
+            let items = [...data];
+            let item = { ...data[currGameIndx] };
+            item.solved = true;
+            items[currGameIndx] = item;
+            setData([...items]);
+
+            navigate('/correct')
+
+        }
+        else {
+            console.log(text);
+            navigate('/incorrect')
+
+
+        }
+
 
     }
 
@@ -31,11 +54,9 @@ function GiveAnswerPage() {
             </Flex>
 
             <Cloud arrowUp={true} text='When performing the operation, you will see a letter inside the box. Which letter is it?' />
-            <TextField id="outlined-basic" label="What's your answer?" variant="outlined" style={{ margin: '0 1rem' }} />
+            <TextField id="outlined-basic" label="What's your answer?" variant="outlined" style={{ margin: '0 1rem' }} onChange={(e) => setText(e.target.value)} />
 
-            <button onClick={() => navigate('/correct')} >correct</button>
-            <button onClick={() => checkAnsw} >Check!</button>
-            <button onClick={() => navigate('/incorrect')} >incorrect</button>
+            <button onClick={() => checkAnsw()} >Check!</button>
 
         </Grid>
     )

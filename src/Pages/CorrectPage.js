@@ -19,7 +19,8 @@ function CorrectPage() {
 
       <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>Correct!</h3>, "You can continue when clicking on the arrow."]} />
 
-      <button onClick={() => navigate('/')} > <FamilyRestroomIcon sx={{ fontSize: 100 }} /></button>
+      {/* <button onClick={() => navigate('')} > <FamilyRestroomIcon sx={{ fontSize: 100 }} /></button> */}
+      <button> <Link to='/' ><FamilyRestroomIcon sx={{ fontSize: 100 }} /></Link></button>
 
     </Grid>
   )
