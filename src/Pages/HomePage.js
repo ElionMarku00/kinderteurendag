@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 
 import { useNavigate } from "react-router-dom";
+import { AppContext } from '../context';
 
 // base page with a grid and icons inside for the questions. each question will reveal a letter after answered correctly
 function HomePage() {
@@ -10,14 +11,8 @@ function HomePage() {
     const navigate = useNavigate()
     // const navToGuessPage = () => navigate(`/game`)
 
-    const [data, setData] = React.useState([
-        { name: "Bee", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "E", solved: true },
-        { name: "Butterfly", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "M", solved: false },
-        { name: "Ladybug", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "B", solved: false },
-        { name: "Slug", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "R", solved: false },
-        { name: "Chick", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "Y", solved: false },
-        { name: "Plane", Icon: (props) => <FamilyRestroomIcon {...props} />, letter: "O", solved: false },
-    ])
+    const { data } = React.useContext(AppContext)
+
     return (
         <Layout>
 
@@ -30,8 +25,11 @@ function HomePage() {
             <Grid>
 
                 {data.map((item) => {
-                    return <ImgContainer key={item.name} onClick={() => { !item.solved ? navigate(`/game`) : navigate(`/correct`) }}>
-                        {!item.solved ? <item.Icon /> : <h1> {item.letter} </h1>}
+
+                    let { name, solved, letter } = item
+
+                    return <ImgContainer key={name} onClick={() => { !solved ? navigate(`/game`, { state: { currentGame: name } }) : navigate(`/correct`) }}>
+                        {!solved ? <item.Icon /> : <h1> {letter} </h1>}
                     </ImgContainer>
                 })}
 
@@ -68,16 +66,6 @@ const Grid = styled.main`
     justify-self: center;
 
 `;
-
-// const TextFlex = styled.section`
-//     display:flex;
-//     flex-direction:column;
-//     align-items:center;
-//     grid-column: 1 / 3;
-
-// `;
-
-
 
 const CustomH6 = styled.h6`
  grid-column: 1 / 3;

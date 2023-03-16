@@ -1,15 +1,27 @@
-import React from 'react'
-import { useNavigate } from "react-router-dom";
+import React, { useContext } from 'react'
+import { useNavigate, useLocation } from "react-router-dom";
 
 import styled from 'styled-components'
 
 import { TextField } from "@mui/material";
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import Cloud from '../Components/Cloud';
+import { AppContext } from '../context';
 
 function GiveAnswerPage() {
 
-    const navigate = useNavigate()
+    const { data } = useContext(AppContext)
+    const navigate = useNavigate();
+    const location = useLocation();
+    const currentGameName = location.state.currentGame;
+
+    const checkAnsw = (e) => {
+        e.preventDefault();
+        let ansToBeChecked = data.find((i) => i.name === currentGameName)
+        const ansToBeCheckedIndx = data.findIndex((i) => i.name === currentGameName)
+        console.log(ansToBeChecked, ansToBeCheckedIndx);
+
+    }
 
     return (
         <Grid>
@@ -22,6 +34,7 @@ function GiveAnswerPage() {
             <TextField id="outlined-basic" label="What's your answer?" variant="outlined" style={{ margin: '0 1rem' }} />
 
             <button onClick={() => navigate('/correct')} >correct</button>
+            <button onClick={() => checkAnsw} >Check!</button>
             <button onClick={() => navigate('/incorrect')} >incorrect</button>
 
         </Grid>

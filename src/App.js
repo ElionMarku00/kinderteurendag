@@ -10,6 +10,16 @@ import GiveAnswerPage from './Pages/GiveAnswerPage';
 import CorrectPage from './Pages/CorrectPage';
 import IncorrectPage from './Pages/IncorrectPage';
 
+// check the answer against the true answer from context
+
+// pass data to the giveAnswerPage
+//check provided answer with answer from data
+//redirect to correct or incorrect
+
+//if correct change state of data.answered to true
+
+// change state of data so it shows letters 
+
 function App() {
   return (
     <>
@@ -21,7 +31,7 @@ function App() {
           <Route path="/gamep2" element={<GiveAnswerPage />} />
           <Route path="/correct" element={<CorrectPage />} />
           <Route path="/incorrect" element={< IncorrectPage Icon={Abc} />} />
-          
+
           {/* <Route path="/edit/:id" element={<EditUserPage />} /> */}
           {/* <Route path="*" element={<ErrorPage />} /> */}
         </Routes>

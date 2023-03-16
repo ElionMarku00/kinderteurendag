@@ -1,8 +1,9 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styled from 'styled-components'
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import Cloud from '../Components/Cloud';
+import { AppContext } from '../context';
 
 function CorrectPage() {
 
@@ -16,10 +17,9 @@ function CorrectPage() {
         <FamilyRestroomIcon sx={{ fontSize: 70 }} style={{ alignSelf: 'flex-start' }} />
       </Flex>
 
-      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>Correct!</h3>, "You can continue when clicking on the arrow."]}/> 
+      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>Correct!</h3>, "You can continue when clicking on the arrow."]} />
 
-      <button onClick={() => navigate(-1)} > <FamilyRestroomIcon sx={{ fontSize: 100 }} />
-      </button>
+      <button onClick={() => navigate('/')} > <FamilyRestroomIcon sx={{ fontSize: 100 }} /></button>
 
     </Grid>
   )
