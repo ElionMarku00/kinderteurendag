@@ -1,13 +1,13 @@
 import React from 'react'
-import { useNavigate, Link } from "react-router-dom";
+import { /* useNavigate ,*/ Link } from "react-router-dom";
 import styled from 'styled-components'
 import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import Cloud from '../Components/Cloud';
-import { AppContext } from '../context';
+// import { AppContext } from '../context';
 
 function CorrectPage() {
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
 
   return (

@@ -26,11 +26,17 @@ function HomePage() {
 
                 {data.map((item) => {
 
-                    let { name, solved, letter } = item
+                    let { name, solved, letter, icon } = item
 
-                    return <ImgContainer key={name} onClick={() => { !solved ? navigate(`/game`, { state: { currentGame: name } }) : navigate(`/correct`) }}>
-                        {!solved ? <item.Icon /> : <h1> {letter} </h1>}
-                    </ImgContainer>
+                    console.log(icon);
+
+                    return (<ImgContainer key={name} onClick={() => { !solved ? navigate(`/game`, { state: { currentGame: name } }) : navigate(`/correct`) }}>
+                        {!solved
+                            ? <img src={`/images${icon}`} alt={`${name}`} width="80%" height="auto" />
+                            : <h1>{letter}</h1>
+                        }
+                    </ImgContainer>)
+
                 })}
 
             </Grid>
@@ -61,9 +67,12 @@ const Grid = styled.main`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     grid-gap:3rem;
-    align-items:center;
     grid-column: 1 / 3;
+    align-items:center;
     justify-self: center;
+    justify-items:center;
+    
+    overflow-y:scroll;
 
 `;
 
@@ -89,11 +98,12 @@ text-align:center;
 
 `;
 
-const ImgContainer = styled.div`
+const ImgContainer = styled.section`
 
-border-radius: 50%;
-border-color: black;
-border: 5px solid #555;
+/* 
+border: 5px solid #555; */
+
+
 
 `;
 

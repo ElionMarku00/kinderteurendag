@@ -11,9 +11,17 @@ import CorrectPage from './Pages/CorrectPage';
 import IncorrectPage from './Pages/IncorrectPage';
 
 
-//if correct change state of data.answered to true
-
-// change state of data so it shows letters 
+// add overflow rules in homepage
+//replace placeholder images
+// Welcome screen before HomePage to select language; translate qstns / answers
+// randomize data
+// finish incorrect page
+// replace placeholder icons
+// graphic adjustmens and animations
+// create what is the code word we're looking for page
+// add more games not just text guessing
+// think about saving state against reload
+// hosting
 
 function App() {
   return (

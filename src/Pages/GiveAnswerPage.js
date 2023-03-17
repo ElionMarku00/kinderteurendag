@@ -21,9 +21,6 @@ function GiveAnswerPage() {
         let currGameAns = data.find((i) => i.name === currentGameName).answer
         const currGameIndx = data.findIndex((i) => i.name === currentGameName)
 
-
-
-
         if (currGameAns === text) {
             console.log('correct');
 
