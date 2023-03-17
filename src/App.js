@@ -11,7 +11,6 @@ import CorrectPage from './Pages/CorrectPage';
 import IncorrectPage from './Pages/IncorrectPage';
 
 
-// add overflow rules in homepage
 //replace placeholder images
 // Welcome screen before HomePage to select language; translate qstns / answers
 // randomize data

@@ -57,7 +57,6 @@ const Layout = styled.section`
     height: 100vh; 
     width: 100vw;
     /* align-items: center; */
-    
     border-radius:1rem;
 `;
 
