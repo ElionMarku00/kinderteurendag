@@ -1,26 +1,27 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import styled from 'styled-components'
-import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+// import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+import ReplayIcon from '@mui/icons-material/Replay';
 
 import Cloud from '../Components/Cloud';
-function IncorrectPage(props) {
+function IncorrectPage() {
 
-  const { Icon } = props
+  const location = useLocation();
+  const { gameImage, gameHost } = location.state;
+
 
   const navigate = useNavigate()
 
   return (
     <Grid>
       <Flex>
-        <Icon sx={{ fontSize: 100 }} style={{ alignSelf: 'flex-end' }} />
-        <Icon sx={{ fontSize: 70 }} style={{ alignSelf: 'flex-start' }} />
+        <img src={`/images${gameHost}`} alt={`${gameHost}`} width="40%" height="auto" style={{ alignSelf: 'flex-end' }} />
+        <img src={`/images${gameImage}`} alt={`${gameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
       </Flex>
 
-      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'red' }}>Almost!</h3>, "Try again, you can do it!"]}/>
-
-      <button onClick={() => navigate(-1)} > <FamilyRestroomIcon sx={{ fontSize: 100 }} />
-      </button>
+      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'red' }}>Almost!</h3>, "Try again, you can do it!"]} />
+      <ReplayIcon sx={{ fontSize: 100 }} onClick={() => navigate(-1)} style={{ alignSelf: 'center', justifySelf: 'center', color: 'black' }} />
 
     </Grid >
   )

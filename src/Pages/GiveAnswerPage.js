@@ -4,7 +4,7 @@ import { useNavigate, useLocation, } from "react-router-dom";
 import styled from 'styled-components'
 
 import { TextField } from "@mui/material";
-import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+// import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import Cloud from '../Components/Cloud';
 import { AppContext } from '../context';
 
@@ -15,11 +15,12 @@ function GiveAnswerPage() {
     const location = useLocation();
     const [text, setText] = useState('')
 
-    const currentGameName = location.state.currentGame;
+    const { gameImage, currentGame, gameHost } = location.state;
+
 
     const checkAnsw = () => {
-        let currGameAns = data.find((i) => i.name === currentGameName).answer
-        const currGameIndx = data.findIndex((i) => i.name === currentGameName)
+        let currGameAns = data.find((i) => i.name === currentGame).answer
+        const currGameIndx = data.findIndex((i) => i.name === currentGame)
 
         if (currGameAns === text) {
             console.log('correct');
@@ -30,24 +31,19 @@ function GiveAnswerPage() {
             items[currGameIndx] = item;
             setData([...items]);
 
-            navigate('/correct')
+            navigate('/correct', { state: {  gameImage, gameHost } })
 
         }
         else {
-            console.log(text);
-            navigate('/incorrect')
-
-
+            navigate('/incorrect', { state: {  gameImage, gameHost } })
         }
-
-
     }
 
     return (
         <Grid>
             <Flex>
-                <FamilyRestroomIcon sx={{ fontSize: 100 }} style={{ alignSelf: 'flex-end' }} />
-                <FamilyRestroomIcon sx={{ fontSize: 70 }} style={{ alignSelf: 'flex-start' }} />
+                <img src={`/images${gameHost}`} alt={`${gameHost}`} width="40%" height="auto" style={{ alignSelf: 'flex-end' }} />
+                <img src={`/images${gameImage}`} alt={`${gameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
             </Flex>
 
             <Cloud arrowUp={true} text='When performing the operation, you will see a letter inside the box. Which letter is it?' />
@@ -61,7 +57,6 @@ function GiveAnswerPage() {
 
 
 const Grid = styled.main`
-
     color:green;
     display:grid;
     grid-template-columns: 1fr ;
@@ -76,7 +71,6 @@ const Grid = styled.main`
 `;
 
 const Flex = styled.div`
-
 display:flex;
 flex-direction:row;
 justify-content:space-between;

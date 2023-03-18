@@ -1,22 +1,27 @@
 import React from 'react'
 import styled from 'styled-components'
-import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+// import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Cloud from '../Components/Cloud';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
+import { AppContext } from '../context';
 
 function GamePage() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const item = location.state.currentGame;
+  const { currentGame, gameHost } = location.state;
+
+  const { data } = React.useContext(AppContext)
+  const image = data.find(x => x.name === currentGame).icon
 
   return (
 
     <Grid>
 
       <ImgContainer style={{ justifySelf: 'end' }}>
-        <FamilyRestroomIcon sx={{ fontSize: 70 }} />
+        <img src={`/images${image}`} alt={`${image}`} width="80%" height="auto" />
       </ImgContainer>
 
       <CustomH1>Welcome to the laparoscopy demo!</CustomH1>
@@ -24,17 +29,21 @@ function GamePage() {
 
       <Flex>
 
-        <ImgContainer >
-          <FamilyRestroomIcon sx={{ fontSize: 70 }} />
+        <ImgContainer>
+          {/* <FamilyRestroomIcon sx={{ fontSize: 70 }} /> */}
+          <img src={`/images${gameHost}`} alt={`${gameHost}`} width="80%" height="auto" />
         </ImgContainer>
 
-        <ImgContainer >
-          <ArrowForwardIcon style={{ color: 'black' }} sx={{ fontSize: 70 }} onClick={() => navigate(`/gamep2`, { state: { currentGame: item } })} />
+        <ImgContainer style={{ alignSelf: 'center' }} >
+          <ArrowForwardIcon
+            style={{ color: 'black' }}
+            sx={{ fontSize: 70 }}
+            onClick={() => navigate(`/gamep2`, { state: { currentGame, gameImage: image, gameHost } })} />
         </ImgContainer>
 
       </Flex >
 
-    </Grid>
+    </Grid >
   )
 }
 
@@ -54,14 +63,16 @@ const Grid = styled.main`
     height:100vh;
     width:100vw;
 
+    row-gap: 0;
+
 `;
 
 
 const ImgContainer = styled.div`
 
-    border-radius: 50%;
+    /* border-radius: 50%;
     border-color: black;
-    border: 5px solid #555;
+    border: 5px solid #555; */
 `;
 
 const Flex = styled.div`

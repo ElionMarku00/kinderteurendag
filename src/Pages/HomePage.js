@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 
 import { useNavigate } from "react-router-dom";
 import { AppContext } from '../context';
@@ -13,10 +12,12 @@ function HomePage() {
 
     const { data } = React.useContext(AppContext)
 
+
+
     return (
         <Layout>
 
-            <FamilyRestroomIcon sx={{ fontSize: 70 }} />
+            <img src={`/images/marielukas.png`} alt={`marielukas`} width="100%" height="auto" />
 
             <Title>DOCTOR FOR 1 DAY</Title>
             <CustomH6>Help Lucas and Marie find the code word the doctor needs to help the patient. With this code word you receive a lovely gift ! Choose the image below that matches the activity and answer the questions to find the code word . Good luck!
@@ -28,9 +29,8 @@ function HomePage() {
 
                     let { name, solved, letter, icon } = item
 
-                    console.log(icon);
-
-                    return (<ImgContainer key={name} onClick={() => { !solved ? navigate(`/game`, { state: { currentGame: name } }) : navigate(`/correct`) }}>
+                    return (<ImgContainer key={name}
+                        onClick={() => { !solved ? navigate(`/game`, { state: { currentGame: name, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png' } }) : navigate(`/correct`) }}>
                         {!solved
                             ? <img src={`/images${icon}`} alt={`${name}`} width="80%" height="auto" />
                             : <h1>{letter}</h1>
