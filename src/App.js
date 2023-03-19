@@ -7,15 +7,13 @@ import GiveAnswerPage from './Pages/GiveAnswerPage';
 import CorrectPage from './Pages/CorrectPage';
 import IncorrectPage from './Pages/IncorrectPage';
 import GuessCodePage from './Pages/GuessCodePage';
-
+import FinalPage from './Pages/FinalPage';
 
 //TODO
 // add props to each page for specific text on each page
 // center the f title at homepage
 // Welcome screen before HomePage to select language; translate qstns / answers
-// randomize icons not to crowd the 
-// finish incorrect page
-// replace placeholder icons
+// randomize icons not to crowd the physical medical departments
 // graphic adjustmens and animations
 // create what is the code word we're looking for page
 // add more games not just text guessing
@@ -33,8 +31,9 @@ function App() {
           <Route path="/game" element={<GamePage />} />
           <Route path="/gamep2" element={<GiveAnswerPage />} />
           <Route path="/guesscode" element={<GuessCodePage />} />
+          <Route path="/finalpage" element={<FinalPage />} />
           <Route path="/correct" element={<CorrectPage />} />
-          <Route path="/incorrect" element={< IncorrectPage  />} />
+          <Route path="/incorrect" element={< IncorrectPage />} />
 
           {/* <Route path="/edit/:id" element={<EditUserPage />} /> */}
           {/* <Route path="*" element={<ErrorPage />} /> */}

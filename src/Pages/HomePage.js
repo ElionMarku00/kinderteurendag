@@ -7,7 +7,7 @@ import { AppContext } from '../context';
 // base page with a grid and icons inside for the questions. each question will reveal a letter after answered correctly
 function HomePage() {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     // const navToGuessPage = () => navigate(`/game`)
 
     const { data } = React.useContext(AppContext)
@@ -41,7 +41,7 @@ function HomePage() {
 
             </Grid>
 
-            <BottomText>
+            <BottomText onClick={()=> navigate('/guesscode')}>
                 WHAT IS THE CODE WORD WE ARE LOOKING FOR?
             </BottomText>
 

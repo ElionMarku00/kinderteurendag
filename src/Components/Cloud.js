@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const CloudWrapper = styled.span`
+const CloudWrapper = styled.h3`
  & {
 	// layout
 	position: relative;
@@ -60,14 +60,22 @@ const CloudWrapper = styled.span`
 }
 `;
 
-
 // by default cloud pointing down. change arrowUp to true to change direction
 export default function Cloud(props) {
 
-    const { text, arrowUp, ...otherprops } = props;
+	const { text, arrowUp, ...otherprops } = props;
 
-    return (
+	return (
 
-        <CloudWrapper arrowUp={arrowUp} >{text}</CloudWrapper>
-    )
+		<CloudWrapper arrowUp={arrowUp} >
+			{/* <div style={{color:'green'}}>
+				{props.greentext}
+			</div> */}
+			<div>
+
+				{text}
+			</div>
+
+		</CloudWrapper>
+	)
 }

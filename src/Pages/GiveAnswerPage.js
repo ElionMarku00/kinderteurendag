@@ -31,17 +31,18 @@ function GiveAnswerPage() {
             items[currGameIndx] = item;
             setData([...items]);
 
-            navigate('/correct', { state: {  gameImage, gameHost } })
+            navigate('/correct', { state: { gameImage, gameHost } })
 
         }
         else {
-            navigate('/incorrect', { state: {  gameImage, gameHost } })
+            navigate('/incorrect', { state: { gameImage, gameHost } })
         }
     }
 
     return (
         <Grid>
             <Flex>
+
                 <img src={`/images${gameHost}`} alt={`${gameHost}`} width="40%" height="auto" style={{ alignSelf: 'flex-end' }} />
                 <img src={`/images${gameImage}`} alt={`${gameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
             </Flex>
