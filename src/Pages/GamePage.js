@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 // import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import { useNavigate, useLocation } from 'react-router-dom';
-import Cloud from '../Components/Cloud';
+import {Cloud} from '../Components';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 import { AppContext } from '../context';

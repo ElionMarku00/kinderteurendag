@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styled from 'styled-components'
 // import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import ReplayIcon from '@mui/icons-material/Replay';
@@ -9,7 +9,6 @@ function IncorrectPage() {
 
   const location = useLocation();
   const { gameImage, gameHost } = location.state;
-
 
   const navigate = useNavigate()
 

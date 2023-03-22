@@ -21,8 +21,6 @@ function GameZone(props) {
     const [text, setText] = useState('');
     const { checker, gameType, gameAnswer, ...otherprops } = props;
 
-
-
     switch (gameType) {
 
         case GameTypes.text:

@@ -2,8 +2,7 @@ import React, { useContext } from 'react'
 import { useNavigate, useLocation, } from "react-router-dom";
 import styled from 'styled-components'
 
-import Cloud from '../Components/Cloud';
-import GameZone from '../Components/GameZone';
+import {Cloud,GameZone} from '../Components';
 import { AppContext } from '../context';
 
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import Cloud from '../Components/Cloud';
+import {Cloud} from '../Components';
 
 const Layout = styled.div`
 display:flex;

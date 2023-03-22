@@ -4,7 +4,7 @@ import styled from 'styled-components'
 // import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-import Cloud from '../Components/Cloud';
+import { Cloud } from '../Components';
 
 function CorrectPage() {
 
@@ -19,7 +19,7 @@ function CorrectPage() {
         <img src={`/images${gameImage}`} alt={`${gameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
       </Flex>
 
-      <Cloud arrowUp={true}  text={[<h3 key={`new`} style={{ color: 'green' }}>Correct!</h3>, "You can continue when clicking on the arrow."]} />
+      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>Correct!</h3>, "You can continue when clicking on the arrow."]} />
       {/* <Cloud arrowUp={true} greentext={<h1> Correct!</h1>} text={"You can continue when clicking on the arrow."} /> */}
 
       {/* <button onClick={() => navigate('')} > <FamilyRestroomIcon sx={{ fontSize: 100 }} /></button> */}

@@ -1,8 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import Title from '../Components/Title';
-import Cloud from '../Components/Cloud';
+import {Cloud,Title} from '../Components';
 import { TextField } from "@mui/material";
 
 const Flex = styled.main`

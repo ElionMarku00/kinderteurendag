@@ -1,17 +1,11 @@
 import './App.css';
-import HomePage from './Pages/HomePage';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import GamePage from './Pages/GamePage';
-import GiveAnswerPage from './Pages/GiveAnswerPage';
-import CorrectPage from './Pages/CorrectPage';
-import IncorrectPage from './Pages/IncorrectPage';
-import GuessCodePage from './Pages/GuessCodePage';
-import FinalPage from './Pages/FinalPage';
+import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCodePage, FinalPage } from './Pages'
 
 //TODO
 
-// draganddrop and multiple choice kind of games
+// drag and drop and multiple choice kind of games @GameZone.js
 // add modal on homepage that says correct when user clicks on already solved qstn
 // finish what is the code word we're looking for page
 // add checking logic for final answer
