@@ -16,10 +16,30 @@ column-gap:1rem;
 
 `;
 
+
+
 function GameZone(props) {
 
     const [text, setText] = useState('');
     const { checker, gameType, gameAnswer, ...otherprops } = props;
+
+    const Grid = styled.main`
+        display:grid;
+        grid-template-rows:repeat(2,1fr);
+        grid-template-columns: repeat(${props.gameAnswer.length},1fr); 
+        justify-content:space-evenly;
+        align-content:center;
+
+
+        justify-items:center;
+        align-items:center;
+
+`;
+    const GridItems = styled.section`
+    border-style:solid;
+    padding:10%;
+
+`;
 
     switch (gameType) {
 
@@ -38,29 +58,25 @@ function GameZone(props) {
                 {/* take the answer, split it into however many letters,
             make a div or some draggable element and try drag and drop  */}
 
-                <div>
-                    <h1>Drag the below Letters into the correct order:</h1>
 
-                    <Flex>{[...gameAnswer].sort(() => Math.random() - 0.5).map(
+                <h1>Drag the below Letters into the correct order:</h1>
+                <Grid>
+
+                    {[...gameAnswer].sort(() => Math.random() - 0.5).map(
                         letter => {
 
-                            return <div >{letter}</div>
+                            return <GridItems>{letter}</GridItems>
 
                         }
-                    )}</Flex>
-
-
-                </div>
-
-                <Flex>
+                    )}
                     {[...gameAnswer].map(x => {
 
-                        return <div>
+                        return <GridItems>
                             empty square
-                        </div>
+                        </GridItems>
 
                     })}
-                </Flex>
+                </Grid>
 
             </>
         case GameTypes.multipleChoice:
@@ -90,5 +106,8 @@ function GameZone(props) {
 
     )
 }
+
+
+
 
 export default GameZone
