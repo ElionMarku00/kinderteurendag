@@ -11,7 +11,7 @@ function GamePage() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { currentGame, gameHost } = location.state;
+  const { currentGame, gameHost, text } = location.state;
 
   const { data } = React.useContext(AppContext)
   const image = data.find(x => x.name === currentGame).icon
@@ -25,7 +25,7 @@ function GamePage() {
       </ImgContainer>
 
       <CustomH1>Welcome to the laparoscopy demo!</CustomH1>
-      <Cloud arrowUp={false} text='Here you can perform an operation yourself like a real doctor! Do you want to give it a try?' />
+      <Cloud arrowUp={false} text={text} />
 
       <Flex>
 

@@ -1,28 +1,27 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { useNavigate, useLocation, } from "react-router-dom";
-
 import styled from 'styled-components'
 
-import { TextField } from "@mui/material";
-// import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
+import { GameTypes } from '../constants/GameType';
 import Cloud from '../Components/Cloud';
 import { AppContext } from '../context';
+
+import GameZone from '../Components/GameZone';
 
 function GiveAnswerPage() {
 
     const { data, setData } = useContext(AppContext)
     const navigate = useNavigate();
     const location = useLocation();
-    const [text, setText] = useState('')
-
     const { gameImage, currentGame, gameHost } = location.state;
 
+    const checkAnsw = (tfText) => {
 
-    const checkAnsw = () => {
+        console.log(tfText);
         let currGameAns = data.find((i) => i.name === currentGame).answer
         const currGameIndx = data.findIndex((i) => i.name === currentGame)
 
-        if (currGameAns === text) {
+        if (currGameAns === tfText) {
             console.log('correct');
 
             let items = [...data];
@@ -48,9 +47,10 @@ function GiveAnswerPage() {
             </Flex>
 
             <Cloud arrowUp={true} text='When performing the operation, you will see a letter inside the box. Which letter is it?' />
-            <TextField id="outlined-basic" label="What's your answer?" variant="outlined" style={{ margin: '0 1rem' }} onChange={(e) => setText(e.target.value)} />
 
-            <button onClick={() => checkAnsw()} >Check!</button>
+            <GameZone gameAnswer={checkAnsw} gameType={GameTypes.text} >
+
+            </GameZone>
 
         </Grid>
     )

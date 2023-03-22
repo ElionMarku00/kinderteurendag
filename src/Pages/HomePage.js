@@ -12,8 +12,6 @@ function HomePage() {
 
     const { data } = React.useContext(AppContext)
 
-
-
     return (
         <Layout>
 
@@ -27,10 +25,14 @@ function HomePage() {
 
                 {data.map((item) => {
 
-                    let { name, solved, letter, icon } = item
+                    let { name, solved, letter, icon, text } = item
 
                     return (<ImgContainer key={name}
-                        onClick={() => { !solved ? navigate(`/game`, { state: { currentGame: name, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png' } }) : navigate(`/correct`) }}>
+                        onClick={() => {
+                            !solved
+                                ? navigate(`/game`, { state: { text, currentGame: name, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png' } })
+                                : navigate(`/correct`)
+                        }}>
                         {!solved
                             ? <img src={`/images${icon}`} alt={`${name}`} width="80%" height="auto" />
                             : <h1>{letter}</h1>
@@ -41,7 +43,7 @@ function HomePage() {
 
             </Grid>
 
-            <BottomText onClick={()=> navigate('/guesscode')}>
+            <BottomText onClick={() => navigate('/guesscode')}>
                 WHAT IS THE CODE WORD WE ARE LOOKING FOR?
             </BottomText>
 

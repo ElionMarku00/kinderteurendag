@@ -67,12 +67,11 @@ export default function Cloud(props) {
 
 	return (
 
-		<CloudWrapper arrowUp={arrowUp} >
+		<CloudWrapper arrowUp={arrowUp}  {...otherprops}>
 			{/* <div style={{color:'green'}}>
 				{props.greentext}
 			</div> */}
 			<div>
-
 				{text}
 			</div>
 
