@@ -25,17 +25,17 @@ function HomePage() {
 
                 {data.map((item) => {
 
-                    let { name, solved, letter, icon, text } = item
+                    let { name, solved, letter, icon, text, type } = item
 
                     return (<ImgContainer key={name}
                         onClick={() => {
                             !solved
-                                ? navigate(`/game`, { state: { text, currentGame: name, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png' } })
+                                ? navigate(`/game`, { state: { text, currentGame: name, type, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png' } })
                                 : navigate(`/correct`)
                         }}>
                         {!solved
                             ? <img src={`/images${icon}`} alt={`${name}`} width="80%" height="auto" />
-                            : <h1>{letter}</h1>
+                            : <ImgContainer>{letter}</ImgContainer>
                         }
                     </ImgContainer>)
 

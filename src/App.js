@@ -11,11 +11,11 @@ import FinalPage from './Pages/FinalPage';
 
 //TODO
 
+// draganddrop and multiple choice kind of games
 // add modal on homepage that says correct when user clicks on already solved qstn
 // finish what is the code word we're looking for page
 // add checking logic for final answer
 // code final congratulations page
-
 
 // add props to each page for specific text on each page
 // center the f title at homepage

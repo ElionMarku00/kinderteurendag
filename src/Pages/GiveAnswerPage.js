@@ -2,24 +2,25 @@ import React, { useContext } from 'react'
 import { useNavigate, useLocation, } from "react-router-dom";
 import styled from 'styled-components'
 
-import { GameTypes } from '../constants/GameType';
 import Cloud from '../Components/Cloud';
+import GameZone from '../Components/GameZone';
 import { AppContext } from '../context';
 
-import GameZone from '../Components/GameZone';
 
 function GiveAnswerPage() {
 
     const { data, setData } = useContext(AppContext)
     const navigate = useNavigate();
     const location = useLocation();
-    const { gameImage, currentGame, gameHost } = location.state;
+    const { gameImage, currentGame, gameHost, gameType } = location.state;
+
+    const currGameAns = data.find((i) => i.name === currentGame).answer
+    const currGameIndx = data.findIndex((i) => i.name === currentGame)
 
     const checkAnsw = (tfText) => {
 
         console.log(tfText);
-        let currGameAns = data.find((i) => i.name === currentGame).answer
-        const currGameIndx = data.findIndex((i) => i.name === currentGame)
+
 
         if (currGameAns === tfText) {
             console.log('correct');
@@ -48,14 +49,13 @@ function GiveAnswerPage() {
 
             <Cloud arrowUp={true} text='When performing the operation, you will see a letter inside the box. Which letter is it?' />
 
-            <GameZone gameAnswer={checkAnsw} gameType={GameTypes.text} >
+            <GameZone checker={checkAnsw} gameType={gameType} gameAnswer={currGameAns} >
 
             </GameZone>
 
         </Grid>
     )
 }
-
 
 const Grid = styled.main`
     color:green;
@@ -66,6 +66,7 @@ const Grid = styled.main`
     align-items:center;
     grid-column: 1 / 3;
     justify-self: center;
+    row-gap:0;
 
     height:100vh;
     width:100vw;
@@ -75,7 +76,7 @@ const Flex = styled.div`
 display:flex;
 flex-direction:row;
 justify-content:space-between;
-height: 100%
+height: auto;
 `;
 
 export default GiveAnswerPage

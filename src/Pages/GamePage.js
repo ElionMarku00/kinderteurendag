@@ -11,7 +11,7 @@ function GamePage() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { currentGame, gameHost, text } = location.state;
+  const { currentGame, gameHost, text, type } = location.state;
 
   const { data } = React.useContext(AppContext)
   const image = data.find(x => x.name === currentGame).icon
@@ -38,7 +38,7 @@ function GamePage() {
           <ArrowForwardIcon
             style={{ color: 'black' }}
             sx={{ fontSize: 70 }}
-            onClick={() => navigate(`/gamep2`, { state: { currentGame, gameImage: image, gameHost } })} />
+            onClick={() => navigate(`/gamep2`, { state: { currentGame, gameImage: image, gameHost, gameType: type } })} />
         </ImgContainer>
 
       </Flex >
