@@ -4,19 +4,20 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCodePage, FinalPage } from './Pages'
 
 //TODO
+//localization for translations
+// create-browser-router
 
-// drag and drop and multiple choice kind of games @GameZone.js
+// drag and drop and multiple choice kind of games @GameZone.js  (S interact.js )
 // add modal on homepage that says correct when user clicks on already solved qstn
 // finish what is the code word we're looking for page
 // add checking logic for final answer
 // code final congratulations page
-
-// add props to each page for specific text on each page
+//LOCAL STORAGE anti reload (careful on platform; chrome etc..)
 // center the f title at homepage
 // Welcome screen before HomePage to select language; translate qstns / answers
 // randomize icons not to crowd the physical medical departments
 // graphic adjustmens and animations
-// add more games not just text guessing
+// add more game types
 // think about saving state against reload
 // make it pc friendly by placing it all in a grid and the grid in the center
 // hosting
