@@ -14,7 +14,7 @@ function HomePage() {
 
     return (<Layout>
 
-            <Img src={`/images/marielukas.png`} alt={`marielukas`} width="100%" height="auto" />
+            <Img src={`/images/marielukas.png`} alt={`marielukas`}  />
             <Title>DOCTOR FOR 1 DAY</Title>
         {/* <Flex>
         </Flex > */}
@@ -69,10 +69,10 @@ const Grid = styled.div`
     display:grid;
     grid-template-columns: 1fr 1fr;
     
-
     align-items:center; 
     justify-self: center;
     justify-items:center;
+    min-height:20vh;
     
     overflow-y:scroll;
     grid-area:3/1/5/6;

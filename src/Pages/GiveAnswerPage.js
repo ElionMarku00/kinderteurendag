@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 import { useNavigate, useLocation, } from "react-router-dom";
 import styled from 'styled-components'
 
-import {Cloud,GameZone} from '../Components';
+import { Cloud, GameZone } from '../Components';
+import { GameTypes } from '../constants/GameType';
 import { AppContext } from '../context';
-
 
 function GiveAnswerPage() {
 
@@ -12,63 +12,92 @@ function GiveAnswerPage() {
     const navigate = useNavigate();
     const location = useLocation();
     const { gameImage, currentGame, gameHost, gameType } = location.state;
-
     const currGameAns = data.find((i) => i.name === currentGame).answer
     const currGameIndx = data.findIndex((i) => i.name === currentGame)
 
-    const checkAnsw = (tfText) => {
+    const checkAnsw = (ans) => {
 
-        console.log(tfText);
+        debugger;
+        switch (gameType) {
+            case GameTypes.text:
+                if (currGameAns === ans) {
+                    console.log('correct');
+
+                    let items = [...data];
+                    let item = { ...data[currGameIndx] };
+                    item.solved = true;
+                    items[currGameIndx] = item;
+                    setData([...items]);
+
+                    navigate('/correct', { state: { gameImage, gameHost } })
+
+                }
+                else {
+                    navigate('/incorrect', { state: { gameImage, gameHost } })
+                }
+                break;
+            case GameTypes.multipleChoice:
+
+                if (ans) {
+
+                    let items = [...data];
+                    let item = { ...data[currGameIndx] };
+                    item.solved = true;
+                    items[currGameIndx] = item;
+                    setData([...items]);
 
 
-        if (currGameAns === tfText) {
-            console.log('correct');
+                    navigate('/correct', { state: { gameImage, gameHost } })
+                }
+                else navigate('/incorrect', { state: { gameImage, gameHost } })
 
-            let items = [...data];
-            let item = { ...data[currGameIndx] };
-            item.solved = true;
-            items[currGameIndx] = item;
-            setData([...items]);
-
-            navigate('/correct', { state: { gameImage, gameHost } })
-
+            default:
+                break;
         }
-        else {
-            navigate('/incorrect', { state: { gameImage, gameHost } })
-        }
+
+
+
     }
 
     return (
         <Grid>
-            <Flex>
+            {/* <Flex> */}
 
-                <img src={`/images${gameHost}`} alt={`${gameHost}`} width="40%" height="auto" style={{ alignSelf: 'flex-end' }} />
-                <img src={`/images${gameImage}`} alt={`${gameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
-            </Flex>
+            <Img src={`/images${gameImage}`} alt={`${gameImage}`} />
+            <img src={`/images${gameHost}`} alt={`${gameHost}`} width="auto" height="70%" style={{ alignSelf: 'flex-end', justifySelf: 'center', gridArea: "2/3/2/4" }} />
+            {/* </Flex> */}
 
-            <Cloud arrowUp={true} text='When performing the operation, you will see a letter inside the box. Which letter is it?' />
+            <Cloud arrowUp={true} style={{ gridArea: "3/3/4/6", marginBottom: "10px", justifySelf: 'center', alignSelf: 'center' }} text='When performing the operation, you will see a letter inside the box. Which letter is it?' />
 
-            <GameZone checker={checkAnsw} gameType={gameType} gameAnswer={currGameAns} >
+            <GameZone style={{ gridArea: "4/1/5/6", justifySelf: 'center', alignSelf: 'center' }} checker={checkAnsw} gameType={gameType} gameAnswer={currGameAns} currentGame={currentGame} data={data} />
 
-            </GameZone>
 
         </Grid>
     )
 }
 
-const Grid = styled.main`
-    color:green;
-    display:grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr;
-    grid-gap:3rem;
-    align-items:center;
-    grid-column: 1 / 3;
-    justify-self: center;
-    row-gap:0;
+const Img = styled.img`
+height:100%;
+width:auto;
+max-height: 100%;
+grid-area:1/5/1/6;
+max-height:100px;
+align-self:flex-end;
+justify-self:flex-end;
+`;
 
+const Grid = styled.main`
+    display:grid;
     height:100vh;
     width:100vw;
+
+    grid-template-columns:repeat(5,1fr);
+    grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr 0.5fr;
+    margin:0;
+  
+    /* grid-gap:3rem; */
+    /* column-gap:0; */
+
 `;
 
 const Flex = styled.div`

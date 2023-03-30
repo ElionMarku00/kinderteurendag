@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { TextField } from "@mui/material";
 import { GameTypes } from '../constants/GameType';
 import styled from 'styled-components';
@@ -7,7 +7,6 @@ import {
     DndContext,
     rectIntersection,
     DragOverlay,
-    closestCorners,
     KeyboardSensor,
     PointerSensor,
     TouchSensor,
@@ -43,16 +42,19 @@ const Grid = styled.main`
 function GameZone(props) {
 
     const [text, setText] = useState('');
-    const { checker, gameType, gameAnswer, } = props;
-
+    const { checker, gameType, gameAnswer, data, currentGame, ...otherprops } = props;
     const [unsorted, setUnsorted] = React.useState([...gameAnswer].sort(() => Math.random() - 0.5))
     const [sorted, setSorted] = React.useState([])
-
     const [activeId, setActiveId] = useState();
 
     const sensors = useSensors(
         useSensor(PointerSensor),
-        useSensor(TouchSensor,{}),
+        useSensor(TouchSensor, {
+            activationConstraint: {
+                delay: 300,
+                tolerance: 8,
+            },
+        }),
         useSensor(KeyboardSensor, {
             coordinateGetter: sortableKeyboardCoordinates
         })
@@ -140,24 +142,26 @@ function GameZone(props) {
     switch (gameType) {
 
         case GameTypes.text:
-            return <>
+            return <div  {...otherprops}>
                 <TextField id="outlined-basic"
                     label="What's your answer?"
                     variant="outlined"
-                    style={{ margin: '0 1rem' }}
-                    onChange={(e) => setText(e.target.value)} />
+                    style={{ margin: '0 1rem', }}
+                    onChange={(e) => setText(e.target.value)}
+
+                />
                 <button onClick={() => checker(text)} >Check!</button>
-            </>
+            </div>
 
         case GameTypes.drag:
-            return <>
+            return <div  {...otherprops}>
 
                 <h1>Drag the below Letters into the correct order:</h1>
 
                 <Grid gameAnswer={gameAnswer} style={wrapperStyle}>
 
                     <DndContext
-                    
+
                         sensors={sensors}
                         collisionDetection={rectIntersection}
                         // collisionDetection={rectIntersection}
@@ -202,7 +206,7 @@ function GameZone(props) {
                 </Grid>
 
 
-            </>
+            </div>
 
 
 
@@ -254,8 +258,23 @@ function GameZone(props) {
         case GameTypes.multipleChoice:
             return <>
 
-                <div>
-                    multiplechoice
+
+                <div {...otherprops}>
+                    {[...data].filter(x => x.name === currentGame).map(game => {
+                        let { choices } = game;
+                        console.log(choices);
+
+                        return Object.keys(choices).map((key) => {
+                            return <button key={key} onClick={() => checker(choices[key])}>{key}</button>
+
+                        });
+
+                        // return [...choices].map( {c,bool} => {
+                        //     return <button onClick={checker()}>{c}</button>
+                        // })
+
+                    })}
+
                 </div>
 
             </>

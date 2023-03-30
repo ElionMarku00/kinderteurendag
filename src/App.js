@@ -13,7 +13,6 @@ import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCo
 // add checking logic for final answer
 // code final congratulations page
 //LOCAL STORAGE anti reload (careful on platform; chrome etc..)
-// center the f title at homepage
 // Welcome screen before HomePage to select language; translate qstns / answers
 // randomize icons not to crowd the physical medical departments
 // graphic adjustmens and animations
