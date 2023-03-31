@@ -6,6 +6,9 @@ import { Cloud, GameZone } from '../Components';
 import { GameTypes } from '../constants/GameType';
 import { AppContext } from '../context';
 
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd'
+
 function GiveAnswerPage() {
 
     const { data, setData } = useContext(AppContext)
@@ -15,44 +18,47 @@ function GiveAnswerPage() {
     const currGameAns = data.find((i) => i.name === currentGame).answer
     const currGameIndx = data.findIndex((i) => i.name === currentGame)
 
+    const setSolved = () => {
+        console.log('correct', currentGame);
+        let items = [...data];
+        let item = { ...data[currGameIndx] };
+        item.solved = true;
+        items[currGameIndx] = item;
+        setData([...items]);
+
+    }
+
     const checkAnsw = (ans) => {
 
         debugger;
         switch (gameType) {
             case GameTypes.text:
                 if (currGameAns === ans) {
-                    console.log('correct');
-
-                    let items = [...data];
-                    let item = { ...data[currGameIndx] };
-                    item.solved = true;
-                    items[currGameIndx] = item;
-                    setData([...items]);
-
+                    setSolved()
                     navigate('/correct', { state: { gameImage, gameHost } })
-
                 }
                 else {
                     navigate('/incorrect', { state: { gameImage, gameHost } })
                 }
                 break;
             case GameTypes.multipleChoice:
-
                 if (ans) {
-
-                    let items = [...data];
-                    let item = { ...data[currGameIndx] };
-                    item.solved = true;
-                    items[currGameIndx] = item;
-                    setData([...items]);
-
-
+                    setSolved()
                     navigate('/correct', { state: { gameImage, gameHost } })
                 }
                 else navigate('/incorrect', { state: { gameImage, gameHost } })
+                break;
+
+            case GameTypes.drag:
+                if (ans) {
+                    navigate('/correct', { state: { gameImage, gameHost } })
+                }
+                else navigate('/incorrect', { state: { gameImage, gameHost } })
+                break;
+
 
             default:
-                break;
+                throw new Error(`passed ${gameType} as GameType`)
         }
 
 
@@ -61,15 +67,16 @@ function GiveAnswerPage() {
 
     return (
         <Grid>
-            {/* <Flex> */}
 
             <Img src={`/images${gameImage}`} alt={`${gameImage}`} />
             <img src={`/images${gameHost}`} alt={`${gameHost}`} width="auto" height="70%" style={{ alignSelf: 'flex-end', justifySelf: 'center', gridArea: "2/3/2/4" }} />
-            {/* </Flex> */}
+
 
             <Cloud arrowUp={true} style={{ gridArea: "3/3/4/6", marginBottom: "10px", justifySelf: 'center', alignSelf: 'center' }} text='When performing the operation, you will see a letter inside the box. Which letter is it?' />
 
-            <GameZone style={{ gridArea: "4/1/5/6", justifySelf: 'center', alignSelf: 'center' }} checker={checkAnsw} gameType={gameType} gameAnswer={currGameAns} currentGame={currentGame} data={data} />
+            <DndProvider backend={HTML5Backend}>
+                <GameZone style={{ gridArea: "4/1/5/6", justifySelf: 'center', alignSelf: 'center' }} checker={checkAnsw} gameType={gameType} gameAnswer={currGameAns} currentGame={currentGame} data={data} />
+            </DndProvider>
 
 
         </Grid>
@@ -100,11 +107,11 @@ const Grid = styled.main`
 
 `;
 
-const Flex = styled.div`
-display:flex;
-flex-direction:row;
-justify-content:space-between;
-height: auto;
-`;
+// const Flex = styled.div`
+// display:flex;
+// flex-direction:row;
+// justify-content:space-between;
+// height: auto;
+// `;
 
 export default GiveAnswerPage

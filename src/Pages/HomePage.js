@@ -36,7 +36,7 @@ function HomePage() {
                     }}>
                     {!solved
                         ? <img src={`/images${icon}`} alt={`${name}`} width="80%" height="auto" />
-                        : <ImgContainer>{letter}</ImgContainer>
+                        : <ImgContainer><h1>{letter}</h1> </ImgContainer>
                     }
                 </ImgContainer>)
 
@@ -139,9 +139,17 @@ grid-area:6/2/6/5;
 
 const ImgContainer = styled.section`
 
-/* 
-border: 5px solid #555; */
+& > h1{
 
+    border: 5px solid #555;
+    color:green;
+    font-size:3rem;
+    font-weight:300;
+    border-radius:50%;
+    padding:2rem;
+    position:relative;
+    bottom:30px;
+}
 
 
 `;

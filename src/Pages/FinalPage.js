@@ -15,8 +15,6 @@ function FinalPage() {
   return (
     <Layout>
 
-
-
       <h1>DOCTOR FOR 1 DAY</h1>
       <img src={`/images/marielukas.png`} alt={`marielukas`} width="70%" height="auto" />
       <Cloud arrowUp={true} 

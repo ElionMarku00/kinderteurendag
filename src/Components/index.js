@@ -1,12 +1,9 @@
 import Cloud from './Cloud'
+import { Dustbin } from './Dustbin'
 import GameZone from './GameZone'
 import Modal from './Modal'
 import Title from './Title'
-import SortableContainer from './SortableContainer'
-import { Item } from './SortableItem'
-import SortableItem from './SortableItem'
+import { Letter } from './Letter'
 
 
-
-
-export { Cloud, GameZone, Modal, Title, SortableContainer, Item, SortableItem }
+export { Cloud, GameZone, Modal, Title, Letter, Dustbin }

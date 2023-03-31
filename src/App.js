@@ -4,10 +4,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCodePage, FinalPage } from './Pages'
 
 //TODO
-//localization for translations
-// create-browser-router
+//splash screen to select languages
+//implement create-browser-router and localization for string translations
 
-// drag and drop and multiple choice kind of games @GameZone.js  (S interact.js )
 // add modal on homepage that says correct when user clicks on already solved qstn
 // finish what is the code word we're looking for page
 // add checking logic for final answer
@@ -20,6 +19,7 @@ import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCo
 // think about saving state against reload
 // make it pc friendly by placing it all in a grid and the grid in the center
 // hosting
+//useMemo on pages useCallback on handlers
 
 function App() {
   return (
@@ -31,9 +31,9 @@ function App() {
           <Route path="/game" element={<GamePage />} />
           <Route path="/gamep2" element={<GiveAnswerPage />} />
           <Route path="/guesscode" element={<GuessCodePage />} />
-          <Route path="/finalpage" element={<FinalPage />} />
           <Route path="/correct" element={<CorrectPage />} />
           <Route path="/incorrect" element={< IncorrectPage />} />
+          <Route path="/finalpage" element={<FinalPage />} />
 
           {/* <Route path="/edit/:id" element={<EditUserPage />} /> */}
           {/* <Route path="*" element={<ErrorPage />} /> */}
