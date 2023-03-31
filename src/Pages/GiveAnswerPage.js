@@ -7,6 +7,7 @@ import { GameTypes } from '../constants/GameType';
 import { AppContext } from '../context';
 
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend'
 import { DndProvider } from 'react-dnd'
 
 function GiveAnswerPage() {
@@ -27,10 +28,15 @@ function GiveAnswerPage() {
         setData([...items]);
 
     }
+    function isTouchDevice() {
+        // return (('ontouchstart' in window) ||
+        //     (navigator.maxTouchPoints > 0) ||
+        //     (navigator.msMaxTouchPoints > 0));
+        debugger;
+        return (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
+    }
 
     const checkAnsw = (ans) => {
-
-        debugger;
         switch (gameType) {
             case GameTypes.text:
                 if (currGameAns === ans) {
@@ -50,12 +56,13 @@ function GiveAnswerPage() {
                 break;
 
             case GameTypes.drag:
+                debugger;
                 if (ans) {
+                    setSolved()
                     navigate('/correct', { state: { gameImage, gameHost } })
                 }
                 else navigate('/incorrect', { state: { gameImage, gameHost } })
                 break;
-
 
             default:
                 throw new Error(`passed ${gameType} as GameType`)
@@ -74,7 +81,7 @@ function GiveAnswerPage() {
 
             <Cloud arrowUp={true} style={{ gridArea: "3/3/4/6", marginBottom: "10px", justifySelf: 'center', alignSelf: 'center' }} text='When performing the operation, you will see a letter inside the box. Which letter is it?' />
 
-            <DndProvider backend={HTML5Backend}>
+            <DndProvider backend={isTouchDevice ? TouchBackend : HTML5Backend}>
                 <GameZone style={{ gridArea: "4/1/5/6", justifySelf: 'center', alignSelf: 'center' }} checker={checkAnsw} gameType={gameType} gameAnswer={currGameAns} currentGame={currentGame} data={data} />
             </DndProvider>
 

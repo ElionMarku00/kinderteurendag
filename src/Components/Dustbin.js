@@ -4,14 +4,15 @@ import { useDrop,  } from 'react-dnd';
 export const Dustbin = React.memo(function Dustbin({
     accept,
     lastDroppedItem,
-
+    setLastDroppedItem,
     onDrop,
 }) {
     const [{ isOver, canDrop }, drop] = useDrop({
         accept,
-        // drop: (item, _) => {
-        //     setLastDroppedItem(item.beginLetter);
-        // },
+        drop: (item, _) => {
+            // setLastDroppedItem(item.beginLetter);
+            onDrop(item)
+        },
         collect: (monitor) => ({
             isOver: monitor.isOver(),
             canDrop: monitor.canDrop(),

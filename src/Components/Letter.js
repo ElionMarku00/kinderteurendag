@@ -4,6 +4,7 @@ export const Letter = ({ index, letter }) => {
 
     const [{ isDragging, canDrag }, drag] = useDrag({
 
+
         type: 'LETTER',
         item: { beginIndex: index, beginLetter: letter, },
 
@@ -11,7 +12,6 @@ export const Letter = ({ index, letter }) => {
             isDragging: !!monitor.isDragging(),
         }),
     });
-
     const opacity = isDragging ? 0.4 : 1;
 
     return (<div

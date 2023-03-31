@@ -3,7 +3,7 @@ import { TextField } from "@mui/material";
 import { GameTypes } from '../constants/GameType';
 import styled from 'styled-components';
 
-import {Dustbin,Letter} from './';
+import { Dustbin, Letter } from './';
 
 
 // const GridItems = styled.div`
@@ -11,21 +11,23 @@ import {Dustbin,Letter} from './';
 // padding:10%;
 // `;
 
-const Grid = styled.main`
+const Grid = styled.div`
 display:grid;
-grid-template-rows:repeat(2,1fr);
+
+grid-template-columns: ${(gameAnswer) => {
+        return `repeat(${gameAnswer.gameAnswer.length},1fr)`;
+    }};
+/* grid-template-rows:repeat(2,1fr); */
 
 justify-content:space-evenly;
 align-content:center;
-
-
 justify-items:center;
 align-items:center; 
+grid-gap:10px;
 
 `;
 
-
-function GameZone(props) {
+const GameZone = (props) => {
 
     const [text, setText] = useState('');
     const { checker, gameType, gameAnswer, data, currentGame, ...otherprops } = props;
@@ -42,7 +44,6 @@ function GameZone(props) {
         const newLetters = [...letters];
         newLetters[index] = letter;
         setLetters([...newLetters]);
-        debugger;
         const lastDropped = [...lastDroppedItem]
         lastDropped[index] = letter
         setLastDroppedItem(lastDropped);
@@ -67,35 +68,37 @@ function GameZone(props) {
             </div>
 
         case GameTypes.drag:
-
-            return <Grid {...otherprops}>
+            return <>
                 <h1>Arrange the letters in the correct order:</h1>
-                {scambled.map((letter, index) => (
-                    <Letter
-                        key={`drag- ${index}- ${letter}`}
-                        index={index}
-                        letter={letter}
-                    // handleDrop={handleDrop}
-                    />
-                ))}
-                {[...gameAnswer].map((_, index) => {
-                    console.log(index);
 
-                    return (<div key={_.toString() + index}>
-                        < Dustbin
-
-                            accept='LETTER'
-                            lastDroppedItem={lastDroppedItem[index]}
-                            onDrop={(item) => handleDrop(index, item)}
+                <Grid gameAnswer={gameAnswer} {...otherprops}>
+                    {scambled.map((letter, index) => (
+                        <Letter
+                            key={`drag- ${index}- ${letter}`}
+                            index={index}
+                            letter={letter}
+                            handleDrop={handleDrop}
                         />
-                        <br />
-                    </div>)
-                }
+                    ))}
+                    {[...gameAnswer].map((_, index) => {
 
-                )
-                }
+                        return (<div key={_.toString() + index}>
+                            < Dustbin
 
-            </Grid >
+                                accept='LETTER'
+                                lastDroppedItem={lastDroppedItem[index]}
+                                setLastDroppedItem={setLastDroppedItem}
+                                onDrop={(item) => handleDrop(index, item)}
+                            />
+                            <br />
+                        </div>)
+                    }
+
+                    )
+                    }
+
+                </Grid >
+            </>
 
         case GameTypes.multipleChoice:
             return <>
