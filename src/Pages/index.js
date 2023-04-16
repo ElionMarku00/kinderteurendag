@@ -5,9 +5,10 @@ import CorrectPage from "./CorrectPage";
 import IncorrectPage from "./IncorrectPage";
 import FinalPage from "./FinalPage";
 import GuessCodePage from "./GuessCodePage";
+import InitialPage from './InitialPage';
 
 
 
 
 
-export { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, FinalPage, GuessCodePage }
+export { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, FinalPage, GuessCodePage, InitialPage }

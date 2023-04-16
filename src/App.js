@@ -1,11 +1,12 @@
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCodePage, FinalPage } from './Pages'
+import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCodePage, FinalPage, InitialPage } from './Pages'
 
 //TODO
 //splash screen to select languages
-//implement create-browser-router and localization for string translations
+// style it
+//localization for string translations
 
 // add modal on homepage that says correct when user clicks on already solved qstn
 // finish what is the code word we're looking for page
@@ -16,9 +17,7 @@ import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCo
 // randomize icons not to crowd the physical medical departments
 // graphic adjustmens and animations
 // add more game types
-// think about saving state against reload
 // make it pc friendly by placing it all in a grid and the grid in the center
-// hosting
 //useMemo on pages useCallback on handlers
 
 function App() {
@@ -26,7 +25,9 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+
+          <Route path="/" element={<InitialPage />} />
+          <Route path="/home" element={<HomePage />} />
           {/* <Route path="/guess" element={<GuessPage />} /> */}
           <Route path="/game" element={<GamePage />} />
           <Route path="/gamep2" element={<GiveAnswerPage />} />
