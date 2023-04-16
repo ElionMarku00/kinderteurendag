@@ -1,6 +1,10 @@
 {
-    "welcome":"Welcome!",
-
+    "title":"DOCTOR FOR 1 DAY",
+    "welcome": "Welcome!",
+    "homepage": {
+        "text": "Help Lucas and Marie find the code word the doctor needs to help the patient. With this code word you receive a lovely gift ! Choose the image below that matches the activity and answer the questions to find the code word . Good luck!",
+        "qstn": "WHAT IS THE CODE WORD WE ARE LOOKING FOR?"
+    },
     "Bee": {
         "letter": "E",
         "choices": {

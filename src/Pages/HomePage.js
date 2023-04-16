@@ -3,24 +3,27 @@ import styled from 'styled-components'
 
 import { useNavigate } from "react-router-dom";
 import { AppContext } from '../context';
+import { useTranslation } from 'react-i18next';
 
 // base page with a grid and icons inside for the questions. each question will reveal a letter after answered correctly
 function HomePage() {
 
+    const { t } = useTranslation()
+
     const navigate = useNavigate();
     // const navToGuessPage = () => navigate(`/game`)
 
-    const { data } = React.useContext(AppContext)
+    const { data, playerName } = React.useContext(AppContext)
 
     return (<Layout>
 
-            <Img src={`/images/marielukas.png`} alt={`marielukas`}  />
-            <Title>DOCTOR FOR 1 DAY</Title>
+        <Img src={`/images/marielukas.png`} alt={`marielukas`} />
+        <Title>{t("title")}</Title>
         {/* <Flex>
         </Flex > */}
 
 
-        <CustomH6>Help Lucas and Marie find the code word the doctor needs to help the patient. With this code word you receive a lovely gift ! Choose the image below that matches the activity and answer the questions to find the code word . Good luck!
+        <CustomH6>{t('homepage.text')}
         </CustomH6>
         <Grid>
 
@@ -45,7 +48,7 @@ function HomePage() {
         </Grid>
 
         <BottomText onClick={() => navigate('/guesscode')}>
-            WHAT IS THE CODE WORD WE ARE LOOKING FOR?
+            {t('homepage.qstn')}
         </BottomText>
 
     </Layout>

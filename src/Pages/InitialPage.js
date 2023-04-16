@@ -63,7 +63,6 @@ function InitialPage() {
                     onClick={() => navigate(`/home`, { replace: true })} />
             </ImgContainer>
 
-
         </div>
 
     )
