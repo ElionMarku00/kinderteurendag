@@ -7,13 +7,16 @@
     },
     "beepage": {
         "letter": "E",
+        
         "choices": {
             "choise1": true,
             "choise2": false
         },
         "answer": "choice2",
         "solved": false,
-        "text": "NLWelcome to the sperm game! Do you know what you can fish up here?"
+        "text": "NLWelcome to the sperm game! Do you know what you can fish up here?",
+        "prompt":""
+        
     },
     "butterflypage": {
         "letter": "M",

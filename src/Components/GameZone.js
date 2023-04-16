@@ -5,6 +5,15 @@ import styled from 'styled-components';
 
 import { Dustbin, Letter } from './';
 
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
+import { DndProvider } from 'react-dnd';
+import { AppContext } from '../context';
+
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 // const GridItems = styled.div`
 // border-style:solid;
@@ -30,12 +39,17 @@ grid-gap:10px;
 const GameZone = (props) => {
 
     const [text, setText] = useState('');
-    const { checker, gameType, gameAnswer, data, currentGame, ...otherprops } = props;
+    const { checker, data, currentGame, ...otherprops } = props;
+    const { getGameDataByName } = React.useContext(AppContext)
+    const [gameType, currGameAns, currGameImage, currGameHost] = getGameDataByName(currentGame)
 
     const [letters, setLetters] = useState([]);
-    const [correctOrder] = useState([...gameAnswer]);
+    const [correctOrder] = useState([...currGameAns]);
     const [lastDroppedItem, setLastDroppedItem] = useState([])
-    const scambled = [...gameAnswer].sort(() => Math.random() - 0.5);
+    const scambled = [...currGameAns].sort(() => Math.random() - 0.5);
+
+    const navigate = useNavigate();
+
 
     const handleDrop = (index, item) => {
         let letter = item.beginLetter;
@@ -49,10 +63,21 @@ const GameZone = (props) => {
         setLastDroppedItem(lastDropped);
 
         if (newLetters.join('') === correctOrder.join('')) {
-            checker(true)
+            checkAndRoute(true)
         }
     };
 
+    const checkAndRoute = (ans) => {
+
+        console.log('ans from checker = ', checker(ans, currentGame));
+
+        if (checker(ans, currentGame)) {
+            navigate('/correct', { state: { currGameImage, currGameHost } })
+
+        }
+        else navigate('/incorrect', { state: { currGameImage, currGameHost } })
+
+    }
     switch (gameType) {
 
         case GameTypes.text:
@@ -64,14 +89,23 @@ const GameZone = (props) => {
                     onChange={(e) => setText(e.target.value)}
 
                 />
-                <button onClick={() => checker(text)} >Check!</button>
+                <button onClick={() => checkAndRoute(text, currentGame)} >Check!</button>
             </div>
 
         case GameTypes.drag:
-            return <>
+
+            function isTouchDevice() {
+                // return (('ontouchstart' in window) ||
+                //     (navigator.maxTouchPoints > 0) ||
+                //     (navigator.msMaxTouchPoints > 0));
+                return (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
+            }
+
+
+            return <DndProvider backend={isTouchDevice ? TouchBackend : HTML5Backend}>
                 <h1>Arrange the letters in the correct order:</h1>
 
-                <Grid gameAnswer={gameAnswer} {...otherprops}>
+                <Grid {...otherprops}>
                     {scambled.map((letter, index) => (
                         <Letter
                             key={`drag- ${index}- ${letter}`}
@@ -80,7 +114,7 @@ const GameZone = (props) => {
                             handleDrop={handleDrop}
                         />
                     ))}
-                    {[...gameAnswer].map((_, index) => {
+                    {[...currGameAns].map((_, index) => {
 
                         return (<div key={_.toString() + index}>
                             < Dustbin
@@ -98,7 +132,7 @@ const GameZone = (props) => {
                     }
 
                 </Grid >
-            </>
+            </DndProvider >
 
         case GameTypes.multipleChoice:
             return <>
@@ -108,7 +142,7 @@ const GameZone = (props) => {
                         console.log(choices);
 
                         return Object.keys(choices).map((key) => {
-                            return <button key={key} onClick={() => checker(choices[key])}>{key}</button>
+                            return <button key={key} onClick={() => checkAndRoute(choices[key], currentGame)}>{key}</button>
 
                         });
 

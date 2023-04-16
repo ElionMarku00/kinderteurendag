@@ -25,7 +25,6 @@ function App() {
     <>
       <Router>
         <Routes>
-
           <Route path="/" element={<InitialPage />} />
           <Route path="/home" element={<HomePage />} />
           {/* <Route path="/guess" element={<GuessPage />} /> */}

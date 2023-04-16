@@ -10,13 +10,13 @@ function CorrectPage() {
 
   // const navigate = useNavigate()
   const location = useLocation();
-  const { gameImage, gameHost } = location.state;
+  const { currGameImage, currGameHost } = location.state;
 
   return (
     <Grid>
       <Flex>
-        <img src={`/images${gameHost}`} alt={`${gameHost}`} width="40%" height="auto" style={{ alignSelf: 'flex-end' }} />
-        <img src={`/images${gameImage}`} alt={`${gameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
+        <img src={`/images${currGameHost}`} alt={`${currGameHost}`} width="40%" height="auto" style={{ alignSelf: 'flex-end' }} />
+        <img src={`/images${currGameImage}`} alt={`${currGameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
       </Flex>
 
       <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>Correct!</h3>, "You can continue when clicking on the arrow."]} />
@@ -25,16 +25,12 @@ function CorrectPage() {
       {/* <button onClick={() => navigate('')} > <FamilyRestroomIcon sx={{ fontSize: 100 }} /></button> */}
       {/* <button> <Link to='/' ><FamilyRestroomIcon sx={{ fontSize: 100 }} /></Link></button> */}
 
-      <Link to='/' style={{ alignSelf: 'flex-end', justifySelf: 'flex-end' }} >
+      <Link to='/home' style={{ alignSelf: 'flex-end', justifySelf: 'flex-end' }} >
         <ArrowForwardIcon
           style={{ color: 'black' }}
           sx={{ fontSize: 70 }}
         />
       </Link>
-
-
-
-
 
     </Grid>
   )

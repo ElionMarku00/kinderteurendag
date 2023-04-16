@@ -2,44 +2,58 @@ import React from 'react'
 import styled from 'styled-components'
 // import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Cloud } from '../Components';
+import { Cloud, GameZone } from '../Components';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-
 import { AppContext } from '../context';
 
 function GamePage() {
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { currentGame, gameHost, text, type } = location.state;
+  const { currentGame, text, type, prompt, numPages } = location.state;
+  const { gameType, data, checkAnsw, getGameDataByName } = React.useContext(AppContext)
 
-  const { data } = React.useContext(AppContext)
-  const image = data.find(x => x.name === currentGame).icon
+  // const image = data.find(x => x.name === currentGame).icon
+
+  const [_, currGameAns, currGameImage, currGameHost] = getGameDataByName(currentGame);
+  console.log(currentGame, checkAnsw);
 
   return (
 
     <Grid>
-
       <ImgContainer style={{ justifySelf: 'end' }}>
-        <img src={`/images${image}`} alt={`${image}`} width="80%" height="auto" />
+        <img src={`/images${currGameImage}`} alt={`${currGameImage}`} width="80%" height="auto" />
       </ImgContainer>
 
-      <CustomH1>Welcome to the laparoscopy demo!</CustomH1>
-      <Cloud arrowUp={false} text={text} />
+      {/* <CustomH1></CustomH1> */}
+      <Cloud arrowUp={false} text={prompt === "" ? text : prompt} />
 
       <Flex>
 
         <ImgContainer>
           {/* <FamilyRestroomIcon sx={{ fontSize: 70 }} /> */}
-          <img src={`/images${gameHost}`} alt={`${gameHost}`} width="80%" height="auto" />
+          <img src={`/images${currGameHost}`} alt={`${currGameHost}`} width="80%" height="auto" />
         </ImgContainer>
 
-        <ImgContainer style={{ alignSelf: 'center' }} >
-          <ArrowForwardIcon
-            style={{ color: 'black' }}
-            sx={{ fontSize: 70 }}
-            onClick={() => navigate(`/gamep2`, { state: { currentGame, gameImage: image, gameHost, gameType: type } })} />
-        </ImgContainer>
+        {
+          numPages === 2 ?
+            <ImgContainer style={{ alignSelf: 'center' }} >
+              <ArrowForwardIcon
+                style={{ color: 'black' }}
+                sx={{ fontSize: 70 }}
+
+                onClick={() => {
+                  navigate(`/gamep2`, { state: { currentGame: currentGame } });
+                }
+                }
+              />
+            </ImgContainer>
+            :
+            <GameZone style={{ gridArea: "4/1/5/6", justifySelf: 'center', alignSelf: 'center' }} checker={checkAnsw} currentGame={currentGame} data={data} />
+
+
+        }
+
 
       </Flex >
 

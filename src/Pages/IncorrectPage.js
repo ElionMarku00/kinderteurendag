@@ -8,15 +8,15 @@ import Cloud from '../Components/Cloud';
 function IncorrectPage() {
 
   const location = useLocation();
-  const { gameImage, gameHost } = location.state;
+  const { currGameImage, currGameHost } = location.state;
 
   const navigate = useNavigate()
 
   return (
     <Grid>
       <Flex>
-        <img src={`/images${gameHost}`} alt={`${gameHost}`} width="40%" height="auto" style={{ alignSelf: 'flex-end' }} />
-        <img src={`/images${gameImage}`} alt={`${gameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
+        <img src={`/images${currGameHost}`} alt={`${currGameHost}`} width="40%" height="auto" style={{ alignSelf: 'flex-end' }} />
+        <img src={`/images${currGameImage}`} alt={`${currGameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
       </Flex>
 
       <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'red' }}>Almost!</h3>, "Try again, you can do it!"]} />

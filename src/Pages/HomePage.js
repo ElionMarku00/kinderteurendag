@@ -29,13 +29,12 @@ function HomePage() {
 
             {data.map((item) => {
 
-                let { name, solved, letter, icon, text, type } = item
-
+                let { name, solved, letter, icon, text, type, prompt, numPages } = item;
                 return (<ImgContainer key={name}
                     onClick={() => {
                         !solved
-                            ? navigate(`/game`, { state: { text, currentGame: name, type, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png' } })
-                            : navigate(`/correct`)
+                            ? navigate(`/game`, { state: { text, prompt, numPages, currentGame: name, type, } })
+                            : navigate(`/correct`);
                     }}>
                     {!solved
                         ? <img src={`/images${icon}`} alt={`${name}`} width="80%" height="auto" />
