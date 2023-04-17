@@ -4,6 +4,9 @@
     "homepage": {
         "text": "Help Lucas en Marie het codewoord te vinden dat de dokter nodig heeft om de patiënt te helpen. Als je het codewoord vindt ontvang je een leuk geschenk! Klik op de onderstaande afbeeldingen dat overeenkomt met de activiteit en beantwoord de vragen. De afbeelding hangt uit bij de activiteit. Veel succes Elion !",
         "qstn": "WAT IS HET CODEWOORD DAT WE ZOEKEN?"
+    },    "wrongpage": {
+        "redtext": "Wrong!",
+        "message": "Try Again!"
     },
     "beepage": {
         "letter": "E",

@@ -4,8 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCodePage, FinalPage, InitialPage } from './Pages'
 
 //TODO
-//splash screen to select languages
-// style it
+// style splash screen to select languages
 //localization for string translations
 
 // add modal on homepage that says correct when user clicks on already solved qstn
