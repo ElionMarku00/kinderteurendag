@@ -5,17 +5,20 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Cloud, GameZone } from '../Components';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { AppContext } from '../context';
+import { useTranslation } from 'react-i18next';
 
 function GamePage() {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const { t } = useTranslation();
+
   const { currentGame, text, type, prompt, numPages } = location.state;
   const { gameType, data, checkAnsw, getGameDataByName } = React.useContext(AppContext)
 
   // const image = data.find(x => x.name === currentGame).icon
 
-  const [_, currGameAns, currGameImage, currGameHost] = getGameDataByName(currentGame);
+  const [_, currGameAns, currGameImage, currGameHost, currGameTitle] = getGameDataByName(currentGame);
   console.log(currentGame, checkAnsw);
 
   return (
@@ -24,6 +27,9 @@ function GamePage() {
       <ImgContainer style={{ justifySelf: 'end' }}>
         <img src={`/images${currGameImage}`} alt={`${currGameImage}`} width="80%" height="auto" />
       </ImgContainer>
+      <h1 style={{ justifyContent: 'center', color: 'black', alignContent: 'center' }}>
+        {currGameTitle ? currGameTitle : null}
+      </h1>
 
       {/* <CustomH1></CustomH1> */}
       <Cloud arrowUp={false} text={prompt === "" ? text : prompt} />

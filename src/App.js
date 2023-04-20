@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCodePage, FinalPage, InitialPage } from './Pages'
 
 //TODO
+// add titles to context for each page, if empty don't display in gamepage. 
 // style splash screen to select languages
 //localization for string translations
 

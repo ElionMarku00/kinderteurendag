@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 // base page with a grid and icons inside for the questions. each question will reveal a letter after answered correctly
 function HomePage() {
 
-    const { t } = useTranslation()
+    const { t } = useTranslation();
 
     const navigate = useNavigate();
     // const navToGuessPage = () => navigate(`/game`)

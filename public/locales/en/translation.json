@@ -25,6 +25,7 @@
         "text": ""
     },
     "butterflypage": {
+        "title": "Welcome to the laparoscopy demo!",
         "letter": "M",
         "answer": "test",
         "solved": false,
@@ -32,13 +33,15 @@
         "prompt": ""
     },
     "ladybugpage": {
+        "title": "Welcome to the ultrasound! ",
         "letter": "B",
         "answer": "test",
         "solved": false,
-        "text": "",
-        "prompt": "Welcome to the ultrasound! \n On the door you can find a number. This is the number of ultrasounds we performed in 2022. "
+        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022. ",
+        "text": "Which number will you get when you make the sum of the first and the last number?"
     },
     "slugpage": {
+        "title": "Welcome to the lab Demo!",
         "letter": "R",
         "choices": {
             "choise1": true,
@@ -47,9 +50,10 @@
         "answer": "test",
         "solved": false,
         "text": "",
-        "prompt": "Welcome to the lab Demo! \n Here you can see a lab person bringing the sperm cell into the egg cell with a very small needle. "
+        "prompt": "Here you can see a lab person bringing the sperm cell into the egg cell with a very small needle. "
     },
     "chickpage": {
+        "title": "Welcome to the auditorium!",
         "choices": {
             "choise1": true,
             "choise2": false
@@ -58,7 +62,7 @@
         "letter": "Y",
         "solved": false,
         "text": "",
-        "prompt": "Welcome to the auditorium! \n Listen very well to what the doctor says."
+        "prompt": "In what year was the center founded?"
     },
     "planepage": {
         "letter": "O",

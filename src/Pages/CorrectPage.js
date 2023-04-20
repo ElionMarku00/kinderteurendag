@@ -21,7 +21,7 @@ function CorrectPage() {
         <img src={`/images${currGameImage}`} alt={`${currGameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
       </Flex>
 
-      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>"{t("correctpage.green")}</h3>, t("correctpage.message")]} />
+      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{t("correctpage.green")}</h3>, t("correctpage.message")]} />
       {/* <Cloud arrowUp={true} greentext={<h1> Correct!</h1>} text={"You can continue when clicking on the arrow."} /> */}
 
       {/* <button onClick={() => navigate('')} > <FamilyRestroomIcon sx={{ fontSize: 100 }} /></button> */}

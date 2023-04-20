@@ -18,27 +18,29 @@ const AppProvider = ({ children }) => {
     // { name: "Bee", icon: '/bee.png', letter: "E", type: GameTypes.multipleChoice, choices: { 'choise1': true, 'choise2': false }, answer: "choice2", solved: false, text: "Welcome to the sperm game! Do you know what you can fish up here?" },
     {
       name: "Bee", icon: '/bee.png', letter: "E", type: GameTypes.multipleChoice, choices: { 'choise1': true, 'choise2': false },
-      answer: "test", solved: false, text: t('Bee.text'), prompt: t("Bee.prompt"), numPages: 1, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      answer: "test", solved: false, text: t('beepage.text'), prompt: t("beepage.prompt"), numPages: 1, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
     },
     {
       name: "Butterfly", icon: '/butterfly.png', type: GameTypes.text, letter: "M", answer: "test", solved: false,
-      text: t('Butterfly.text'), prompt: t("Butterfly.prompt"), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      text: t('butterflypage.text'), prompt: t("butterflypage.prompt"), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      , title: t('butterflypage.title')
     },
     {
       name: "Ladybug", icon: '/Ladybug.png', type: GameTypes.text, letter: "B", answer: "test", solved: false,
-      text: t('Ladybug.text'), prompt: t("Ladybug.prompt"), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      text: t('ladybugpage.text'), prompt: t("ladybugpage.prompt"), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      , title: t('ladybugpage.title')
     },
     {
       name: "Slug", icon: '/Slug.png', type: GameTypes.drag, letter: "R", choices: { 'choise1': true, 'choise2': false }, answer: "test",
-      solved: false, text: t('Slug.text'), prompt: t("Slug.prompt"), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      solved: false, text: t('slugpage.text'), prompt: t("slugpage.prompt"), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
     },
     {
       name: "Chick", icon: '/Chick.png', type: GameTypes.multipleChoice, choices: { 'choise1': true, 'choise2': false }, answer: "test",
-      letter: "Y", solved: false, text: t('Chick.text'), prompt: t("Chick.prompt"), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      letter: "Y", solved: false, text: t('chickpage.text'), prompt: t("chickpage.prompt"), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
     },
     {
       name: "Plane", icon: '/Plane.png', type: GameTypes.multipleChoice, letter: "O", choices: { 'choise1': true, 'choise2': false }, answer: "test",
-      solved: false, text: t('Plane.text'), prompt: t("Plane.prompt"), numPages: 1, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      solved: false, text: t('planepage.text'), prompt: t("planepage.prompt"), numPages: 1, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
     },
   ])
 
@@ -61,9 +63,10 @@ const AppProvider = ({ children }) => {
     const currGameAns = data.find((i) => i.name === currentGame).answer
     const currGameImage = data.find((i) => i.name === currentGame).icon
     const currGameHost = data.find((i) => i.name === currentGame).gameHost
+    const currGameTitle = data.find((i) => i.name === currentGame).title
 
 
-    return [gameType, currGameAns, currGameImage, currGameHost]
+    return [gameType, currGameAns, currGameImage, currGameHost, currGameTitle]
 
   }
 

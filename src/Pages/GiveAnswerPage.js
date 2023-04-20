@@ -10,7 +10,6 @@ function GiveAnswerPage() {
     const { data, getGameDataByName } = useContext(AppContext)
     // const navigate = useNavigate();
     const location = useLocation();
-    debugger;
     const { currentGame, _ } = location.state;  //when passing checkAns as prop  i can;t take it because state = null for some reason. 
     const { checkAnsw } = React.useContext(AppContext)
 
