@@ -17,7 +17,7 @@ const AppProvider = ({ children }) => {
   const [data, setData] = React.useState([
     // { name: "Bee", icon: '/bee.png', letter: "E", type: GameTypes.multipleChoice, choices: { 'choise1': true, 'choise2': false }, answer: "choice2", solved: false, text: "Welcome to the sperm game! Do you know what you can fish up here?" },
     {
-      name: "Bee", icon: '/bee.png', letter: "E", type: GameTypes.multipleChoice, choices: { 'choise1': true, 'choise2': false },
+      name: "Bee", icon: '/bee.png', letter: "E", type: GameTypes.multipleChoice, choices: { [t('beepage.choices.choise1')]: true, 'choise2': false },
       answer: "test", solved: false, text: t('beepage.text'), prompt: t("beepage.prompt"), textp2: t('beepage.textp2'), numPages: 1, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
     },
     {
@@ -33,14 +33,17 @@ const AppProvider = ({ children }) => {
     {
       name: "Slug", icon: '/Slug.png', type: GameTypes.drag, letter: "R", choices: { 'choise1': true, 'choise2': false }, answer: "test",
       solved: false, text: t('slugpage.text'), prompt: t("slugpage.prompt"), textp2: t('slugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      , title: t('slugpage.title')
     },
     {
       name: "Chick", icon: '/Chick.png', type: GameTypes.multipleChoice, choices: { 'choise1': true, 'choise2': false }, answer: "test",
       letter: "Y", solved: false, text: t('chickpage.text'), prompt: t("chickpage.prompt"), textp2: t('chickpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      , title: t('chickpage.title')
     },
     {
       name: "Plane", icon: '/Plane.png', type: GameTypes.multipleChoice, letter: "O", choices: { 'choise1': true, 'choise2': false }, answer: "test",
       solved: false, text: t('planepage.text'), prompt: t("planepage.prompt"), textp2: t('planepage.textp2'), numPages: 1, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      ,title: t('planepage.title')
     },
   ])
 
@@ -66,6 +69,7 @@ const AppProvider = ({ children }) => {
     const currGameTitle = data.find((i) => i.name === currentGame).title
     const currGameText = data.find((i) => i.name === currentGame).text
     const currGameTextp2 = data.find((i) => i.name === currentGame).textp2
+    console.log("context currgametextp2:", currGameTextp2);
 
 
     return [gameType, currGameAns, currGameImage, currGameHost, currGameTitle, currGameText, currGameTextp2]

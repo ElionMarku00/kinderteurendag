@@ -23,8 +23,8 @@ function HomePage() {
         </Flex > */}
 
 
-        <CustomH6>{t('homepage.text', { playerName })}
-        </CustomH6>
+        <CustomH4>{t('homepage.text', { playerName })}
+        </CustomH4>
         <Grid>
 
             {data.map((item) => {
@@ -108,15 +108,15 @@ max-height:100px;
 
 `;
 
-const CustomH6 = styled.h4`
+const CustomH4 = styled.h4`
  
- padding:1rem;
+    padding:1rem;
+    text-align:center;
+    /* text-justify:inter-ideograph; */
+    align-self:center;
+    justify-self:center;
 
- text-align:center;
- align-self:center;
- justify-self:center;
-
- grid-area:2/1/2/6;
+    grid-area:2/1/2/6;
 
 `;
 
@@ -129,13 +129,14 @@ grid-area:1/2/1/5;
 
 `;
 
-const BottomText = styled.h5`
+const BottomText = styled.h4`
 
-grid-column: 1 / 3;
-text-align:center;
- align-self:center;
- justify-self:center;
-grid-area:6/2/6/5;
+    grid-column: 1 / 3;
+    text-align:center;
+    /* text-justify:inter-ideograph; */
+    align-self:center;
+    justify-self:center;
+    grid-area:5/1/6/6;
 
 `;
 

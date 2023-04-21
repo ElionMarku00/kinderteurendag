@@ -27,12 +27,11 @@ function GamePage() {
       <ImgContainer style={{ justifySelf: 'end' }}>
         <img src={`/images${currGameImage}`} alt={`${currGameImage}`} width="80%" height="auto" />
       </ImgContainer>
-      <h1 style={{ justifyContent: 'center', color: 'black', alignContent: 'center' }}>
-        {currGameTitle ? currGameTitle : null}
-      </h1>
+      {currGameTitle ? <h1 style={{ justifyContent: 'center', color: 'black', alignContent: 'center' }}>
+        {currGameTitle}
+      </h1> : null}
 
-      {/* <CustomH1></CustomH1> */}
-      <Cloud arrowUp={false} text={prompt === "" ? text : prompt} />
+      <Cloud arrowUp={false} text={text === "" || !text ? prompt : text} />
 
       <Flex>
 

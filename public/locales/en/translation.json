@@ -17,8 +17,8 @@
     "beepage": {
         "letter": "E",
         "choices": {
-            "choise1": true,
-            "choise2": false
+            "choise1": "choise1",
+            "choise2": "choise2"
         },
         "answer": "choice2",
         "solved": false,
@@ -30,8 +30,8 @@
         "letter": "M",
         "answer": "test",
         "solved": false,
-        "text": "Here you can perform an operation yourself like a real doctor! Do you want to give it a try?",
-        "textp2": "When performing the operation, you will see a letter inside the box. Which letter is it?",
+        "text": "Here you can perform an operation yourself like a real doctor! Do you want to give it a try? ",
+        "textp2": "When performing the operation, you will see a letter inside the box. Which letter is it? ",
         "prompt": ""
     },
     "ladybugpage": {
@@ -39,35 +39,35 @@
         "letter": "B",
         "answer": "test",
         "solved": false,
-        "text": "On the door you can find a number. This is the number of ultrasounds we performed in 2022.",
+        "text": "On the door you can find a number. This is the number of ultrasounds we performed in 2022. ",
         "textp2": "Which number will you get when you make the sum of the first and the last number?",
-        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022. "
+        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022."
     },
     "slugpage": {
-        "title": "Welcome to the lab Demo!",
+        "title": "Welcome to the Lab demo!",
         "letter": "R",
         "choices": {
-            "choise1": true,
-            "choise2": false
+            "choise1": "choise1",
+            "choise2": "choise2"
         },
         "answer": "test",
         "solved": false,
-        "text": "",
-        "textp2": "",
-        "prompt": "Here you can see a lab person bringing the sperm cell into the egg cell with a very small needle. "
+        "text": "Here you can see a lab person bringing the sperm cell into the egg cell with a very small needle. ",
+        "textp2": "How do they call this act?",
+        "prompt": ""
     },
     "chickpage": {
         "title": "Welcome to the auditorium where the doctor give a lecture!",
         "choices": {
-            "choise1": true,
-            "choise2": false
+            "choise1": "choiseee1",
+            "choise2": "choiseee2"
         },
         "answer": "test",
         "letter": "Y",
         "solved": false,
-        "text": "In what year was the center founded?",
-        "textp2": "",
-        "prompt": "Welcome to the auditorium where the doctor give a lecture!"
+        "text": "Listen very well to what the doctor says.  ",
+        "textp2": "In what year was the center founded?",
+        "prompt": ""
     },
     "planepage": {
         "title": "Welcome to the freezing demo!",

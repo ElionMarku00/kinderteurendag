@@ -4,21 +4,32 @@ body {
     width: 100vw;
     height: 100vh;
     text-align: center;
-    font-family: 'Roboto Thin', sans-serif;
-    font-weight: 100;
     margin: 0;
+}
+
+* {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
 }
 
 
 h1 {
-
-    font-family: 'Roboto Thin';
-    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
     text-decoration: underline;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 0.5px;
     margin: 0;
-    padding: 0 ;
+    padding: 0;
 
+}
+
+h3 {
+    font-weight: 400;
+}
+
+h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
 }
 
 
@@ -29,7 +40,7 @@ h1 {
     body {
         display: grid;
         place-content: center;
-        background-color: aqua;
+        /* background-color: aqua; */
 
         width: 50%;
         margin: auto;

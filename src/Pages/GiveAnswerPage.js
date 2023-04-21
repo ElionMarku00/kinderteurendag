@@ -13,7 +13,9 @@ function GiveAnswerPage() {
     const { currentGame, _ } = location.state;  //when passing checkAns as prop  i can;t take it because state = null for some reason. 
     const { checkAnsw } = React.useContext(AppContext)
 
-    const [gameType, currGameAns, currGameImage, currGameHost, currGameText, currGameTextp2] = getGameDataByName(currentGame)
+    const [gameType, currGameAns, currGameImage, currGameHost, currGameTitle, currGameText, currGameTextp2] = getGameDataByName(currentGame)
+    console.log("text:", currGameText);
+    console.log("textp2:", currGameTextp2);
 
     return (
         <Grid>
@@ -21,21 +23,21 @@ function GiveAnswerPage() {
             <Img src={`/images${currGameImage}`} alt={`${currGameImage}`} />
             <img src={`/images${currGameHost}`} alt={`${currGameHost}`} width="auto" height="70%" style={{ alignSelf: 'flex-end', justifySelf: 'center', gridArea: "2/3/2/4" }} />
 
-            <Cloud arrowUp={true} style={{ gridArea: "3/3/4/6", marginBottom: "10px", justifySelf: 'center', alignSelf: 'center' }} text={currGameTextp2} />
-            <GameZone style={{ gridArea: "4/1/5/6", justifySelf: 'center', alignSelf: 'center' }} checker={checkAnsw} gameType={gameType} gameAnswer={currGameAns} currentGame={currentGame} data={data} />
+            <Cloud arrowUp={true} style={{ gridArea: "3/3/4/5", marginBottom: "10px", justifySelf: 'center', alignSelf: 'center' }} text={currGameTextp2} />
+            <GameZone style={{ gridArea: "4/1/6/6", justifySelf: 'center', alignSelf: 'center' }} checker={checkAnsw} currentGame={currentGame} data={data} />
 
         </Grid>
     )
 }
 
 const Img = styled.img`
-height:100%;
-width:auto;
-max-height: 100%;
-grid-area:1/5/1/6;
-max-height:100px;
-align-self:flex-end;
-justify-self:flex-end;
+    height:100%;
+    width:auto;
+    max-height: 100%;
+    grid-area:1/5/1/6;
+    max-height:100px;
+    align-self:flex-end;
+    justify-self:flex-end;
 `;
 
 const Grid = styled.main`

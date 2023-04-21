@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { TextField } from "@mui/material";
+import Button from '@mui/material/Button';
+
 import { GameTypes } from '../constants/GameType';
 import styled from 'styled-components';
 
@@ -11,9 +13,7 @@ import { DndProvider } from 'react-dnd';
 import { AppContext } from '../context';
 
 import { useNavigate } from 'react-router-dom';
-
-
-
+import { useTranslation } from 'react-i18next';
 
 // const GridItems = styled.div`
 // border-style:solid;
@@ -23,9 +23,14 @@ import { useNavigate } from 'react-router-dom';
 const Grid = styled.div`
 display:grid;
 
-grid-template-columns: ${(gameAnswer) => {
+/* grid-template-columns: ${(gameAnswer) => {
         return `repeat(${gameAnswer.gameAnswer.length},1fr)`;
+    }}; */
+
+    grid-template-columns: ${(p) => {
+        return `repeat(${p.gameAnswer.length},1fr)`;
     }};
+
 /* grid-template-rows:repeat(2,1fr); */
 
 justify-content:space-evenly;
@@ -49,6 +54,7 @@ const GameZone = (props) => {
     const scambled = [...currGameAns].sort(() => Math.random() - 0.5);
 
     const navigate = useNavigate();
+    const { t } = useTranslation()
 
 
     const handleDrop = (index, item) => {
@@ -101,48 +107,60 @@ const GameZone = (props) => {
                 return (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
             }
 
+            return <div {...otherprops}>
+                <DndProvider backend={isTouchDevice ? TouchBackend : HTML5Backend}>
 
-            return <DndProvider backend={isTouchDevice ? TouchBackend : HTML5Backend}>
-                <h1>Arrange the letters in the correct order:</h1>
+                    <h3>Arrange the letters in the correct order:</h3>
 
-                <Grid {...otherprops}>
-                    {scambled.map((letter, index) => (
-                        <Letter
-                            key={`drag- ${index}- ${letter}`}
-                            index={index}
-                            letter={letter}
-                            handleDrop={handleDrop}
-                        />
-                    ))}
-                    {[...currGameAns].map((_, index) => {
-
-                        return (<div key={_.toString() + index}>
-                            < Dustbin
-
-                                accept='LETTER'
-                                lastDroppedItem={lastDroppedItem[index]}
-                                setLastDroppedItem={setLastDroppedItem}
-                                onDrop={(item) => handleDrop(index, item)}
+                    <Grid {...otherprops} gameAnswer = {currGameAns}>
+                        {scambled.map((letter, index) => (
+                            <Letter
+                                key={`drag- ${index}- ${letter}`}
+                                index={index}
+                                letter={letter}
+                                handleDrop={handleDrop}
                             />
-                            <br />
-                        </div>)
-                    }
+                        ))}
+                        {[...currGameAns].map((_, index) => {
 
-                    )
-                    }
+                            return (<div key={_.toString() + index}>
+                                < Dustbin
 
-                </Grid >
-            </DndProvider >
+                                    accept='LETTER'
+                                    lastDroppedItem={lastDroppedItem[index]}
+                                    setLastDroppedItem={setLastDroppedItem}
+                                    onDrop={(item) => handleDrop(index, item)}
+                                />
+                                <br />
+                            </div>)
+                        }
+
+                        )
+                        }
+
+                    </Grid >
+                </DndProvider >
+            </div>
 
         case GameTypes.multipleChoice:
+
+            const ChoiceFlexBox = styled.div`
+                        display:flex;
+                        flex-direction:column;
+                        row-gap:1rem;
+                        /* justify-content:space-evenly; */
+                        align-items:center;
+                        flex:1;
+                    
+                    `;
             return <>
-                <div {...otherprops}>
+                <ChoiceFlexBox {...otherprops}>
                     {[...data].filter(x => x.name === currentGame).map(game => {
                         let { choices } = game;
                         console.log(choices);
 
                         return Object.keys(choices).map((key) => {
-                            return <button key={key} onClick={() => checkAndRoute(choices[key], currentGame)}>{key}</button>
+                            return <Button variant="contained" key={key} onClick={() => checkAndRoute(choices[key], currentGame)}>{t(key.toString())}</Button>
 
                         });
 
@@ -152,7 +170,7 @@ const GameZone = (props) => {
 
                     })}
 
-                </div>
+                </ChoiceFlexBox>
 
             </>
 
