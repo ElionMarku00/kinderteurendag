@@ -13,7 +13,7 @@ function GiveAnswerPage() {
     const { currentGame, _ } = location.state;  //when passing checkAns as prop  i can;t take it because state = null for some reason. 
     const { checkAnsw } = React.useContext(AppContext)
 
-    const [gameType, currGameAns, currGameImage, currGameHost] = getGameDataByName(currentGame)
+    const [gameType, currGameAns, currGameImage, currGameHost, currGameText, currGameTextp2] = getGameDataByName(currentGame)
 
     return (
         <Grid>
@@ -21,7 +21,7 @@ function GiveAnswerPage() {
             <Img src={`/images${currGameImage}`} alt={`${currGameImage}`} />
             <img src={`/images${currGameHost}`} alt={`${currGameHost}`} width="auto" height="70%" style={{ alignSelf: 'flex-end', justifySelf: 'center', gridArea: "2/3/2/4" }} />
 
-            <Cloud arrowUp={true} style={{ gridArea: "3/3/4/6", marginBottom: "10px", justifySelf: 'center', alignSelf: 'center' }} text='When performing the operation, you will see a letter inside the box. Which letter is it?' />
+            <Cloud arrowUp={true} style={{ gridArea: "3/3/4/6", marginBottom: "10px", justifySelf: 'center', alignSelf: 'center' }} text={currGameTextp2} />
             <GameZone style={{ gridArea: "4/1/5/6", justifySelf: 'center', alignSelf: 'center' }} checker={checkAnsw} gameType={gameType} gameAnswer={currGameAns} currentGame={currentGame} data={data} />
 
         </Grid>

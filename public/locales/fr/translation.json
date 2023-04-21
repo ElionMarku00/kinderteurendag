@@ -1,6 +1,20 @@
 {
+    "title": "DOCTOR FOR 1 DAY",
     "welcome": "Bienvenue!",
-    "Bee": {
+    "nameQuestion": "Comme tu t'appelle?",
+    "homepage": {
+        "text": "Help Lucas and Marie find the code word the doctor needs to help the patient. With this code word you receive a lovely gift ! Choose the image below that matches the activity and answer the questions to find the code word . Good luck!",
+        "qstn": "WHAT IS THE CODE WORD WE ARE LOOKING FOR?"
+    },
+    "wrongpage": {
+        "redtext": "Wrong!",
+        "message": "Try Again!"
+    },
+    "correctpage": {
+        "green": "Correct!",
+        "message": "You can continue when clicking on the arrow."
+    },
+    "beepage": {
         "letter": "E",
         "choices": {
             "choise1": true,
@@ -8,21 +22,29 @@
         },
         "answer": "choice2",
         "solved": false,
-        "text": "FRWelcome to the sperm game! Do you know what you can fish up here?"
+        "prompt": "Welcome to the sperm game! Do you know what you can fish up here?",
+        "text": ""
     },
-    "Butterfly": {
+    "butterflypage": {
+        "title": "Welcome to the laparoscopy demo!",
         "letter": "M",
         "answer": "test",
         "solved": false,
-        "text": "Here you can perform an operation yourself like a real doctor! Do you want to give it a try? "
+        "text": "Here you can perform an operation yourself like a real doctor! Do you want to give it a try?",
+        "textp2": "When performing the operation, you will see a letter inside the box. Which letter is it?",
+        "prompt": ""
     },
-    "Ladybug": {
+    "ladybugpage": {
+        "title": "Welcome to the ultrasound! ",
         "letter": "B",
         "answer": "test",
         "solved": false,
-        "text": "Welcome to the ultrasound! \n On the door you can find a number. This is the number of ultrasounds we performed in 2022. "
+        "text": "On the door you can find a number. This is the number of ultrasounds we performed in 2022.",
+        "textp2": "Which number will you get when you make the sum of the first and the last number?",
+        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022. "
     },
-    "Slug": {
+    "slugpage": {
+        "title": "Welcome to the lab Demo!",
         "letter": "R",
         "choices": {
             "choise1": true,
@@ -30,9 +52,12 @@
         },
         "answer": "test",
         "solved": false,
-        "text": "Welcome to the lab Demo! \n Here you can see a lab person bringing the sperm cell into the egg cell with a very small needle. "
+        "text": "",
+        "textp2": "",
+        "prompt": "Here you can see a lab person bringing the sperm cell into the egg cell with a very small needle. "
     },
-    "Chick": {
+    "chickpage": {
+        "title": "Welcome to the auditorium where the doctor give a lecture!",
         "choices": {
             "choise1": true,
             "choise2": false
@@ -40,9 +65,12 @@
         "answer": "test",
         "letter": "Y",
         "solved": false,
-        "text": "Welcome to the auditorium! \n Listen very well to what the doctor says."
+        "text": "In what year was the center founded?",
+        "textp2": "",
+        "prompt": "Welcome to the auditorium where the doctor give a lecture!"
     },
-    "Plane": {
+    "planepage": {
+        "title": "Welcome to the freezing demo!",
         "letter": "O",
         "choices": {
             "choise1": true,
@@ -50,6 +78,8 @@
         },
         "answer": "test",
         "solved": false,
-        "text": "Welcome to the freezing demo! \n What can you freeze here?"
+        "text": "What can you freeze here?",
+        "textp2": "",
+        "prompt": ""
     }
 }

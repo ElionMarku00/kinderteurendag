@@ -23,7 +23,7 @@ function HomePage() {
         </Flex > */}
 
 
-        <CustomH6>{t('homepage.text')}
+        <CustomH6>{t('homepage.text', { playerName })}
         </CustomH6>
         <Grid>
 

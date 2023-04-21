@@ -1,8 +1,9 @@
 {
     "title": "DOCTOR FOR 1 DAY",
     "welcome": "Welcome!",
+    "nameQuestion": "What's your name?",
     "homepage": {
-        "text": "Help Lucas and Marie find the code word the doctor needs to help the patient. With this code word you receive a lovely gift ! Choose the image below that matches the activity and answer the questions to find the code word . Good luck!",
+        "text": "Help Lucas and Marie find the code word the doctor needs to help the patient. With this code word you receive a lovely gift ! Choose the image below that matches the activity and answer the questions to find the code word . Good luck {{playerName}}!",
         "qstn": "WHAT IS THE CODE WORD WE ARE LOOKING FOR?"
     },
     "wrongpage": {
@@ -30,6 +31,7 @@
         "answer": "test",
         "solved": false,
         "text": "Here you can perform an operation yourself like a real doctor! Do you want to give it a try?",
+        "textp2": "When performing the operation, you will see a letter inside the box. Which letter is it?",
         "prompt": ""
     },
     "ladybugpage": {
@@ -37,8 +39,9 @@
         "letter": "B",
         "answer": "test",
         "solved": false,
-        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022. ",
-        "text": "Which number will you get when you make the sum of the first and the last number?"
+        "text": "On the door you can find a number. This is the number of ultrasounds we performed in 2022.",
+        "textp2": "Which number will you get when you make the sum of the first and the last number?",
+        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022. "
     },
     "slugpage": {
         "title": "Welcome to the lab Demo!",
@@ -50,10 +53,11 @@
         "answer": "test",
         "solved": false,
         "text": "",
+        "textp2": "",
         "prompt": "Here you can see a lab person bringing the sperm cell into the egg cell with a very small needle. "
     },
     "chickpage": {
-        "title": "Welcome to the auditorium!",
+        "title": "Welcome to the auditorium where the doctor give a lecture!",
         "choices": {
             "choise1": true,
             "choise2": false
@@ -61,10 +65,12 @@
         "answer": "test",
         "letter": "Y",
         "solved": false,
-        "text": "",
-        "prompt": "In what year was the center founded?"
+        "text": "In what year was the center founded?",
+        "textp2": "",
+        "prompt": "Welcome to the auditorium where the doctor give a lecture!"
     },
     "planepage": {
+        "title": "Welcome to the freezing demo!",
         "letter": "O",
         "choices": {
             "choise1": true,
@@ -72,7 +78,8 @@
         },
         "answer": "test",
         "solved": false,
-        "text": "Welcome to the freezing demo! \n What can you freeze here?",
+        "text": "What can you freeze here?",
+        "textp2": "",
         "prompt": ""
     }
 }

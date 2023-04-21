@@ -22,7 +22,7 @@ import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCo
 
 function App() {
   return (
-    <>
+    <div >
       <Router>
         <Routes>
           <Route path="/" element={<InitialPage />} />
@@ -39,7 +39,7 @@ function App() {
           {/* <Route path="*" element={<ErrorPage />} /> */}
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 

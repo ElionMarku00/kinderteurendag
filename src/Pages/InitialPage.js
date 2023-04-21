@@ -1,5 +1,6 @@
 import React from 'react'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Button from '@mui/material/Button';
 import styled from 'styled-components'
 import { TextField } from "@mui/material";
 import { AppContext } from '../context';
@@ -13,15 +14,45 @@ const ImgContainer = styled.div`
     border-color: black;
     border: 5px solid #555; */
 
+    & > input[type="radio"]{
+        width: 1.15em;
+        height: 1.15em;
+        border: 0.15em solid currentColor;
+
+    }
+
+`;
+
+
+const Wrapper = styled.div`
+
+    margin:0;
+    padding:0;
+    height:100vh;
+    width:100vw;
+    background-color:lavender;
+
+    /* @media only screen and (min-width: 600px) {
+
+
+
+    } */
+
 `;
 
 
 const FlagsFlex = styled.div`
 
     display:flex;
-    flex-direction:row;
+    flex-direction:column;
     align-items: center;
-    justify-content:space-evenly;
+    row-gap:1rem;
+    /* height:100vh; */
+
+    & > :not(:last-child) {
+        /* flex: 1; */
+    }
+
 
 `;
 
@@ -29,41 +60,53 @@ function InitialPage() {
 
     const { setPlayerName, setLanguage } = React.useContext(AppContext)
     const navigate = useNavigate();
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
 
     return (
 
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center' }}>
-
-            <h1>{t("welcome")}</h1>
-
-            <TextField id="outlined-basic"
-                label="What's your name, stranger?"
-                variant="outlined"
-                style={{ margin: '0 1rem', }}
-                onChange={(e) => setPlayerName(e.target.value)}
-            />
+        <Wrapper>
 
             <FlagsFlex>
-                <ImgContainer style={{ alignSelf: 'center' }} onClick={() => setLanguage('fr')}>
-                    <img src="/images/fr_flag.gif" alt="French flag" style={{ height: '100px', width: 'auto' }} />
-                </ImgContainer>
-                <ImgContainer style={{ alignSelf: 'center' }} onClick={() => setLanguage('nl')}>
-                    <img src="/images/nl_flag.gif" alt="Netherlands flag" style={{ height: '100px', width: 'auto' }} />
-                </ImgContainer>
-                <ImgContainer style={{ alignSelf: 'center', }} onClick={() => setLanguage('en')}>
-                    <img src="/images/UK_flag.gif" alt="UK flag" style={{ height: '100px', width: 'auto' }} />
-                </ImgContainer>
+                <h1 style={{ marginTop: "auto" }}>{t("welcome")}</h1>
+
+
+                <label>
+                    <ImgContainer style={{ alignSelf: 'center' }} onClick={() => setLanguage('fr')}>
+                        <input type="radio" value="option1" checked={i18n.language === "fr"} onChange={() => setLanguage('fr')} />
+                        <img src="/images/fr_flag.gif" alt="French flag" style={{ height: '100px', width: 'auto' }} />
+                    </ImgContainer>
+                </label>
+                <label>
+                    <ImgContainer style={{ alignSelf: 'center' }} onClick={() => setLanguage('nl')}>
+                        <input type="radio" value="option2" checked={i18n.language === "nl"} onChange={() => setLanguage('nl')} />
+                        <img src="/images/nl_flag.gif" alt="Netherlands flag" style={{ height: '100px', width: 'auto' }} />
+                    </ImgContainer>
+                </label>
+                <label>
+                    <ImgContainer style={{ alignSelf: 'center', }} onClick={() => setLanguage('en')}>
+                        <input type="radio" value="option3" checked={i18n.language === "en"} onChange={() => setLanguage('en')} />
+                        <img src="/images/UK_flag.gif" alt="UK flag" style={{ height: '100px', width: 'auto' }} />
+                    </ImgContainer>
+                </label>
+
+                <TextField id="outlined-basic"
+                    label={t("nameQuestion")}
+                    variant="outlined"
+                    style={{ width: '70vw' }}
+                    onChange={(e) => setPlayerName(e.target.value)}
+                />
+
+                <Button variant="contained" size="small" startIcon={< ArrowForwardIcon />}
+                    onClick={() => navigate(`/home`, { replace: true })}>Next</Button>
+
+
+
             </FlagsFlex>
 
-            <ImgContainer style={{ alignSelf: 'center' }} >
-                <ArrowForwardIcon
-                    style={{ color: 'black' }}
-                    sx={{ fontSize: 70 }}
-                    onClick={() => navigate(`/home`, { replace: true })} />
-            </ImgContainer>
 
-        </div>
+
+
+        </Wrapper>
 
     )
 }
