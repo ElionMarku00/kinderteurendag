@@ -1,76 +1,76 @@
 {
-    "title": "DOCTOR FOR 1 DAY",
+    "title": "Médecin pour 1 journée",
     "welcome": "Bienvenue!",
-    "nameQuestion": "Comme tu t'appelle?",
+    "nameQuestion": "Quel est ton nom?",
     "homepage": {
-        "text": "Help Lucas and Marie find the code word the doctor needs to help the patient. With this code word you receive a lovely gift ! Choose the image below that matches the activity and answer the questions to find the code word . Good luck!",
-        "qstn": "WHAT IS THE CODE WORD WE ARE LOOKING FOR?"
+        "text": "Aide Lucas et Marie à trouver le mot de  passe dont le médecin a besoin pour aider le patient. Si tu trouves le bon mot de passe, tu recevras un chouette cadeau! En cliquant sur les images ci-dessous qui correspondent à l'activité, tu répondras aux questions. L'image est affichée à chaque activité.\n Bonne chance {{playerName}}!",
+        "qstn": "QUEL EST LE MOT DE PASSE QUE NOUS RECHERCHONS ?"
     },
     "wrongpage": {
-        "redtext": "Wrong!",
-        "message": "Try Again!"
+        "redtext": "Faux!",
+        "message": "Essaie à nouveau."
     },
     "correctpage": {
-        "green": "Correct!",
-        "message": "You can continue when clicking on the arrow."
+        "green": "Exact!",
+        "message": "Continue en cliquant sur la flèche."
     },
     "beepage": {
         "letter": "E",
         "choices": {
-            "choise1": true,
-            "choise2": false
+            "choise1": "choise1",
+            "choise2": "choise2"
         },
         "answer": "choice2",
         "solved": false,
-        "prompt": "Welcome to the sperm game! Do you know what you can fish up here?",
+        "prompt": "Bienvenue dans le jeu de sperme! Sais-tu ce que tu peux pêcher ici?  ",
         "text": ""
     },
     "butterflypage": {
-        "title": "Welcome to the laparoscopy demo!",
+        "title": "Bienvenue à la démo laparoscopie!",
         "letter": "M",
         "answer": "test",
         "solved": false,
-        "text": "Here you can perform an operation yourself like a real doctor! Do you want to give it a try?",
-        "textp2": "When performing the operation, you will see a letter inside the box. Which letter is it?",
+        "text": "Ici, tu peux opérer toi-même, comme un vrai médecin! Envie d'essayer? Alors entrons. ",
+        "textp2": "Lorsque tu feras l'opération, regarde bien et tu verras apparaître une lettre. Quelle lettre vois-tu ? ",
         "prompt": ""
     },
     "ladybugpage": {
-        "title": "Welcome to the ultrasound! ",
+        "title": "Bienvenue à l'échographie! ",
         "letter": "B",
         "answer": "test",
         "solved": false,
-        "text": "On the door you can find a number. This is the number of ultrasounds we performed in 2022.",
-        "textp2": "Which number will you get when you make the sum of the first and the last number?",
-        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022. "
+        "text": "Sur la porte de la salle d'échographie, tu trouveras un chiffre. Il s'agit du nombre d'échographies réalisées en 2022.  ",
+        "textp2": "Quel est le résultat si tu additionnes le premier chiffre et le dernier chiffre de ce nombre? ",
+        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022."
     },
     "slugpage": {
-        "title": "Welcome to the lab Demo!",
+        "title": "Bienvenue à la démo du laboratoire!",
         "letter": "R",
         "choices": {
-            "choise1": true,
-            "choise2": false
+            "choise1": "choise1",
+            "choise2": "choise2"
         },
         "answer": "test",
         "solved": false,
-        "text": "",
-        "textp2": "",
-        "prompt": "Here you can see a lab person bringing the sperm cell into the egg cell with a very small needle. "
+        "text": "Ici, tu peux voir un technicien de laboratoire au travail, insérant un spermatozoïde dans une ovule à l'aide d'une aiguille très fine.  ",
+        "textp2": "Comment s'appelle cette technique? ",
+        "prompt": ""
     },
     "chickpage": {
-        "title": "Welcome to the auditorium where the doctor give a lecture!",
+        "title": "Bienvenue dans notre auditorium où tu peux entendre le médecin donner une conférence.",
         "choices": {
-            "choise1": true,
-            "choise2": false
+            "choise1": "choiseee1",
+            "choise2": "choiseee2"
         },
         "answer": "test",
         "letter": "Y",
         "solved": false,
-        "text": "In what year was the center founded?",
-        "textp2": "",
-        "prompt": "Welcome to the auditorium where the doctor give a lecture!"
+        "text": "Écoute et regarde la presentation très attentivement. ",
+        "textp2": "En quelle année a été fondé notre centre ?",
+        "prompt": ""
     },
     "planepage": {
-        "title": "Welcome to the freezing demo!",
+        "title": "Bienvenue dans la démo de la congélation!",
         "letter": "O",
         "choices": {
             "choise1": true,
@@ -78,8 +78,16 @@
         },
         "answer": "test",
         "solved": false,
-        "text": "What can you freeze here?",
+        "text": "Que peut-on congeler ici? ",
         "textp2": "",
         "prompt": ""
+    },
+    "guesscodepage": {
+        "almostmsg": "Tu y es presque, tu peux le faire!",
+        "text": "QUEL EST LE MOT DE PASSE QUE NOUS RECHERCHONS ?",
+        "textbox": "Quelle est ta réponse?"
+    },
+    "finalpage": {
+        "congrats": "Tu as trouvé le mot de passe dont le médecin a besoin pour aider le patient : embryon! Rends-toi à l`endroit où se trouve le ballon sur le plan et reçois ton cadeau. C'était très chouette de faire ta connaissance!"
     }
 }

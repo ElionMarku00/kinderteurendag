@@ -4,21 +4,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCodePage, FinalPage, InitialPage } from './Pages'
 
 //TODO
-// add titles to context for each page, if empty don't display in gamepage. 
-// style splash screen to select languages
-//localization for string translations
-
+// add multiple correct or wrong messages like in french.
 // add modal on homepage that says correct when user clicks on already solved qstn
 // finish what is the code word we're looking for page
 // add checking logic for final answer
-// code final congratulations page
 //LOCAL STORAGE anti reload (careful on platform; chrome etc..)
-// Welcome screen before HomePage to select language; translate qstns / answers
 // randomize icons not to crowd the physical medical departments
 // graphic adjustmens and animations
 // add more game types
-// make it pc friendly by placing it all in a grid and the grid in the center
-//useMemo on pages useCallback on handlers
+// drag doesn;t work on pc
+// the chick page has some different greentext on the correct page. check how to change it 
+//useMemo on pages useCallback on handlers should improve performance
 
 function App() {
   return (

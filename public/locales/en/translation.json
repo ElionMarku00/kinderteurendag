@@ -81,5 +81,13 @@
         "text": "What can you freeze here?",
         "textp2": "",
         "prompt": ""
+    },
+    "guesscodepage": {
+        "almostmsg": "You are almost there, you can do it!",
+        "text": "ENTER HERE THE CODE WORD WE ARE LOOKING FOR TO HELP THE PATIENT",
+        "textbox": "What's your answer?"
+    },
+    "finalpage": {
+        "congrats": "You have found the code word the doctor needs for the patient! In return you will receive a gift on the main floor. It was great to have met you!"
     }
 }

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import {Cloud,Title} from '../Components';
 import { TextField } from "@mui/material";
+import { useTranslation } from 'react-i18next';
 
 const Flex = styled.main`
 
@@ -24,18 +25,19 @@ function GuessCodePage() {
 
   // const [text, setText] = React.setState('');
   const navigate = useNavigate();
+  const {t} = useTranslation()
 
   return (
 
     <Flex>
-      <Title text='DOCTOR FOR 1 DAY' />
+      <Title text={t("title")} />
 
       <div>
         <img src={`/images/marielukas.png`} alt={`marielukas`} width="30%" height="auto" />
-        <Cloud arrowUp={true} text='You are almost there, you can do it!' />
+        <Cloud arrowUp={true} text={t("guesscodepage.almostmsg")} />
       </div>
-      <Title text='ENTER HERE THE CODE WORD WE ARE LOOKING FOR TO HELP THE PATIENT' />
-      <TextField id="outlined-basic" label="What's your answer?" variant="outlined" style={{ margin: '0 1rem' }} />
+      <Title text={t("guesscodepage.text")} />
+      <TextField id="outlined-basic" label={t("guesscodepage.textbox")} variant="outlined" style={{ margin: '0 1rem' }} />
 
       <div>
         <button onClick={() => navigate(-1)} >Previous!</button>

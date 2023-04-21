@@ -1,76 +1,76 @@
 {
-    "title": "DOCTOR FOR 1 DAY",
+    "title": "Dokter voor 1 dag",
     "welcome": "Welkom!",
-    "nameQuestion":"Wat is je naam?",
+    "nameQuestion": "Wat is je naam?",
     "homepage": {
-        "text": "Help Lucas and Marie find the code word the doctor needs to help the patient. With this code word you receive a lovely gift ! Choose the image below that matches the activity and answer the questions to find the code word . Good luck!",
-        "qstn": "WHAT IS THE CODE WORD WE ARE LOOKING FOR?"
+        "text": "Help Lucas en Marie het codewoord te vinden dat de dokter nodig heeft om de patiënt te helpen. Als je het codewoord vindt ontvang je een leuk geschenk! Klik op de onderstaande afbeeldingen dat overeenkomt met de activiteit en beantwoord de vragen. De afbeelding hangt uit bij de activiteit. Veel succes {{playerName}}!",
+        "qstn": "WAT IS HET CODEWOORD DAT WE ZOEKEN?"
     },
     "wrongpage": {
-        "redtext": "Wrong!",
-        "message": "Try Again!"
+        "redtext": "Fout!",
+        "message": "Probeer opnieuw."
     },
     "correctpage": {
-        "green": "Correct!",
-        "message": "You can continue when clicking on the arrow."
+        "green": "Juist!",
+        "message": "Ga verder door op deze pijl te klikken."
     },
     "beepage": {
         "letter": "E",
         "choices": {
-            "choise1": true,
-            "choise2": false
+            "choise1": "choise1",
+            "choise2": "choise2"
         },
         "answer": "choice2",
         "solved": false,
-        "prompt": "Welcome to the sperm game! Do you know what you can fish up here?",
+        "prompt": "Welkom bij het spermaspel! Weet jij wat je hier kan opvissen?  ",
         "text": ""
     },
     "butterflypage": {
-        "title": "Welcome to the laparoscopy demo!",
+        "title": "Welkom bij de laparoscopie demo!",
         "letter": "M",
         "answer": "test",
         "solved": false,
-        "text": "Here you can perform an operation yourself like a real doctor! Do you want to give it a try?",
-        "textp2": "When performing the operation, you will see a letter inside the box. Which letter is it?",
+        "text": "Hier kan je zelf een operatie uitvoeren zoals een echte doktor! Wil je het graag proberen? Ga dan binnen.",
+        "textp2": "Wanneer je de operatie doet, moet je goed kijken en dan zie je een letter verschijnen. Welke letter zie je?",
         "prompt": ""
     },
     "ladybugpage": {
-        "title": "Welcome to the ultrasound! ",
+        "title": "Welkom bij de echografie! ",
         "letter": "B",
         "answer": "test",
         "solved": false,
-        "text": "On the door you can find a number. This is the number of ultrasounds we performed in 2022.",
-        "textp2": "Which number will you get when you make the sum of the first and the last number?",
-        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022. "
+        "text": "Op de deur van het echografielokaal vind je een nummer terug. Dit is het aantal echografieën die we in het jaar 2022 hebben uitgevoerd. ",
+        "textp2": "Welk nummer krijg je als je het eerste cijfer en het laatste cijfer optelt?",
+        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022."
     },
     "slugpage": {
-        "title": "Welcome to the lab Demo!",
+        "title": "Welkom bij de labo demo!",
         "letter": "R",
         "choices": {
-            "choise1": true,
-            "choise2": false
+            "choise1": "choise1",
+            "choise2": "choise2"
         },
         "answer": "test",
         "solved": false,
-        "text": "",
-        "textp2": "",
-        "prompt": "Here you can see a lab person bringing the sperm cell into the egg cell with a very small needle. "
+        "text": "Hier kan je een laborant aan het werk zien, hij brengt een zaadcel in de eicel met een heel fijne naald.",
+        "textp2": "Hoe heet deze techniek? ",
+        "prompt": ""
     },
     "chickpage": {
-        "title": "Welcome to the auditorium where the doctor give a lecture!",
+        "title": "Welkom in het auditorium waar je kan luisteren naar de dokter die een lezing geeft. ",
         "choices": {
-            "choise1": true,
-            "choise2": false
+            "choise1": "choiseee1",
+            "choise2": "choiseee2"
         },
         "answer": "test",
         "letter": "Y",
         "solved": false,
-        "text": "In what year was the center founded?",
-        "textp2": "",
-        "prompt": "Welcome to the auditorium where the doctor give a lecture!"
+        "text": "Luister heel goed naar wat de dokter vertelt.  ",
+        "textp2": "In welk jaar werd het centrum opgericht?",
+        "prompt": ""
     },
     "planepage": {
-        "title": "Welcome to the freezing demo!",
+        "title": "Welkom bij de demo invriezen!",
         "letter": "O",
         "choices": {
             "choise1": true,
@@ -78,8 +78,16 @@
         },
         "answer": "test",
         "solved": false,
-        "text": "What can you freeze here?",
+        "text": "Wat kan je hier invriezen? ",
         "textp2": "",
         "prompt": ""
+    },
+    "guesscodepage": {
+        "almostmsg": "You are almost there, you can do it!",
+        "text": "ENTER HERE THE CODE WORD WE ARE LOOKING FOR TO HELP THE PATIENT",
+        "textbox": "What's your answer?"
+    },
+    "finalpage": {
+        "congrats": "You have found the code word the doctor needs for the patient! In return you will receive a gift on the main floor. It was great to have met you!"
     }
 }

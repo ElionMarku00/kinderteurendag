@@ -40,7 +40,6 @@ const Wrapper = styled.div`
 
 `;
 
-
 const FlagsFlex = styled.div`
 
     display:flex;
@@ -68,7 +67,6 @@ function InitialPage() {
 
             <FlagsFlex>
                 <h1 style={{ marginTop: "auto" }}>{t("welcome")}</h1>
-
 
                 <label>
                     <ImgContainer style={{ alignSelf: 'center' }} onClick={() => setLanguage('fr')}>
