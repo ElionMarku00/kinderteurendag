@@ -17,31 +17,55 @@
     "beepage": {
         "letter": "E",
         "choices": {
-            "choise1": "choise1",
-            "choise2": "choise2"
+            "choise1": "zaadcel",
+            "choise2": "eendjes"
         },
-        "answer": "choice2",
+        "answer": "zaadcel",
         "solved": false,
         "prompt": "Welkom bij het spermaspel! Weet jij wat je hier kan opvissen?  ",
-        "text": ""
+        "text": "",
+        "wrongpage": {
+            "redtext": "Fout!",
+            "message": "Probeer opnieuw."
+        },
+        "correctpage": {
+            "green": "Juist! Speel het spel en ontdek welke letter verborgen zit. Opgelet, niet elke zaadcel bevat een letter.",
+            "message": "Ga nadien verder door op deze pijl te klikken."
+        }
     },
     "butterflypage": {
         "title": "Welkom bij de laparoscopie demo!",
         "letter": "M",
-        "answer": "test",
+        "answer": "M",
         "solved": false,
         "text": "Hier kan je zelf een operatie uitvoeren zoals een echte doktor! Wil je het graag proberen? Ga dan binnen.",
         "textp2": "Wanneer je de operatie doet, moet je goed kijken en dan zie je een letter verschijnen. Welke letter zie je?",
-        "prompt": ""
+        "prompt": "",
+        "wrongpage": {
+            "redtext": "Fout!",
+            "message": "Probeer opnieuw."
+        },
+        "correctpage": {
+            "green": "Juist!",
+            "message": "Ga verder, klik op de pijl."
+        }
     },
     "ladybugpage": {
-        "title": "Welkom bij de echografie! ",
+        "title": "Welkom bij de echografie!",
         "letter": "B",
-        "answer": "test",
+        "answer": "5",
         "solved": false,
-        "text": "Op de deur van het echografielokaal vind je een nummer terug. Dit is het aantal echografieën die we in het jaar 2022 hebben uitgevoerd. ",
+        "text": "Op de deur van het echografielokaal vind je een nummer terug. Dit is het aantal echografieën die we in het jaar 2022 hebben uitgevoerd.",
         "textp2": "Welk nummer krijg je als je het eerste cijfer en het laatste cijfer optelt?",
-        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022."
+        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022.",
+        "wrongpage": {
+            "redtext": "Fout!",
+            "message": "Probeer opnieuw, je kan het {{playerName}}!"
+        },
+        "correctpage": {
+            "green": "Juist!",
+            "message": "Ga verder door op de onderstaande pijl te klikken."
+        }
     },
     "slugpage": {
         "title": "Welkom bij de labo demo!",
@@ -50,42 +74,74 @@
             "choise1": "choise1",
             "choise2": "choise2"
         },
-        "answer": "test",
+        "answer": "ICSI",
         "solved": false,
         "text": "Hier kan je een laborant aan het werk zien, hij brengt een zaadcel in de eicel met een heel fijne naald.",
         "textp2": "Hoe heet deze techniek? ",
-        "prompt": ""
+        "prompt": "",
+        "wrongpage": {
+            "redtext": "Fout!",
+            "message": "Probeer opnieuw."
+        },
+        "correctpage": {
+            "green": "Juist, heel goed daan {{playerName}}!",
+            "message": "Ga verder door op deze pijl te klikken."
+        }
     },
     "chickpage": {
-        "title": "Welkom in het auditorium waar je kan luisteren naar de dokter die een lezing geeft. ",
+        "title": "Welkom in het auditorium waar je kan luisteren naar de dokter die een lezing geeft.",
         "choices": {
-            "choise1": "choiseee1",
-            "choise2": "choiseee2"
+            "choise1": "2005",
+            "choise2": "1983"
         },
-        "answer": "test",
+        "answer": "1983",
         "letter": "Y",
         "solved": false,
-        "text": "Luister heel goed naar wat de dokter vertelt.  ",
-        "textp2": "In welk jaar werd het centrum opgericht?",
-        "prompt": ""
+        "text": "Luister en kijk heel goed naar de presentatie.",
+        "textp2": "Zie jij in de presenatie in welk jaar het centrum Brussels IVF werd opgericht?",
+        "prompt": "",
+        "wrongpage": {
+            "redtext": "Fout!",
+            "message": "Ik weet zeker dat je het juiste antwoord kent."
+        },
+        "correctpage": {
+            "green": "Het centrum werd opgericht in 1983. Dit betekent dat we dit jaar ons 40 jaar bestaan vieren.",
+            "message": "Je gaat verder door op de pijl te klikken."
+        }
     },
     "planepage": {
         "title": "Welkom bij de demo invriezen!",
         "letter": "O",
         "choices": {
-            "choise1": true,
-            "choise2": false
+            "choise1": "PIZZA",
+            "choise2": "EEN EI"
         },
-        "answer": "test",
+        "answer": "EEN EI",
         "solved": false,
         "text": "Wat kan je hier invriezen? ",
         "textp2": "",
-        "prompt": ""
+        "prompt": "",
+        "wrongpage": {
+            "redtext": "Fout!",
+            "message": "Probeer opnieuw."
+        },
+        "correctpage": {
+            "green": "Juist, goed gedaan!",
+            "message": "Ga verder, klik op de pijl."
+        }
     },
     "guesscodepage": {
         "almostmsg": "You are almost there, you can do it!",
         "text": "ENTER HERE THE CODE WORD WE ARE LOOKING FOR TO HELP THE PATIENT",
-        "textbox": "What's your answer?"
+        "textbox": "What's your answer?",
+        "wrongpage": {
+            "redtext": "Fout!",
+            "message": "Probeer opnieuw."
+        },
+        "correctpage": {
+            "green": "Juist!",
+            "message": "Ga verder door op deze pijl te klikken."
+        }
     },
     "finalpage": {
         "congrats": "You have found the code word the doctor needs for the patient! In return you will receive a gift on the main floor. It was great to have met you!"

@@ -7,7 +7,6 @@ import { AppContext } from '../context';
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 
-
 const ImgContainer = styled.div`
 
     /* border-radius: 50%;
@@ -34,8 +33,6 @@ const Wrapper = styled.div`
 
     /* @media only screen and (min-width: 600px) {
 
-
-
     } */
 
 `;
@@ -51,7 +48,6 @@ const FlagsFlex = styled.div`
     & > :not(:last-child) {
         /* flex: 1; */
     }
-
 
 `;
 
@@ -97,12 +93,7 @@ function InitialPage() {
                 <Button variant="contained" size="small" startIcon={< ArrowForwardIcon />}
                     onClick={() => navigate(`/home`, { replace: true })}>Next</Button>
 
-
-
             </FlagsFlex>
-
-
-
 
         </Wrapper>
 

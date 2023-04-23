@@ -12,7 +12,7 @@ function CorrectPage() {
 
   // const navigate = useNavigate()
   const location = useLocation();
-  const { currGameImage, currGameHost } = location.state;
+  const { currGameImage, currGameHost, rightText, rightGreenText } = location.state;
   const { t } = useTranslation();
   return (
     <Grid>
@@ -21,11 +21,8 @@ function CorrectPage() {
         <img src={`/images${currGameImage}`} alt={`${currGameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
       </Flex>
 
-      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{t("correctpage.green")}</h3>, t("correctpage.message")]} />
-      {/* <Cloud arrowUp={true} greentext={<h1> Correct!</h1>} text={"You can continue when clicking on the arrow."} /> */}
-
-      {/* <button onClick={() => navigate('')} > <FamilyRestroomIcon sx={{ fontSize: 100 }} /></button> */}
-      {/* <button> <Link to='/' ><FamilyRestroomIcon sx={{ fontSize: 100 }} /></Link></button> */}
+      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{rightGreenText}</h3>, rightText]} />
+      {/* <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{t("correctpage.green")}</h3>, t("correctpage.message")]} /> */}
 
       <Link to='/home' style={{ alignSelf: 'flex-end', justifySelf: 'flex-end' }} >
         <ArrowForwardIcon

@@ -19,9 +19,6 @@ function HomePage() {
 
         <Img src={`/images/marielukas.png`} alt={`marielukas`} />
         <Title>{t("title")}</Title>
-        {/* <Flex>
-        </Flex > */}
-
 
         <CustomH4>{t('homepage.text', { playerName })}
         </CustomH4>

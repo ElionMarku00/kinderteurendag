@@ -9,7 +9,7 @@ import Cloud from '../Components/Cloud';
 function IncorrectPage() {
 
   const location = useLocation();
-  const { currGameImage, currGameHost } = location.state;
+  const { currGameImage, currGameHost, wrongText, wrongRedText } = location.state;
   const { t } = useTranslation();
 
   const navigate = useNavigate()
@@ -21,7 +21,8 @@ function IncorrectPage() {
         <img src={`/images${currGameImage}`} alt={`${currGameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
       </Flex>
 
-      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'red' }}>{t("wrongpage.redtext")}</h3>, t("wrongpage.message")]} />
+      {/* <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'red' }}>{t("wrongpage.redtext")}</h3>, t("wrongpage.message")]} /> */}
+      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'red' }}>{wrongRedText}</h3>, wrongText]} />
       <ReplayIcon sx={{ fontSize: 100 }} onClick={() => navigate(-1)} style={{ alignSelf: 'center', justifySelf: 'center', color: 'black' }} />
 
     </Grid >

@@ -46,7 +46,7 @@ const GameZone = (props) => {
     const [text, setText] = useState('');
     const { checker, data, currentGame, ...otherprops } = props;
     const { getGameDataByName } = React.useContext(AppContext)
-    const [gameType, currGameAns, currGameImage, currGameHost] = getGameDataByName(currentGame)
+    const [gameType, currGameAns, currGameImage, currGameHost, currGameTitle, currGameText, currGameTextp2, wrongRedText, wrongText, rightGreenText, rightText] = getGameDataByName(currentGame)
 
     const [letters, setLetters] = useState([]);
     const [correctOrder] = useState([...currGameAns]);
@@ -78,10 +78,9 @@ const GameZone = (props) => {
         console.log('ans from checker = ', checker(ans, currentGame));
 
         if (checker(ans, currentGame)) {
-            navigate('/correct', { state: { currGameImage, currGameHost } })
-
+            navigate('/correct', { state: { currGameImage, currGameHost, rightText, rightGreenText } })
         }
-        else navigate('/incorrect', { state: { currGameImage, currGameHost } })
+        else navigate('/incorrect', { state: { currGameImage, currGameHost, wrongText, wrongRedText } })
 
     }
     switch (gameType) {
@@ -112,7 +111,7 @@ const GameZone = (props) => {
 
                     <h3>Arrange the letters in the correct order:</h3>
 
-                    <Grid {...otherprops} gameAnswer = {currGameAns}>
+                    <Grid {...otherprops} gameAnswer={currGameAns}>
                         {scambled.map((letter, index) => (
                             <Letter
                                 key={`drag- ${index}- ${letter}`}

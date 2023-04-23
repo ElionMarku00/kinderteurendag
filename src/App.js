@@ -4,15 +4,20 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCodePage, FinalPage, InitialPage } from './Pages'
 
 //TODO
-// add multiple correct or wrong messages like in french.
-// add modal on homepage that says correct when user clicks on already solved qstn
-// finish what is the code word we're looking for page
-// add checking logic for final answer
+// features:
 //LOCAL STORAGE anti reload (careful on platform; chrome etc..)
+// fix clicking solved questions 
+// add checking logic for final answer
 // randomize icons not to crowd the physical medical departments
 // graphic adjustmens and animations
+// add error page redirecting to home page
+//improvements:
+// finish styling the buttons for previous and next etc
+// fix correct and incorrect pages for pc
+// add multiple correct or wrong messages like in french.
+// finish what is the code word we're looking for page
 // add more game types
-// drag doesn;t work on pc
+// drag doesn't work on pc
 // the chick page has some different greentext on the correct page. check how to change it 
 //useMemo on pages useCallback on handlers should improve performance
 
