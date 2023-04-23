@@ -6,9 +6,7 @@ import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCo
 //TODO
 // features:
 // LOCAL STORAGE anti reload (careful on platform; chrome etc..)
-// fix clicking solved questions 
 // add checking logic for final answer
-// randomize icons not to crowd the physical medical departments
 // graphic adjustmens and animations
 // add error page redirecting to home page when 
 //improvements:

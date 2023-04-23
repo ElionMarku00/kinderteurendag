@@ -55,6 +55,13 @@ const AppProvider = ({ children }) => {
     },
   ])
 
+  // shuffle list only once at the very start
+  React.useEffect(() => {
+    const shuffledList = data.sort(() => Math.random() - 0.5);
+    setData(shuffledList);
+  }, []); // empty dependency array means this effect runs only once on mount
+
+
   const setSolved = (currentGame) => {
     console.log('correct', currentGame);
 
