@@ -15,7 +15,6 @@ function CorrectPage() {
   // const navigate = useNavigate()
   const location = useLocation();
   const { currGameImage, currGameHost, rightText, rightGreenText } = location.state;
-  const { t } = useTranslation();
   return (
     <Grid>
       <Flex>

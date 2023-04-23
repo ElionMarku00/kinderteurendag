@@ -26,12 +26,12 @@ function HomePage() {
 
             {data.map((item) => {
 
-                let { name, solved, letter, icon, text, type, prompt, numPages } = item;
+                let { name, solved, letter, icon, text, type, prompt, numPages, gameHost, rightPageMessage, rightTextGreen } = item;
                 return (<ImgContainer key={name}
                     onClick={() => {
                         !solved
                             ? navigate(`/game`, { state: { text, prompt, numPages, currentGame: name, type, } })
-                            : navigate(`/correct`);
+                            : navigate(`/correct`, { state: { currGameImage: icon, currGameHost: gameHost, rightText: rightPageMessage, rightGreenText: rightTextGreen } });
                     }}>
                     {!solved
                         ? <img src={`/images${icon}`} alt={`${name}`} width="80%" height="auto" />
@@ -47,7 +47,7 @@ function HomePage() {
             {t('homepage.qstn')}
         </BottomText>
 
-    </Layout>
+    </Layout >
 
     )
 }
