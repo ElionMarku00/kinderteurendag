@@ -18,7 +18,6 @@ import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCo
 // finish what is the code word we're looking for page
 // add more game types
 // drag doesn't work on pc
-// the chick page has some different greentext on the correct page. check how to change it 
 //useMemo on pages useCallback on handlers should improve performance
 
 function App() {

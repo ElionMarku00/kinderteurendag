@@ -17,8 +17,8 @@
     "beepage": {
         "letter": "E",
         "choices": {
-            "choise1": "choise1",
-            "choise2": "choise2"
+            "choise1": "des spermatozoïdes",
+            "choise2": "des canards"
         },
         "answer": "choice2",
         "solved": false,
@@ -29,14 +29,14 @@
             "message": "Essaie à nouveau."
         },
         "correctpage": {
-            "green": "Exact!",
+            "green": "Exact!  Joue le jeu et découvre quelle lettre est cachée. Attention, tous les spermatozoïdes ne contiennent pas une lettre.",
             "message": "Continue en cliquant sur la flèche."
         }
     },
     "butterflypage": {
         "title": "Bienvenue à la démo laparoscopie!",
         "letter": "M",
-        "answer": "test",
+        "answer": "M",
         "solved": false,
         "text": "Ici, tu peux opérer toi-même, comme un vrai médecin! Envie d'essayer? Alors entrons. ",
         "textp2": "Lorsque tu feras l'opération, regarde bien et tu verras apparaître une lettre. Quelle lettre vois-tu ? ",
@@ -46,25 +46,25 @@
             "message": "Essaie à nouveau."
         },
         "correctpage": {
-            "green": "Exact!",
+            "green": "En effet!",
             "message": "Continue en cliquant sur la flèche."
         }
     },
     "ladybugpage": {
         "title": "Bienvenue à l'échographie! ",
         "letter": "B",
-        "answer": "test",
+        "answer": "5",
         "solved": false,
         "text": "Sur la porte de la salle d'échographie, tu trouveras un chiffre. Il s'agit du nombre d'échographies réalisées en 2022.  ",
         "textp2": "Quel est le résultat si tu additionnes le premier chiffre et le dernier chiffre de ce nombre? ",
         "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022.",
         "wrongpage": {
             "redtext": "Faux!",
-            "message": "Essaie à nouveau."
+            "message": "Réessaie, tu vas y arriver {{playerName}}! "
         },
         "correctpage": {
-            "green": "Exact!",
-            "message": "Continue en cliquant sur la flèche."
+            "green": "Correct! ",
+            "message": "Continue en cliquant sur la flèche ci-dessous."
         }
     },
     "slugpage": {
@@ -74,7 +74,7 @@
             "choise1": "choise1",
             "choise2": "choise2"
         },
-        "answer": "test",
+        "answer": "ICSI",
         "solved": false,
         "text": "Ici, tu peux voir un technicien de laboratoire au travail, insérant un spermatozoïde dans une ovule à l'aide d'une aiguille très fine.  ",
         "textp2": "Comment s'appelle cette technique? ",
@@ -84,15 +84,15 @@
             "message": "Essaie à nouveau."
         },
         "correctpage": {
-            "green": "Exact!",
+            "green": "Bravo, très bien joué {{playerName}}!",
             "message": "Continue en cliquant sur la flèche."
         }
     },
     "chickpage": {
         "title": "Bienvenue dans notre auditorium où tu peux entendre le médecin donner une conférence.",
         "choices": {
-            "choise1": "choiseee1",
-            "choise2": "choiseee2"
+            "choise2": "1983",
+            "choise1": "2005"
         },
         "answer": "test",
         "letter": "Y",
@@ -102,19 +102,19 @@
         "prompt": "",
         "wrongpage": {
             "redtext": "Faux!",
-            "message": "Essaie à nouveau."
+            "message": "Je suis sûr que tu connais la bonne réponse."
         },
         "correctpage": {
-            "green": "Exact!",
-            "message": "Continue en cliquant sur la flèche."
+            "green": "Le centre a été fondé en 1983. Nous célébrons donc notre 40ième anniversaire cette année.  ",
+            "message": "Continue en cliquant sur la flèche ci-dessous."
         }
     },
     "planepage": {
         "title": "Bienvenue dans la démo de la congélation!",
         "letter": "O",
         "choices": {
-            "choise1": true,
-            "choise2": false
+            "choise1": "UNE PIZZA",
+            "choise2": "UN ŒUF"
         },
         "answer": "test",
         "solved": false,
@@ -123,11 +123,11 @@
         "prompt": "",
         "wrongpage": {
             "redtext": "Faux!",
-            "message": "Essaie à nouveau."
+            "message": "Réessaie."
         },
         "correctpage": {
-            "green": "Exact!",
-            "message": "Continue en cliquant sur la flèche."
+            "green": "Exact, bien joué! ",
+            "message": "Pour continuer, clique sur la flèche."
         }
     },
     "guesscodepage": {
@@ -144,6 +144,7 @@
         }
     },
     "finalpage": {
+        "green":"Félicitations  {{playerName}}!",
         "congrats": "Tu as trouvé le mot de passe dont le médecin a besoin pour aider le patient : embryon! Rends-toi à l`endroit où se trouve le ballon sur le plan et reçois ton cadeau. C'était très chouette de faire ta connaissance!"
     }
 }

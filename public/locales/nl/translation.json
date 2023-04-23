@@ -131,8 +131,8 @@
         }
     },
     "guesscodepage": {
-        "almostmsg": "You are almost there, you can do it!",
-        "text": "ENTER HERE THE CODE WORD WE ARE LOOKING FOR TO HELP THE PATIENT",
+        "almostmsg": "Je bent er bijna, je kan het!",
+        "text": "Vul hieronder de letters aan in de juiste volgorde en vind zo het codewoord dat we zoeken. Klik vervolgens op de pijl om te kijken of je juist bent!",
         "textbox": "What's your answer?",
         "wrongpage": {
             "redtext": "Fout!",
@@ -144,6 +144,7 @@
         }
     },
     "finalpage": {
-        "congrats": "You have found the code word the doctor needs for the patient! In return you will receive a gift on the main floor. It was great to have met you!"
+        "green":"GEFELICITEERD {{playerName}}!",
+        "congrats": "Je hebt het codewoord gevonden dat de dokter nodig heeft om de patiënt te helpen: embryo! Ga naar de locatie van de ballon op het plannetje en ontvang jouw geschenk. Het was heel leuk jou te leren kennen!"
     }
 }
