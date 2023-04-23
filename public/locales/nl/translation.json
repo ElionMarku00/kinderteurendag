@@ -91,8 +91,8 @@
     "chickpage": {
         "title": "Welkom in het auditorium waar je kan luisteren naar de dokter die een lezing geeft.",
         "choices": {
-            "choise1": "2005",
-            "choise2": "1983"
+            "choise2": "1983",
+            "choise1": "2005"
         },
         "answer": "1983",
         "letter": "Y",
@@ -105,7 +105,7 @@
             "message": "Ik weet zeker dat je het juiste antwoord kent."
         },
         "correctpage": {
-            "green": "Het centrum werd opgericht in 1983. Dit betekent dat we dit jaar ons 40 jaar bestaan vieren.",
+            "green": "Juist! Het centrum werd opgericht in 1983. Dit betekent dat we dit jaar ons 40 jaar bestaan vieren.",
             "message": "Je gaat verder door op de pijl te klikken."
         }
     },

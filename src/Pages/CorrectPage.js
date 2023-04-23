@@ -7,9 +7,11 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Cloud } from '../Components';
 
 import { useTranslation } from 'react-i18next';
+import { AppContext } from '../context';
 
 function CorrectPage() {
 
+  const { playerName } = React.useContext(AppContext)
   // const navigate = useNavigate()
   const location = useLocation();
   const { currGameImage, currGameHost, rightText, rightGreenText } = location.state;
@@ -21,7 +23,7 @@ function CorrectPage() {
         <img src={`/images${currGameImage}`} alt={`${currGameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
       </Flex>
 
-      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{rightGreenText}</h3>, rightText]} />
+      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{rightGreenText.replace('{{playerName}}', playerName)}</h3>, rightText.replace('{{playerName}}', playerName)]} />
       {/* <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{t("correctpage.green")}</h3>, t("correctpage.message")]} /> */}
 
       <Link to='/home' style={{ alignSelf: 'flex-end', justifySelf: 'flex-end' }} >

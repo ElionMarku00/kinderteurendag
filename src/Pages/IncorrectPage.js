@@ -1,5 +1,6 @@
 import React from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
+import { AppContext } from '../context';
 import styled from 'styled-components'
 // import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import ReplayIcon from '@mui/icons-material/Replay';
@@ -10,6 +11,7 @@ function IncorrectPage() {
 
   const location = useLocation();
   const { currGameImage, currGameHost, wrongText, wrongRedText } = location.state;
+  const { playerName } = React.useContext(AppContext)
   const { t } = useTranslation();
 
   const navigate = useNavigate()
@@ -22,7 +24,7 @@ function IncorrectPage() {
       </Flex>
 
       {/* <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'red' }}>{t("wrongpage.redtext")}</h3>, t("wrongpage.message")]} /> */}
-      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'red' }}>{wrongRedText}</h3>, wrongText]} />
+      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'red' }}>{wrongRedText.replace('{{playerName}}', playerName)}</h3>, wrongText.replace('{{playerName}}', playerName)]} />
       <ReplayIcon sx={{ fontSize: 100 }} onClick={() => navigate(-1)} style={{ alignSelf: 'center', justifySelf: 'center', color: 'black' }} />
 
     </Grid >
