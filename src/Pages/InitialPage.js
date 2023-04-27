@@ -60,6 +60,9 @@ function InitialPage() {
     return (
 
         <Wrapper>
+            <ImgContainer style={{ alignSelf: 'center' }} >
+                <img src="/images/LOGO 2023.PNG" alt="French flag" style={{ height: '100px', width: 'auto' }} />
+            </ImgContainer>
 
             <FlagsFlex>
                 <h1 style={{ marginTop: "auto" }}>{t("welcome")}</h1>
@@ -86,9 +89,6 @@ function InitialPage() {
 
                 <DropDownList />
 
-
-
-
                 <TextField id="outlined-basic"
                     label={t("nameQuestion")}
                     variant="outlined"
@@ -96,8 +96,14 @@ function InitialPage() {
                     onChange={(e) => setPlayerName(e.target.value)}
                 />
 
-                <Button variant="contained" size="small" startIcon={< ArrowForwardIcon />}
-                    onClick={() => navigate(`/home`, { replace: true })}>Next</Button>
+                <Button variant="contained" size="small" endIcon={< ArrowForwardIcon />}
+                    onClick={() => navigate(`/home`, { replace: true })} />
+
+                <ImgContainer style={{ alignSelf: 'center' }} >
+                    <img src="/images/Logo_IVFBrussels_CMYK_blauw_DEF.jpg" alt="French flag" style={{ height: '100px', width: 'auto' }} />
+                </ImgContainer>
+
+
 
             </FlagsFlex>
 
