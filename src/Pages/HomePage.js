@@ -146,7 +146,7 @@ const ImgContainer = styled.section`
     font-size:3rem;
     font-weight:300;
     border-radius:50%;
-    padding:2rem;
+    padding:2.2rem;
     position:relative;
     bottom:30px;
 }

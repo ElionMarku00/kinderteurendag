@@ -18,7 +18,7 @@ i18next
         //     fr: { translation: translationFr },
         //     nl: { translation: translationNl },
         // },
-        fallbackLng: 'eng',
+        fallbackLng: 'nl',
         interpolation: {
             escapeValue: false
         }

@@ -6,6 +6,7 @@ import { TextField } from "@mui/material";
 import { AppContext } from '../context';
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import { DropDownList } from '../Components';
 
 const ImgContainer = styled.div`
 
@@ -29,7 +30,6 @@ const Wrapper = styled.div`
     padding:0;
     height:100vh;
     width:100vw;
-    background-color:lavender;
 
     /* @media only screen and (min-width: 600px) {
 
@@ -64,7 +64,7 @@ function InitialPage() {
             <FlagsFlex>
                 <h1 style={{ marginTop: "auto" }}>{t("welcome")}</h1>
 
-                <label>
+                {/* <label>
                     <ImgContainer style={{ alignSelf: 'center' }} onClick={() => setLanguage('fr')}>
                         <input type="radio" value="option1" checked={i18n.language === "fr"} onChange={() => setLanguage('fr')} />
                         <img src="/images/fr_flag.gif" alt="French flag" style={{ height: '100px', width: 'auto' }} />
@@ -75,13 +75,19 @@ function InitialPage() {
                         <input type="radio" value="option2" checked={i18n.language === "nl"} onChange={() => setLanguage('nl')} />
                         <img src="/images/nl_flag.gif" alt="Netherlands flag" style={{ height: '100px', width: 'auto' }} />
                     </ImgContainer>
-                </label>
-                <label>
+                </label> */}
+                {/* <label>
                     <ImgContainer style={{ alignSelf: 'center', }} onClick={() => setLanguage('en')}>
                         <input type="radio" value="option3" checked={i18n.language === "en"} onChange={() => setLanguage('en')} />
                         <img src="/images/UK_flag.gif" alt="UK flag" style={{ height: '100px', width: 'auto' }} />
                     </ImgContainer>
-                </label>
+                </label> */}
+
+
+                <DropDownList />
+
+
+
 
                 <TextField id="outlined-basic"
                     label={t("nameQuestion")}

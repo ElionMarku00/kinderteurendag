@@ -4,19 +4,21 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCodePage, FinalPage, InitialPage } from './Pages'
 
 //TODO
+
+// more measuring metrics for {when the game is left} and game runtime. 
+
 // features:
 // LOCAL STORAGE anti reload (careful on platform; chrome etc..)
 // add checking logic for final answer
 // graphic adjustmens and animations
-// add error page redirecting to home page when 
-//improvements:
+// add error page redirecting to home page when invalid link
+
+// improvements:
 // finish styling the buttons for previous and next etc
 // fix correct and incorrect pages for pc
-// add multiple correct or wrong messages like in french.
 // finish what is the code word we're looking for page
-// add more game types
-// drag doesn't work on pc
-//useMemo on pages useCallback on handlers should improve performance
+// drag doesn't work on pc and it glitches on iphones
+// useMemo on pages useCallback on handlers should improve performance
 
 function App() {
   return (
