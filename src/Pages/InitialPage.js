@@ -95,9 +95,22 @@ function InitialPage() {
                     style={{ width: '70vw' }}
                     onChange={(e) => setPlayerName(e.target.value)}
                 />
-
+                {/* 
                 <Button variant="contained" size="small" endIcon={< ArrowForwardIcon />}
-                    onClick={() => navigate(`/home`, { replace: true })} />
+                    onClick={() => navigate(`/home`, { replace: true })} /> */}
+
+                <Button onClick={() => {
+                    navigate(`/home`, { replace: true })
+                }}>
+                    <ArrowForwardIcon
+                        style={{ color: 'black' }}
+                        sx={{ fontSize: 70 }}
+
+                    />
+
+                </Button>
+
+
 
                 <ImgContainer style={{ alignSelf: 'center' }} >
                     <img src="/images/Logo_IVFBrussels_CMYK_blauw_DEF.jpg" alt="French flag" style={{ height: '100px', width: 'auto' }} />

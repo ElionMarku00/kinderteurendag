@@ -147,7 +147,7 @@
         "green": "GEFELICITEERD {{playerName}}!",
         "congrats": "Je hebt het codewoord gevonden dat de dokter nodig heeft om de patiënt te helpen: embryo! Ga naar de locatie van de ballon op het plannetje en ontvang jouw geschenk. Het was heel leuk jou te leren kennen!"
     },
-    "initialPage":{
-        "languageQstn":"Taal"
+    "initialPage": {
+        "languageQstn": "Taal"
     }
 }

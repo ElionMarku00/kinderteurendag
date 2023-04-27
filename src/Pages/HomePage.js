@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Button from '@mui/material/Button';
+
 
 import { useNavigate } from "react-router-dom";
 import { AppContext } from '../context';
@@ -42,10 +44,20 @@ function HomePage() {
             })}
 
         </Grid>
-
-        <BottomText onClick={() => navigate('/guesscode')}>
+            
+        <Button
+            variant='outlined'
+            color="primary"
+            style={{
+                gridColumn: "1/3",
+                textAlign: "center",
+                alignSelf: "center",
+                justifySelf: "center",
+                gridArea: "5/1/6/6"
+            }}
+            onClick={() => navigate('/guesscode')}>
             {t('homepage.qstn')}
-        </BottomText>
+        </Button>
 
     </Layout >
 
