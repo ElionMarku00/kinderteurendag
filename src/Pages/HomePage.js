@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Button from '@mui/material/Button';
 
-
 import { useNavigate } from "react-router-dom";
 import { AppContext } from '../context';
 import { useTranslation } from 'react-i18next';
@@ -10,12 +9,21 @@ import { useTranslation } from 'react-i18next';
 // base page with a grid and icons inside for the questions. each question will reveal a letter after answered correctly
 function HomePage() {
 
+    const [hpData, setHpData] = React.useState()
+
+    React.useEffect(() => {
+        const hpData = JSON.parse(localStorage.getItem('data'));
+        if (hpData) {
+            setHpData(hpData);
+        }
+    }, []);
+
     const { t } = useTranslation();
 
     const navigate = useNavigate();
     // const navToGuessPage = () => navigate(`/game`)
 
-    const { data, playerName } = React.useContext(AppContext)
+    const { data,playerName } = React.useContext(AppContext)
 
     return (<Layout>
 
@@ -26,7 +34,7 @@ function HomePage() {
         </CustomH4>
         <Grid>
 
-            {data.map((item) => {
+            {hpData && hpData.map((item) => {
 
                 let { name, solved, letter, icon, text, type, prompt, numPages, gameHost, rightPageMessage, rightTextGreen } = item;
                 return (<ImgContainer key={name}
@@ -44,7 +52,7 @@ function HomePage() {
             })}
 
         </Grid>
-            
+
         <Button
             variant='outlined'
             color="primary"

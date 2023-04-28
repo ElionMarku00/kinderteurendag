@@ -14,9 +14,7 @@ const AppProvider = ({ children }) => {
 
   const [playerName, setPlayerName] = React.useState('')
 
-
   const [data, setData] = React.useState([
-    // { name: "Bee", icon: '/bee.png', letter: "E", type: GameTypes.multipleChoice, choices: { 'choise1': true, 'choise2': false }, answer: "choice2", solved: false, text: "Welcome to the sperm game! Do you know what you can fish up here?" },
     {
       name: "Bee", icon: '/bee.png', letter: "E", type: GameTypes.multipleChoice, choices: { [t('beepage.choices.choise1')]: true, [t('beepage.choices.choise2')]: false },
       answer: t("beepage.answer"), solved: false, text: t('beepage.text'), prompt: t("beepage.prompt"), textp2: t('beepage.textp2'), numPages: 1,
@@ -57,21 +55,28 @@ const AppProvider = ({ children }) => {
 
   // shuffle list only once at the very start
   React.useEffect(() => {
-    const shuffledList = data.sort(() => Math.random() - 0.5);
-    setData(shuffledList);
+    const localData = localStorage.getItem('data')
+    if (localData) return; // if we already have some progress in the game keep it
+    else { //if not shuffle it and start anew
+      const shuffledList = data.sort(() => Math.random() - 0.5);
+      localStorage.setItem('data', JSON.stringify(data));
+      setData(shuffledList);
+    }
+
   }, []); // empty dependency array means this effect runs only once on mount
 
 
   const setSolved = (currentGame) => {
-    console.log('correct', currentGame);
 
+    const localData = JSON.parse(localStorage.getItem('data'))
     const currGameIndx = data.findIndex((i) => i.name === currentGame)
 
-    let items = [...data];
-    let item = { ...data[currGameIndx] };
+    let items = [...localData];
+    let item = { ...localData[currGameIndx] };
     item.solved = true;
     items[currGameIndx] = item;
     setData([...items]);
+    localStorage.setItem('data', JSON.stringify([...items]));
 
   }
 

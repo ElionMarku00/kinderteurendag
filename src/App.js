@@ -8,7 +8,7 @@ import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCo
 // more measuring metrics for {when the game is left} and game runtime. 
 
 // features:
-// LOCAL STORAGE anti reload (careful on platform; chrome etc..)
+// LOCAL STORAGE add playername
 // add checking logic for final answer
 // graphic adjustmens and animations
 // add error page redirecting to home page when invalid link
