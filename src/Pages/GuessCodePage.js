@@ -1,14 +1,15 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import {Cloud,Title} from '../Components';
+import { Cloud, Title } from '../Components';
 import { TextField } from "@mui/material";
 import { useTranslation } from 'react-i18next';
+import { AppContext } from '../context';
 
 const Flex = styled.main`
 
-height:100vh;
-width:100vw;
+  height:100vh;
+  width:100vw;
     display:flex;
     flex-direction:column;
     justify-content:space-around;
@@ -20,12 +21,39 @@ width:100vw;
     overflow-y:scroll;
 
 `;
+const LettersFlex = styled.div`
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  width:100vw;
+  justify-content:space-evenly;
+  flex-wrap:wrap;
+
+`;
+
+const Letter = styled.div`
+
+padding:1rem;
+font-size:large;
+margin:1rem ;
+border:1px solid black;
+
+
+`;
+
+
 
 function GuessCodePage() {
 
-  // const [text, setText] = React.setState('');
   const navigate = useNavigate();
-  const {t} = useTranslation()
+  const { t } = useTranslation()
+
+  const { getFoundLetters } = React.useContext(AppContext)
+
+  const foundLetters = getFoundLetters()
+
+
+
 
   return (
 
@@ -37,6 +65,14 @@ function GuessCodePage() {
         <Cloud arrowUp={true} text={t("guesscodepage.almostmsg")} />
       </div>
       <Title text={t("guesscodepage.text")} />
+
+      {foundLetters && <LettersFlex>
+
+        {foundLetters && foundLetters.map(lett => {
+          return <Letter key={lett}>{lett}</Letter>
+        })}
+
+      </LettersFlex>}
       <TextField id="outlined-basic" label={t("guesscodepage.textbox")} variant="outlined" style={{ margin: '0 1rem' }} />
 
       <div>

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
 
-  const { t } = useTranslation();
+  const { t, } = useTranslation();
 
   const setLanguage = (lng) => {
     i18next.changeLanguage(lng);
@@ -56,6 +56,8 @@ const AppProvider = ({ children }) => {
   // shuffle list only once at the very start
   React.useEffect(() => {
     const localData = localStorage.getItem('data')
+
+
     if (localData) return; // if we already have some progress in the game keep it
     else { //if not shuffle it and start anew
       const shuffledList = data.sort(() => Math.random() - 0.5);
@@ -64,7 +66,32 @@ const AppProvider = ({ children }) => {
     }
 
   }, []); // empty dependency array means this effect runs only once on mount
+  React.useEffect(() => {
+    const name = localStorage.getItem('playerName')
 
+    if (name) return; // if we already have some progress in the game keep it
+    else { //if not shuffle it and start anew
+
+      setPlayerName(name);
+    }
+
+  }, []); // empty dependency array means this effect runs only once on mount
+
+  function getFoundLetters() {
+
+    const localData = JSON.parse(localStorage.getItem('data'))
+
+    let solvedLetters = localData
+      .filter(item => item.solved)
+      .map(solved => solved.letter)
+
+    if (i18next.language === 'fr') {
+      solvedLetters.push('N')
+    }
+
+    return solvedLetters
+
+  }
 
   const setSolved = (currentGame) => {
 
@@ -172,7 +199,9 @@ const AppProvider = ({ children }) => {
 
         setLanguage,
         checkAnsw,
-        getGameDataByName
+        getGameDataByName,
+
+        getFoundLetters
 
 
       }}

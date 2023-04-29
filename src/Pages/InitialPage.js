@@ -93,7 +93,10 @@ function InitialPage() {
                     label={t("nameQuestion")}
                     variant="outlined"
                     style={{ width: '70vw' }}
-                    onChange={(e) => setPlayerName(e.target.value)}
+                    onChange={(e) => {
+                        setPlayerName(e.target.value)
+                        localStorage.setItem("playerName", JSON.stringify(e.target.value))
+                    }}
                 />
                 {/* 
                 <Button variant="contained" size="small" endIcon={< ArrowForwardIcon />}
@@ -110,13 +113,9 @@ function InitialPage() {
 
                 </Button>
 
-
-
                 <ImgContainer style={{ alignSelf: 'center' }} >
                     <img src="/images/Logo_IVFBrussels_CMYK_blauw_DEF.jpg" alt="French flag" style={{ height: '100px', width: 'auto' }} />
                 </ImgContainer>
-
-
 
             </FlagsFlex>
 
