@@ -69,7 +69,6 @@ function GuessCodePage() {
       let incorrectState = { currGameImage: "", currGameHost: "/marielukas.png", wrongText: t("guesscodepage.wrongpage.message"), wrongRedText: t("guesscodepage.wrongpage.redtext") }
 
       navigate('/incorrect', { state: incorrectState })
-      // navigate('/incorrect')
     }
 
   }

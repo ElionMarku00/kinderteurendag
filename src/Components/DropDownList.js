@@ -24,10 +24,11 @@ export default function BasicSelect() {
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     value={i18n.language}
+                    defaultValue='nl'
                     label="Age"
                     onChange={handleChange}
                 >
-                    <MenuItem value={'nl'}>NL</MenuItem>
+                    <MenuItem value={'nl'} selected={true}>NL</MenuItem>
                     <MenuItem value={'fr'}>FR</MenuItem>
                     {/* <MenuItem value={30}>English</MenuItem> */}
                 </Select>

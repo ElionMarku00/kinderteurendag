@@ -10,7 +10,7 @@ import HTTPApi from 'i18next-http-backend'
 
 i18next
     .use(initReactI18next)
-    .use(I18nextBrowserLanguageDetector)
+    // .use(I18nextBrowserLanguageDetector)
     .use(HTTPApi)
     .init({
         // resources: {
