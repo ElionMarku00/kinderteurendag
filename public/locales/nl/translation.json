@@ -133,7 +133,7 @@
     "guesscodepage": {
         "almostmsg": "Je bent er bijna, je kan het!",
         "text": "Vul hieronder de letters aan in de juiste volgorde en vind zo het codewoord dat we zoeken. Klik vervolgens op de pijl om te kijken of je juist bent!",
-        "textbox": "What's your answer?",
+        "textbox": "Wat is je antwoord?",
         "wrongpage": {
             "redtext": "Fout!",
             "message": "Probeer opnieuw."
@@ -141,7 +141,8 @@
         "correctpage": {
             "green": "Juist!",
             "message": "Ga verder door op deze pijl te klikken."
-        }
+        },
+        "answer":"embryo"
     },
     "finalpage": {
         "green": "GEFELICITEERD {{playerName}}!",

@@ -141,7 +141,8 @@
         "correctpage": {
             "green": "Exact!",
             "message": "Continue en cliquant sur la flèche."
-        }
+        },
+        "answer":"embryon"
     },
     "finalpage": {
         "green":"Félicitations  {{playerName}}!",

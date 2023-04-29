@@ -48,12 +48,31 @@ function GuessCodePage() {
   const navigate = useNavigate();
   const { t } = useTranslation()
 
-  const { getFoundLetters } = React.useContext(AppContext)
+  const { getFoundLetters, finalGameAnswer } = React.useContext(AppContext)
+
+  const [givenAnswer, setGivenAnswer] = React.useState('')
 
   const foundLetters = getFoundLetters()
 
+  function verifyAnswer() {
 
+    return givenAnswer.toLowerCase() === finalGameAnswer.toLowerCase()
 
+  }
+
+  function routeToFinalPage() {
+
+    if (verifyAnswer()) {
+      navigate('/finalpage',)
+    }
+    else {
+      let incorrectState = { currGameImage: "", currGameHost: "/marielukas.png", wrongText: t("guesscodepage.wrongpage.message"), wrongRedText: t("guesscodepage.wrongpage.redtext") }
+
+      navigate('/incorrect', { state: incorrectState })
+      // navigate('/incorrect')
+    }
+
+  }
 
   return (
 
@@ -73,11 +92,11 @@ function GuessCodePage() {
         })}
 
       </LettersFlex>}
-      <TextField id="outlined-basic" label={t("guesscodepage.textbox")} variant="outlined" style={{ margin: '0 1rem' }} />
+      <TextField id="outlined-basic" label={t("guesscodepage.textbox")} variant="outlined" style={{ margin: '0 1rem' }} onChange={(e) => setGivenAnswer(e.target.value)} />
 
       <div>
         <button onClick={() => navigate(-1)} >Previous!</button>
-        <button onClick={() => navigate('/finalpage',)} >Next!</button>
+        <button onClick={() => routeToFinalPage()} >Next!</button>
       </div>
 
 

@@ -4,7 +4,6 @@ import { Cloud } from '../Components';
 import { useTranslation } from 'react-i18next';
 import { AppContext } from '../context';
 
-
 const Layout = styled.div`
 display:flex;
 flex-direction:column;

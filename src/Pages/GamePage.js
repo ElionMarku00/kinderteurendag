@@ -14,7 +14,7 @@ function GamePage() {
   const { t } = useTranslation();
 
   const { currentGame, text, type, prompt, numPages } = location.state;
-  const { gameType, data, checkAnsw, getGameDataByName } = React.useContext(AppContext)
+  const { gameType, data, checkAnsw, getGameDataByName} = React.useContext(AppContext)
 
   // const image = data.find(x => x.name === currentGame).icon
 
@@ -56,9 +56,7 @@ function GamePage() {
             :
             <GameZone style={{ gridArea: "4/1/5/6", justifySelf: 'center', alignSelf: 'center' }} checker={checkAnsw} currentGame={currentGame} data={data} />
 
-
         }
-
 
       </Flex >
 

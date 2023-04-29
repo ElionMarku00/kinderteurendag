@@ -6,12 +6,13 @@ import { useTranslation } from 'react-i18next';
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
 
-  const { t, } = useTranslation();
+  const { t } = useTranslation();
 
   const setLanguage = (lng) => {
     i18next.changeLanguage(lng);
   };
 
+  const finalGameAnswer = t("guesscodepage.answer")
   const [playerName, setPlayerName] = React.useState('')
 
   const [data, setData] = React.useState([
@@ -57,7 +58,6 @@ const AppProvider = ({ children }) => {
   React.useEffect(() => {
     const localData = localStorage.getItem('data')
 
-
     if (localData) return; // if we already have some progress in the game keep it
     else { //if not shuffle it and start anew
       const shuffledList = data.sort(() => Math.random() - 0.5);
@@ -66,11 +66,12 @@ const AppProvider = ({ children }) => {
     }
 
   }, []); // empty dependency array means this effect runs only once on mount
+
   React.useEffect(() => {
     const name = localStorage.getItem('playerName')
 
-    if (name) return; // if we already have some progress in the game keep it
-    else { //if not shuffle it and start anew
+    if (name) return;
+    else {
 
       setPlayerName(name);
     }
@@ -201,7 +202,8 @@ const AppProvider = ({ children }) => {
         checkAnsw,
         getGameDataByName,
 
-        getFoundLetters
+        getFoundLetters,
+        finalGameAnswer
 
 
       }}

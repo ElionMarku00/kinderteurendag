@@ -133,7 +133,8 @@
         "correctpage": {
             "green": "Correct!",
             "message": "You can continue when clicking on the arrow."
-        }
+        },
+        "answer":"embryo"
     },
     "finalpage": {
         "congrats": "You have found the code word the doctor needs for the patient! In return you will receive a gift on the main floor. It was great to have met you!"
