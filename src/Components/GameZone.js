@@ -88,7 +88,7 @@ const GameZone = (props) => {
         case GameTypes.text:
             return <div  {...otherprops}>
                 <TextField id="outlined-basic"
-                    label="What's your answer?"
+                    label={t("guesscodepage.textbox")}
                     variant="outlined"
                     style={{ margin: '0 1rem', }}
                     onChange={(e) => setText(e.target.value)}

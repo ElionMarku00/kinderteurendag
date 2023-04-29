@@ -8,9 +8,10 @@ const AppProvider = ({ children }) => {
 
   const { t } = useTranslation();
 
-  const setLanguage = (lng) => {
-    i18next.changeLanguage(lng);
-  };
+  // const setLanguage = (lng) => {
+  //   console.log('language changed to:', lng);
+  //   i18next.changeLanguage(lng);
+  // };
 
   const finalGameAnswer = t("guesscodepage.answer")
   const [playerName, setPlayerName] = React.useState('')
@@ -74,6 +75,17 @@ const AppProvider = ({ children }) => {
     else {
 
       setPlayerName(name);
+    }
+
+  }, []); // empty dependency array means this effect runs only once on mount
+
+  React.useEffect(() => {
+    const language = localStorage.getItem('language')
+
+    if (language) i18next.changeLanguage(language)
+    else {
+      i18next.changeLanguage('nl')
+      localStorage.setItem('language', 'nl')
     }
 
   }, []); // empty dependency array means this effect runs only once on mount
@@ -143,7 +155,7 @@ const AppProvider = ({ children }) => {
           // navigate('/incorrect', { state: { currGameImage, currGameHost } })
           return false
         }
-        break;
+
       case GameTypes.multipleChoice:
         if (ans) {
           setSolved(currentGame)
@@ -152,7 +164,7 @@ const AppProvider = ({ children }) => {
         }
         // else navigate('/incorrect', { state: { currGameImage, currGameHost } })
         return false
-        break;
+
 
       case GameTypes.drag:
         if (ans) {
@@ -162,30 +174,13 @@ const AppProvider = ({ children }) => {
           // navigate('/correct', { state: { currGameImage, currGameHost } })
         }
         else return false
-        // navigate('/incorrect', { state: { currGameImage, currGameHost } })
-        break;
+      // navigate('/incorrect', { state: { currGameImage, currGameHost } })
+
 
       default:
         throw new Error(`passed ${gameType} as GameType`)
     }
 
-
-    //if answer is a string check if its correct, if not, it means it is called with true
-
-    // if (typeof currGameAns === 'string' || currGameAns instanceof String) {
-    //   if (currGameAns === ans) {
-    //     setSolved(currentGame)
-    //     return true
-    //   }
-    //   return false
-
-    // }
-    // else {
-    //   if (ans) {
-    //     setSolved(currentGame)
-    //     return ans
-    //   }
-    // }
   }
 
   return (
@@ -198,7 +193,7 @@ const AppProvider = ({ children }) => {
         playerName,
         setPlayerName,
 
-        setLanguage,
+        // setLanguage,
         checkAnsw,
         getGameDataByName,
 

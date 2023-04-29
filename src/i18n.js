@@ -18,6 +18,8 @@ i18next
         //     fr: { translation: translationFr },
         //     nl: { translation: translationNl },
         // },
+        lng: 'nl', // default language
+        debug: true,
         fallbackLng: 'nl',
         interpolation: {
             escapeValue: false

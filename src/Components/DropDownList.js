@@ -9,12 +9,8 @@ import { useTranslation } from 'react-i18next';
 
 export default function BasicSelect() {
 
-    const { setLanguage } = React.useContext(AppContext);
+    // const { setLanguage } = React.useContext(AppContext);
     const { t, i18n } = useTranslation();
-
-    const handleChange = (event) => {
-        setLanguage(event.target.value);
-    };
 
     return (
         <Box sx={{ minWidth: 120 }}>
@@ -23,13 +19,18 @@ export default function BasicSelect() {
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    value={i18n.language}
-                    defaultValue='nl'
+                    defaultValue= "<MenuItem value={'nl'} >NL</MenuItem>"
+                    value={localStorage.getItem('language') || 'nl'}
                     label="Age"
-                    onChange={handleChange}
+                    onChange={
+                        (e) => {
+                            localStorage.setItem('language', e.target.value)
+                            i18n.changeLanguage(e.target.value)
+                        }
+                    }
                 >
-                    <MenuItem value={'nl'} selected={true}>NL</MenuItem>
-                    <MenuItem value={'fr'}>FR</MenuItem>
+                    <MenuItem value='nl' >NL</MenuItem>
+                    <MenuItem value='fr'>FR</MenuItem>
                     {/* <MenuItem value={30}>English</MenuItem> */}
                 </Select>
             </FormControl>
