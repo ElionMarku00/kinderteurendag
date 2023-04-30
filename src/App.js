@@ -8,17 +8,15 @@ import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCo
 // more measuring metrics for {when the game is left} and game runtime. 
 
 // features:
-// LOCAL STORAGE add playername
-// add checking logic for final answer
 // graphic adjustmens and animations
 // add error page redirecting to home page when invalid link
 
 // improvements:
-// finish styling the buttons for previous and next etc
 // fix correct and incorrect pages for pc
-// finish what is the code word we're looking for page
 // drag doesn't work on pc and it glitches on iphones
 // useMemo on pages useCallback on handlers should improve performance
+
+// add a store on homepage letters 
 
 function App() {
   return (

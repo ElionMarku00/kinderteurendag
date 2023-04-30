@@ -1,62 +1,45 @@
 import React from 'react'
-import { /* useNavigate ,*/ Link, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styled from 'styled-components'
-// import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { Layout, TopBar, BottomBar, Cloud } from '../Components';
 
-import { Cloud } from '../Components';
-
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import { AppContext } from '../context';
 
 function CorrectPage() {
 
   const { playerName } = React.useContext(AppContext)
-  // const navigate = useNavigate()
+
   const location = useLocation();
+  const navigate = useNavigate();
   const { currGameImage, currGameHost, rightText, rightGreenText } = location.state;
+
   return (
-    <Grid>
-      <Flex>
-        <img src={`/images${currGameHost}`} alt={`${currGameHost}`} width="40%" height="auto" style={{ alignSelf: 'flex-end' }} />
-        <img src={`/images${currGameImage}`} alt={`${currGameImage}`} width="30%" height="auto" style={{ alignSelf: 'flex-start' }} />
-      </Flex>
+    <Layout>
 
-      <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{rightGreenText.replace('{{playerName}}', playerName)}</h3>, rightText.replace('{{playerName}}', playerName)]} />
-      {/* <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{t("correctpage.green")}</h3>, t("correctpage.message")]} /> */}
+      <TopBar imgProps={{ src: `/images${currGameImage}` }} />
 
-      <Link to='/home' style={{ alignSelf: 'flex-end', justifySelf: 'flex-end' }} >
-        <ArrowForwardIcon
-          style={{ color: 'black' }}
-          sx={{ fontSize: 70 }}
-        />
-      </Link>
+      <MainAttraction>
+        <img src={`/images${currGameHost}`} alt={`${currGameHost}`} width="auto" height="70%" style={{ alignSelf: 'flex-start', justifySelf: 'center', gridArea: "2/1/2/4" }} />
+        <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{rightGreenText.replace('{{playerName}}', playerName)}</h3>, rightText.replace('{{playerName}}', playerName)]} />
 
-    </Grid>
+      </MainAttraction>
+
+      <BottomBar
+        barProps={{ style: { justifySelf: "center" } }}
+        renderBackward={false}
+
+        forwardprops={{ onClickEvent: () => navigate(`/home`) }}
+      />
+
+    </Layout>
   )
 }
 
-const Grid = styled.main`
+const MainAttraction = styled.div`
 
-    color:green;
-    display:grid;
-    grid-template-columns: 1fr ;
-    grid-template-rows: 0.5fr 0.5fr 1fr 0.5fr;
-    grid-gap:3rem;
-    align-items:center;
-    grid-column: 1 / 3;
-    justify-self: center;
+    grid-area:2/1/4/6;  
 
-    height:100vh;
-    width:100vw;
-`;
-
-const Flex = styled.div`
-
-display:flex;
-flex-direction:row;
-justify-content:space-between;
-height: 100%
 `;
 
 export default CorrectPage
