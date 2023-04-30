@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 // import FamilyRestroomIcon from '@mui/icons-material/FamilyRestroom';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Cloud, GameZone } from '../Components';
+import { BackButton, Cloud, ForwardButton, GameZone } from '../Components';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { AppContext } from '../context';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +14,7 @@ function GamePage() {
   const { t } = useTranslation();
 
   const { currentGame, text, type, prompt, numPages } = location.state;
-  const { gameType, data, checkAnsw, getGameDataByName} = React.useContext(AppContext)
+  const { gameType, data, checkAnsw, getGameDataByName } = React.useContext(AppContext)
 
   // const image = data.find(x => x.name === currentGame).icon
 
@@ -42,17 +42,22 @@ function GamePage() {
 
         {
           numPages === 2 ?
-            <ImgContainer style={{ alignSelf: 'center' }} >
-              <ArrowForwardIcon
-                style={{ color: 'black' }}
-                sx={{ fontSize: 70 }}
+            // <ImgContainer style={{ alignSelf: 'center' }} >
+            //   <ArrowForwardIcon
+            //     style={{ color: 'black' }}
+            //     sx={{ fontSize: 70 }}
 
-                onClick={() => {
-                  navigate(`/gamep2`, { state: { currentGame: currentGame } });
-                }
-                }
-              />
-            </ImgContainer>
+            //     onClick={() => {
+            //       navigate(`/gamep2`, { state: { currentGame: currentGame } });
+            //     }
+            //     }
+            //   />
+            // </ImgContainer>
+            <div>
+              <ForwardButton currentGame={currentGame} nextPage={`/gamep2`} />
+              <BackButton />
+
+            </div>
             :
             <GameZone style={{ gridArea: "4/1/5/6", justifySelf: 'center', alignSelf: 'center' }} checker={checkAnsw} currentGame={currentGame} data={data} />
 

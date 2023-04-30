@@ -23,7 +23,7 @@ function HomePage() {
     const navigate = useNavigate();
     // const navToGuessPage = () => navigate(`/game`)
 
-    const { data,playerName } = React.useContext(AppContext)
+    const { data, playerName } = React.useContext(AppContext)
 
     return (<Layout>
 
@@ -94,7 +94,7 @@ const Grid = styled.div`
     min-height:20vh;
     
     overflow-y:scroll;
-    grid-area:3/1/5/6;
+    grid-area:3/1/4/6;
 `;
 
 // const Flex = styled.div`

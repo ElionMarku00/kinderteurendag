@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { useNavigate, useLocation, } from "react-router-dom";
 import styled from 'styled-components'
 
-import { Cloud, GameZone } from '../Components';
+import { Cloud, GameZone, BackButton } from '../Components';
 import { AppContext } from '../context';
 
 function GiveAnswerPage() {
@@ -25,7 +25,7 @@ function GiveAnswerPage() {
 
             <Cloud arrowUp={true} style={{ gridArea: "3/3/4/5", marginBottom: "10px", justifySelf: 'center', alignSelf: 'center' }} text={currGameTextp2} />
             <GameZone style={{ gridArea: "4/1/6/6", justifySelf: 'center', alignSelf: 'center' }} checker={checkAnsw} currentGame={currentGame} data={data} />
-
+            <BackButton />
         </Grid>
     )
 }
