@@ -7,6 +7,8 @@ import ReplayIcon from '@mui/icons-material/Replay';
 import { useTranslation } from 'react-i18next';
 
 import Cloud from '../Components/Cloud';
+
+
 function IncorrectPage() {
 
   const location = useLocation();

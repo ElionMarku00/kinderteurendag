@@ -150,5 +150,9 @@
     },
     "initialPage":{
         "languageQstn":"Langue"
+    },
+    "gameinstructions":{
+        "drag":"Rangez les lettres dans le bon ordre :",
+        "dropHere":"Déposer ici"
     }
 }

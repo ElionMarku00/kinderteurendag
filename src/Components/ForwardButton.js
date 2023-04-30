@@ -1,23 +1,23 @@
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 
-function ForwardButton({ currentGame, nextPage, ...otherprops }) {
+function ForwardButton({ arrowStyle, currentGame, nextPage, onClickEvent, ...otherprops }) {
 
     const navigate = useNavigate();
-
     return (
-        <div style={{ alignSelf: 'center' }} {...otherprops} >
-            <ArrowForwardIcon
-                style={{ color: 'black' }}
-                sx={{ fontSize: 70 }}
+        <Button
+            style={{ alignSelf: 'center' }}
+            onClick={onClickEvent || (() => {
+                navigate(nextPage, { state: { currentGame: currentGame } });
+            })}
+            {...otherprops} >
 
-                onClick={() => {
-                    // navigate(`/gamep2`, { state: { currentGame: currentGame } });
-                    navigate(nextPage, { state: { currentGame: currentGame } });
-                }
-                }
+            <ArrowForwardIcon
+                style={{ color: 'black', fontSize: '50', ...arrowStyle }}
+                sx={{ fontSize: 70 }}
             />
-        </div>
+        </Button>
 
     )
 }

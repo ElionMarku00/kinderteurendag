@@ -30,7 +30,7 @@ const AppProvider = ({ children }) => {
       rightTextGreen: t("butterflypage.correctpage.green"), rightPageMessage: t("butterflypage.correctpage.message")
     },
     {
-      name: "Ladybug", icon: '/Ladybug.png', type: GameTypes.text, letter: "B", answer: t("ladybugpage.answer"), solved: false,
+      name: "Ladybug", icon: '/Ladybug.png', type: GameTypes.number, letter: "B", answer: t("ladybugpage.answer"), solved: false,
       text: t('ladybugpage.text'), prompt: t("ladybugpage.prompt"), textp2: t('ladybugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
       , title: t('ladybugpage.title'), wrongTextRed: t("ladybugpage.wrongpage.redtext"), wrongPageMessage: t("ladybugpage.wrongpage.message"),
       rightTextGreen: t("ladybugpage.correctpage.green"), rightPageMessage: t("ladybugpage.correctpage.message")
@@ -155,6 +155,17 @@ const AppProvider = ({ children }) => {
           // navigate('/incorrect', { state: { currGameImage, currGameHost } })
           return false
         }
+
+        case GameTypes.number:
+          if (currGameAns.toString() === ans.toString()) {
+            setSolved(currentGame)
+            return true
+            // navigate('/correct', { state: { currGameImage, currGameHost } })
+          }
+          else {
+            // navigate('/incorrect', { state: { currGameImage, currGameHost } })
+            return false
+          }
 
       case GameTypes.multipleChoice:
         if (ans) {

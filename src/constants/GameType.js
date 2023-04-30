@@ -1,5 +1,7 @@
 export const GameTypes = {
-   text:'text',
+   text: 'text',
+   number: 'number',
    drag: 'drag',
+
    multipleChoice: 'multipleChoice'
 }

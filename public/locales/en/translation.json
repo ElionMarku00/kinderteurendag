@@ -141,5 +141,9 @@
     },
     "initialPage": {
         "languageQstn": "Language"
+    },
+    "gameinstructions":{
+        "drag":"Arrange the letters in the correct order:",
+        "dropHere":"Drop here"
     }
 }

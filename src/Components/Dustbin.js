@@ -1,12 +1,15 @@
 import React from 'react'
 
-import { useDrop,  } from 'react-dnd';
+import { useDrop, } from 'react-dnd';
+import { useTranslation } from 'react-i18next';
 export const Dustbin = React.memo(function Dustbin({
     accept,
     lastDroppedItem,
     setLastDroppedItem,
     onDrop,
 }) {
+
+    const { t } = useTranslation()
     const [{ isOver, canDrop }, drop] = useDrop({
         accept,
         drop: (item, _) => {
@@ -40,7 +43,7 @@ export const Dustbin = React.memo(function Dustbin({
 
         {lastDroppedItem ?
             <span>{lastDroppedItem}</span>
-            : 'Drop here'
+            : t("gameinstructions.dropHere")
         }
     </div>
     )

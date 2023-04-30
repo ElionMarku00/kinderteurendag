@@ -6,7 +6,7 @@ import { TextField } from "@mui/material";
 import { AppContext } from '../context';
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { DropDownList } from '../Components';
+import { DropDownList, ForwardButton } from '../Components';
 
 const ImgContainer = styled.div`
 
@@ -60,9 +60,7 @@ function InitialPage() {
     return (
 
         <Wrapper>
-            <ImgContainer style={{ alignSelf: 'center' }} >
-                <img src="/images/LOGO 2023.PNG" alt="French flag" style={{ height: '100px', width: 'auto' }} />
-            </ImgContainer>
+
 
             <FlagsFlex>
                 <h1 style={{ marginTop: "auto" }}>{t("welcome")}</h1>
@@ -98,23 +96,15 @@ function InitialPage() {
                         localStorage.setItem("playerName", JSON.stringify(e.target.value))
                     }}
                 />
-                {/* 
-                <Button variant="contained" size="small" endIcon={< ArrowForwardIcon />}
-                    onClick={() => navigate(`/home`, { replace: true })} /> */}
 
-                <Button onClick={() => {
-                    navigate(`/home`, { replace: true })
-                }}>
-                    <ArrowForwardIcon
-                        style={{ color: 'black' }}
-                        sx={{ fontSize: 70 }}
-
-                    />
-
-                </Button>
+                <ForwardButton onClickEvent={() => navigate(`/home`, { replace: true })} />
 
                 <ImgContainer style={{ alignSelf: 'center' }} >
-                    <img src="/images/Logo_IVFBrussels_CMYK_blauw_DEF.jpg" alt="French flag" style={{ height: '100px', width: 'auto' }} />
+                    <img src="/images/LOGO 2023.PNG" alt="French flag" style={{ height: 'auto', width: '70vw', objectFit: 'contain' }} />
+                </ImgContainer>
+
+                <ImgContainer style={{ alignSelf: 'center' }} >
+                    <img src="/images/Logo_IVFBrussels_CMYK_blauw_DEF.jpg" alt="French flag" style={{ height: 'auto', width: '100vw', objectFit: 'contain' }} />
                 </ImgContainer>
 
             </FlagsFlex>

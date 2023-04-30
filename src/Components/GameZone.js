@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import { GameTypes } from '../constants/GameType';
 import styled from 'styled-components';
 
-import { Dustbin, Letter } from './';
+import { Dustbin, Letter, ForwardButton } from './';
 
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from 'react-dnd-touch-backend';
@@ -44,8 +44,12 @@ grid-gap:10px;
 const GameZone = (props) => {
 
     const [text, setText] = useState('');
-    const { checker, data, currentGame, ...otherprops } = props;
+    const { checker, data, currentGame, ans, setAns, ...otherprops } = props;
     const { getGameDataByName } = React.useContext(AppContext)
+
+    const navigate = useNavigate()
+
+
     const [gameType, currGameAns, currGameImage, currGameHost, currGameTitle, currGameText, currGameTextp2, wrongRedText, wrongText, rightGreenText, rightText] = getGameDataByName(currentGame)
 
     const [letters, setLetters] = useState([]);
@@ -53,9 +57,8 @@ const GameZone = (props) => {
     const [lastDroppedItem, setLastDroppedItem] = useState([])
     const scambled = [...currGameAns].sort(() => Math.random() - 0.5);
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { t } = useTranslation()
-
 
     const handleDrop = (index, item) => {
         let letter = item.beginLetter;
@@ -69,20 +72,27 @@ const GameZone = (props) => {
         setLastDroppedItem(lastDropped);
 
         if (newLetters.join('') === correctOrder.join('')) {
-            checkAndRoute(true)
+            // checkAndRoute(true)
+            setAns(true)
         }
     };
 
-    const checkAndRoute = (ans) => {
+    const checkAndRouteMultipleChoice = (ans) => {
 
         console.log('ans from checker = ', checker(ans, currentGame));
 
         if (checker(ans, currentGame)) {
+            setAns(true)
             navigate('/correct', { state: { currGameImage, currGameHost, rightText, rightGreenText } })
+
         }
-        else navigate('/incorrect', { state: { currGameImage, currGameHost, wrongText, wrongRedText } })
+        else {
+            setAns(false)
+            navigate('/incorrect', { state: { currGameImage, currGameHost, wrongText, wrongRedText } })
+        }
 
     }
+
     switch (gameType) {
 
         case GameTypes.text:
@@ -91,10 +101,28 @@ const GameZone = (props) => {
                     label={t("guesscodepage.textbox")}
                     variant="outlined"
                     style={{ margin: '0 1rem', }}
-                    onChange={(e) => setText(e.target.value)}
+                    // onChange={(e) => setText(e.target.value)
+                    onChange={(e) => setAns(e.target.value)
+                    }
 
                 />
-                <button onClick={() => checkAndRoute(text, currentGame)} >Check!</button>
+                {/* <button onClick={() => checkAndRoute(text, currentGame)} >Check!</button> */}
+            </div>
+        case GameTypes.number:
+            return <div   {...otherprops}>
+                <TextField id="outlined-basic"
+                    label={t("guesscodepage.textbox")}
+                    type='number'
+                    defaultValue={ans || 1}
+                    variant="outlined"
+                    style={{ margin: '0 1rem', }}
+                    // onChange={(e) => setText(e.target.value)
+                    onChange={(e) => setAns(e.target.value)
+                    }
+
+                />
+                {/* <button onClick={() => checkAndRoute(text, currentGame)} >Check!</button> */}
+                {/* <ForwardButton currentGame={currentGame} onClickEvent={() => checkAndRoute(text, currentGame)} /> */}
             </div>
 
         case GameTypes.drag:
@@ -109,7 +137,7 @@ const GameZone = (props) => {
             return <div {...otherprops}>
                 <DndProvider backend={isTouchDevice ? TouchBackend : HTML5Backend}>
 
-                    <h3>Arrange the letters in the correct order:</h3>
+                    <h3>{t("gameinstructions.drag")}</h3>
 
                     <Grid {...otherprops} gameAnswer={currGameAns}>
                         {scambled.map((letter, index) => (
@@ -128,7 +156,9 @@ const GameZone = (props) => {
                                     accept='LETTER'
                                     lastDroppedItem={lastDroppedItem[index]}
                                     setLastDroppedItem={setLastDroppedItem}
-                                    onDrop={(item) => handleDrop(index, item)}
+                                    onDrop={(item) => handleDrop(index, item)
+
+                                    }
                                 />
                                 <br />
                             </div>)
@@ -143,31 +173,25 @@ const GameZone = (props) => {
 
         case GameTypes.multipleChoice:
 
-            const ChoiceFlexBox = styled.div`
-                        display:flex;
-                        flex-direction:column;
-                        row-gap:1rem;
-                        /* justify-content:space-evenly; */
-                        align-items:center;
-                        flex:1;
-                    
-                    `;
             return <>
                 <ChoiceFlexBox {...otherprops}>
-                    {[...data].filter(x => x.name === currentGame).map(game => {
-                        let { choices } = game;
-                        console.log(choices);
+                    {[...data]
+                        .filter(x => x.name === currentGame)
+                        .map(game => {
+                            let { choices } = game;
+                            console.log(choices);
 
-                        return Object.keys(choices).map((key) => {
-                            return <Button variant="contained" key={key} onClick={() => checkAndRoute(choices[key], currentGame)}>{t(key.toString())}</Button>
+                            return Object.keys(choices).map((key) => {
+                                return <Button variant="contained" key={key} onClick={() => checkAndRouteMultipleChoice(choices[key], currentGame)}>{t(key.toString())}</Button>
+                                // return <Button variant="contained" key={key} onClick={() => setAns(choices[key])}>{t(key.toString())}</Button>
 
-                        });
+                            });
 
-                        // return [...choices].map( {c,bool} => {
-                        //     return <button onClick={checker()}>{c}</button>
-                        // })
+                            // return [...choices].map( {c,bool} => {
+                            //     return <button onClick={checker()}>{c}</button>
+                            // })
 
-                    })}
+                        })}
 
                 </ChoiceFlexBox>
 
@@ -180,6 +204,16 @@ const GameZone = (props) => {
 
 
 }
+
+const ChoiceFlexBox = styled.div`
+display:flex;
+flex-direction:column;
+row-gap:1rem;
+/* justify-content:space-evenly; */
+align-items:center;
+flex:1;
+
+`;
 
 
 

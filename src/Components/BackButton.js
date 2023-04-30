@@ -1,22 +1,24 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-function BackButton({ ...otherprops }) {
+function BackButton({ arrowStyle, buttonStyle, ...otherprops }) {
 
     const navigate = useNavigate();
 
     return (
-        <div style={{ alignSelf: 'center' }} {...otherprops} >
-            <ArrowBackIcon
-                style={{ color: 'black' }}
-                sx={{ fontSize: 70 }}
+        <Button style={{ alignSelf: 'center', ...buttonStyle }}
 
-                onClick={() => {
-                    navigate(-1);
-                }
+            {...otherprops} >
+
+            <ArrowBackIcon
+                style={{ color: 'black', fontSize: '50', ...arrowStyle }}
+                // sx={{ fontSize: 70 }}
+
+                onClick={() => { navigate(-1); }
                 }
             />
-        </div>
+        </Button>
 
     )
 }

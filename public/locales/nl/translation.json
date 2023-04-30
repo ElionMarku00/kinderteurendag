@@ -150,5 +150,9 @@
     },
     "initialPage": {
         "languageQstn": "Taal"
+    },
+    "gameinstructions":{
+        "drag":"Zet de letters in de juiste volgorde:",
+        "dropHere":"Hier neerzetten"
     }
 }
