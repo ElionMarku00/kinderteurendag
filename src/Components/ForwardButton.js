@@ -7,15 +7,14 @@ function ForwardButton({ arrowStyle, currentGame, nextPage, onClickEvent, ...oth
     const navigate = useNavigate();
     return (
         <Button
-            style={{ alignSelf: 'center' }}
+            style={{ alignSelf: 'center', margin: '0', padding: "0", overflow: "hidden" }}
             onClick={onClickEvent || (() => {
                 navigate(nextPage, { state: { currentGame: currentGame } });
             })}
             {...otherprops} >
 
             <ArrowForwardIcon
-                style={{ color: 'black', fontSize: '50', ...arrowStyle }}
-                sx={{ fontSize: 70 }}
+                style={{ color: 'black', margin: '0', padding: "0", fontSize: '50', ...arrowStyle }}
             />
         </Button>
 

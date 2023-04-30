@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-function TopBar({ imgProps, children }) {
+function TopBar({ imgProps, barProps, children }) {
     return (
-        <Bar>
+        <Bar {...barProps}>
             <Img {...imgProps} />
 
             {children}
@@ -21,6 +21,14 @@ align-items: flex-start;
 height:10vh;
 margin:0;
 padding:0;
+
+
+@media only screen and (max-height: 650px) {
+
+    align-items: unset;
+    margin:unset;
+
+}
 `;
 
 

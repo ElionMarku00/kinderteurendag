@@ -60,6 +60,7 @@ const GameZone = (props) => {
     // const navigate = useNavigate();
     const { t } = useTranslation()
 
+
     const handleDrop = (index, item) => {
         let letter = item.beginLetter;
         console.log(letter);
@@ -106,7 +107,6 @@ const GameZone = (props) => {
                     }
 
                 />
-                {/* <button onClick={() => checkAndRoute(text, currentGame)} >Check!</button> */}
             </div>
         case GameTypes.number:
             return <div   {...otherprops}>
@@ -121,16 +121,11 @@ const GameZone = (props) => {
                     }
 
                 />
-                {/* <button onClick={() => checkAndRoute(text, currentGame)} >Check!</button> */}
-                {/* <ForwardButton currentGame={currentGame} onClickEvent={() => checkAndRoute(text, currentGame)} /> */}
             </div>
 
         case GameTypes.drag:
 
             function isTouchDevice() {
-                // return (('ontouchstart' in window) ||
-                //     (navigator.maxTouchPoints > 0) ||
-                //     (navigator.msMaxTouchPoints > 0));
                 return (('ontouchstart' in window) || (navigator.msMaxTouchPoints > 0));
             }
 
@@ -183,13 +178,8 @@ const GameZone = (props) => {
 
                             return Object.keys(choices).map((key) => {
                                 return <Button variant="contained" key={key} onClick={() => checkAndRouteMultipleChoice(choices[key], currentGame)}>{t(key.toString())}</Button>
-                                // return <Button variant="contained" key={key} onClick={() => setAns(choices[key])}>{t(key.toString())}</Button>
 
                             });
-
-                            // return [...choices].map( {c,bool} => {
-                            //     return <button onClick={checker()}>{c}</button>
-                            // })
 
                         })}
 
@@ -214,8 +204,5 @@ align-items:center;
 flex:1;
 
 `;
-
-
-
 
 export default GameZone

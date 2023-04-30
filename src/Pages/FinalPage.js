@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Cloud } from '../Components';
+import { Cloud,TopBar } from '../Components';
 import { useTranslation } from 'react-i18next';
 import { AppContext } from '../context';
 
@@ -23,12 +23,15 @@ function FinalPage() {
 
   return (
     <Layout>
-      <h1>{t("title")}</h1>
+      <TopBar barProps={{ style: { justifyContent: "center", alignSelf: "center" } }} >
+        <h1 style={{ alignSelf: "center", margin: "0", padding: "0" }}>{t("title")}</h1>
+      </TopBar>
+
       <img src={`/images/marielukas.png`} alt={`marielukas`} width="70%" height="auto" />
       <Cloud arrowUp={true}
         text={[<h3 key={`new`}
           style={{ color: 'green' }}>
-          {t("finalpage.green").replace('{{playerName}}', playerName)}</h3>, t("finalpage.congrats").replace('{{playerName}}', playerName)]}>
+          {t("finalpage.green").replace('{{playerName}}', playerName || "")}</h3>, t("finalpage.congrats").replace('{{playerName}}', playerName || "",)]}>
       </Cloud>
 
       <ImgContainer style={{ alignSelf: 'center' }} >
@@ -38,9 +41,6 @@ function FinalPage() {
       <ImgContainer style={{ alignSelf: 'center' }} >
         <img src="/images/LOGO 2023.PNG" alt="French flag" style={{ height: '100px', width: 'auto' }} />
       </ImgContainer>
-
-
-
 
 
     </Layout>

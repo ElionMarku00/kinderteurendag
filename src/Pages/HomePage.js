@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from '../context';
 import { useTranslation } from 'react-i18next';
 
+
+import { Layout, TopBar } from '../Components'
 // base page with a grid and icons inside for the questions. each question will reveal a letter after answered correctly
 function HomePage() {
 
@@ -27,11 +29,17 @@ function HomePage() {
 
     return (<Layout>
 
-        <Img src={`/images/marielukas.png`} alt={`marielukas`} />
-        <Title>{t("title")}</Title>
+        <TopBar
+            barProps={{ style: { flexDirection: "row" } }}
+            imgProps={{ src: `/images/marielukas.png` }} >
 
-        <CustomH4>{t('homepage.text', { playerName })}
-        </CustomH4>
+            <Title>{t("title")}</Title>
+        </TopBar>
+
+        {/* <Img src={`/images/marielukas.png`} alt={`marielukas`} /> */}
+
+
+        <CustomH4 style={{ padding: "0", margin: "0" }}>{t('homepage.text', { playerName })}</CustomH4>
         <Grid>
 
             {hpData && hpData.map((item) => {
@@ -45,7 +53,7 @@ function HomePage() {
                     }}>
                     {!solved
                         ? <img src={`/images${icon}`} alt={`${name}`} width="80%" height="auto" />
-                        : <ImgContainer><h1>{letter}</h1> </ImgContainer>
+                        : <ImgContainer><div className='letter'> <span> {letter}</span> </div> </ImgContainer>
                     }
                 </ImgContainer>)
 
@@ -53,35 +61,31 @@ function HomePage() {
 
         </Grid>
 
-        <Button
-            variant='outlined'
-            color="primary"
-            style={{
-                gridColumn: "1/3",
-                textAlign: "center",
-                alignSelf: "center",
-                justifySelf: "center",
-                gridArea: "5/1/6/6"
-            }}
-            onClick={() => navigate('/guesscode')}>
-            {t('homepage.qstn')}
-        </Button>
+        <div style={{ gridArea: "5/1/6/6", alignSelf: "end" }}>
+
+            <Button
+                variant='outlined'
+                color="primary"
+                style={{
+                    gridColumn: "1/3",
+                    textAlign: "center",
+                    alignSelf: "end",
+
+                    justifySelf: "center",
+
+                }}
+                onClick={() => navigate('/guesscode')}>
+                {t('homepage.qstn')}
+            </Button>
+        </div>
+
+
 
     </Layout >
 
+
     )
 }
-
-const Layout = styled.div`
-    display: grid;
-    grid-template-columns:repeat(5,1fr);
-    grid-template-rows:0.1fr 0.1fr 4fr 0.2fr;
-    height: 100vh; 
-    width: 100vw;
-    margin:0;
-    row-gap:0;
-
-`;
 
 const Grid = styled.div`
 
@@ -91,37 +95,12 @@ const Grid = styled.div`
     align-items:center; 
     justify-self: center;
     justify-items:center;
-    min-height:20vh;
+    min-height:30vh;
+    margin:0;
+    padding:0;
     
     overflow-y:scroll;
-    grid-area:3/1/4/6;
-`;
-
-// const Flex = styled.div`
-
-//     display:flex;
-//     height:30%;
-//     max-height: 150px;
-//     flex-direction:row;
-//     flex-wrap:nowrap;
-//     align-items:center;
-//     justify-content: space-around;
-//     padding:10px;
-
-//     grid-area:1/1/1/6;
-
-//     object-fit: cover;
-//   vertical-align: bottom;
-
-// `;
-
-const Img = styled.img`
-
-height:100%;
-width:auto;
-max-height: 100%;
-grid-area:1/1/2/2;
-max-height:100px;
+    grid-area:3/1/5/6;
 
 `;
 
@@ -146,32 +125,35 @@ grid-area:1/2/1/5;
 
 `;
 
-const BottomText = styled.h4`
-
-    grid-column: 1 / 3;
-    text-align:center;
-    /* text-justify:inter-ideograph; */
-    align-self:center;
-    justify-self:center;
-    grid-area:5/1/6/6;
-
-`;
-
 const ImgContainer = styled.section`
-
-& > h1{
-
-    border: 5px solid #555;
-    color:green;
-    font-size:3rem;
-    font-weight:300;
-    border-radius:50%;
-    padding:2.2rem;
-    position:relative;
-    bottom:30px;
+.letter {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  font-size: 44px;
+  border-radius: 50%;
+  border: 2px solid black;
+  overflow: hidden;
+  text-transform: uppercase;
 }
 
+@media (max-width: 500px) {
+  .letter {
+    width: 60px;
+    height: 60px;
+    font-size: 38px;
+  }
+}
 
+@media (max-width: 350px) {
+  .letter {
+    width: 50px;
+    height: 50px;
+    font-size: 26px;
+  }
+}
 `;
 
 export default HomePage

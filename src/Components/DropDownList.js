@@ -13,13 +13,13 @@ export default function BasicSelect() {
     const { t, i18n } = useTranslation();
 
     return (
-        <Box sx={{ minWidth: 120 }}>
+        <Box style={{ width: '70vw' }}>
             <FormControl fullWidth>
                 <InputLabel id="demo-simple-select-label">{t("initialPage.languageQstn")}</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    defaultValue= "<MenuItem value={'nl'} >NL</MenuItem>"
+                    defaultValue="<MenuItem value={'nl'} >NL</MenuItem>"
                     value={localStorage.getItem('language') || 'nl'}
                     label="Age"
                     onChange={

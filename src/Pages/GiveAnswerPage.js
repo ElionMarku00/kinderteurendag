@@ -53,7 +53,6 @@ function GiveAnswerPage() {
                 <GameZone
                     style={{ gridArea: "4/1/6/6", justifySelf: 'center', alignSelf: 'center' }}
                     checker={checkAnsw}
-
                     currentGame={currentGame}
                     data={data}
                     ans={ans}

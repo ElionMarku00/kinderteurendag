@@ -1,53 +1,27 @@
 import React from 'react'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import Button from '@mui/material/Button';
+
 import styled from 'styled-components'
 import { TextField } from "@mui/material";
 import { AppContext } from '../context';
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { DropDownList, ForwardButton } from '../Components';
+import { Layout, BottomBar, TopBar, DropDownList, ForwardButton } from '../Components';
 
 const ImgContainer = styled.div`
 
-    /* border-radius: 50%;
-    border-color: black;
-    border: 5px solid #555; */
-
-    & > input[type="radio"]{
-        width: 1.15em;
-        height: 1.15em;
-        border: 0.15em solid currentColor;
-
-    }
+    height:50px;
+    width:auto;
 
 `;
 
 
-const Wrapper = styled.div`
-
-    margin:0;
-    padding:0;
-    height:100vh;
-    width:100vw;
-
-    /* @media only screen and (min-width: 600px) {
-
-    } */
-
-`;
-
-const FlagsFlex = styled.div`
+const MainAttraction = styled.div`
 
     display:flex;
     flex-direction:column;
     align-items: center;
-    row-gap:1rem;
-    /* height:100vh; */
-
-    & > :not(:last-child) {
-        /* flex: 1; */
-    }
+    grid-area:2/1/3/6;  
+    row-gap:10px;
 
 `;
 
@@ -59,31 +33,13 @@ function InitialPage() {
 
     return (
 
-        <Wrapper>
+        <Layout>
 
+            <TopBar barProps={{ style: { justifyContent: "center", alignSelf: "center" } }} >
+                <h1 style={{ alignSelf: "center", margin: "0", padding: "0" }}>{t("welcome")}</h1>
+            </TopBar>
 
-            <FlagsFlex>
-                <h1 style={{ marginTop: "auto" }}>{t("welcome")}</h1>
-
-                {/* <label>
-                    <ImgContainer style={{ alignSelf: 'center' }} onClick={() => setLanguage('fr')}>
-                        <input type="radio" value="option1" checked={i18n.language === "fr"} onChange={() => setLanguage('fr')} />
-                        <img src="/images/fr_flag.gif" alt="French flag" style={{ height: '100px', width: 'auto' }} />
-                    </ImgContainer>
-                </label>
-                <label>
-                    <ImgContainer style={{ alignSelf: 'center' }} onClick={() => setLanguage('nl')}>
-                        <input type="radio" value="option2" checked={i18n.language === "nl"} onChange={() => setLanguage('nl')} />
-                        <img src="/images/nl_flag.gif" alt="Netherlands flag" style={{ height: '100px', width: 'auto' }} />
-                    </ImgContainer>
-                </label> */}
-                {/* <label>
-                    <ImgContainer style={{ alignSelf: 'center', }} onClick={() => setLanguage('en')}>
-                        <input type="radio" value="option3" checked={i18n.language === "en"} onChange={() => setLanguage('en')} />
-                        <img src="/images/UK_flag.gif" alt="UK flag" style={{ height: '100px', width: 'auto' }} />
-                    </ImgContainer>
-                </label> */}
-
+            <MainAttraction>
 
                 <DropDownList />
 
@@ -96,22 +52,23 @@ function InitialPage() {
                         localStorage.setItem("playerName", JSON.stringify(e.target.value))
                     }}
                 />
+            </MainAttraction>
 
-                <ForwardButton onClickEvent={() => navigate(`/home`, { replace: true })} />
+            <ImgContainer style={{ alignSelf: 'start', gridArea: "3/1/4/6" }} >
+                <img src="/images/LOGO 2023.PNG" alt="French flag" style={{ height: 'auto', width: '70vw', objectFit: 'contain' }} />
+            </ImgContainer>
 
-                <ImgContainer style={{ alignSelf: 'center' }} >
-                    <img src="/images/LOGO 2023.PNG" alt="French flag" style={{ height: 'auto', width: '70vw', objectFit: 'contain' }} />
-                </ImgContainer>
+            <ImgContainer style={{ alignSelf: 'center', gridArea: '4/1/5/6' }} >
+                <img src="/images/Logo_IVFBrussels_CMYK_blauw_DEF.jpg" alt="French flag" style={{ height: 'auto', width: '70vw', objectFit: 'contain' }} />
+            </ImgContainer>
 
-                <ImgContainer style={{ alignSelf: 'center' }} >
-                    <img src="/images/Logo_IVFBrussels_CMYK_blauw_DEF.jpg" alt="French flag" style={{ height: 'auto', width: '100vw', objectFit: 'contain' }} />
-                </ImgContainer>
-
-            </FlagsFlex>
-
-        </Wrapper>
+            <BottomBar barProps={{
+                style: { justifyContent: "center", },
+            }}
+                renderBackward={false}
+                forwardprops={{ onClickEvent: () => navigate(`/home`, { replace: true }) }} />
+        </Layout>
 
     )
 }
-
 export default InitialPage
