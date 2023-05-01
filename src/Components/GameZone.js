@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import { GameTypes } from '../constants/GameType';
 import styled from 'styled-components';
 
-import { Dustbin, Letter, ForwardButton } from './';
+import { Dustbin, Letter } from './';
 
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from 'react-dnd-touch-backend';
@@ -15,10 +15,6 @@ import { AppContext } from '../context';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-// const GridItems = styled.div`
-// border-style:solid;
-// padding:10%;
-// `;
 
 const Grid = styled.div`
 display:grid;
@@ -28,7 +24,7 @@ display:grid;
     }}; */
 
     grid-template-columns: ${(p) => {
-        return `repeat(${p.gameAnswer.length},1fr)`;
+        return `repeat(${p.gameAnswer.length}, 1fr)`;
     }};
 
 /* grid-template-rows:repeat(2,1fr); */
@@ -38,7 +34,6 @@ align-content:center;
 justify-items:center;
 align-items:center; 
 grid-gap:10px;
-
 `;
 
 const GameZone = (props) => {
@@ -54,27 +49,46 @@ const GameZone = (props) => {
 
     const [letters, setLetters] = useState([]);
     const [correctOrder] = useState([...currGameAns]);
-    const [lastDroppedItem, setLastDroppedItem] = useState([])
-    const scambled = [...currGameAns].sort(() => Math.random() - 0.5);
 
-    // const navigate = useNavigate();
+    const [droppedBoxIndexes, setDroppedBoxIndexes] = useState([-1, -1, -1, -1])
+    const [droppedLetters, setDroppedLetters] = useState(["", "", "", ""])
+
+    function isDropped(boxName) {
+        return droppedBoxIndexes.indexOf(boxName) > -1
+    }
+
+    const [scrambled, setScrambled] = useState([...currGameAns])
+
+    React.useEffect(() => {
+        setScrambled([...currGameAns].sort(() => Math.random() - 0.5));
+
+    }, [])
+
     const { t } = useTranslation()
 
-
     const handleDrop = (index, item) => {
-        let letter = item.beginLetter;
-        console.log(letter);
 
-        const newLetters = [...letters];
-        newLetters[index] = letter;
-        setLetters([...newLetters]);
-        const lastDropped = [...lastDroppedItem]
-        lastDropped[index] = letter
-        setLastDroppedItem(lastDropped);
+        let nowDroppedLetterIndx = item.beginIndex;
+        let nowDroppedLetter = item.beginLetter;
 
-        if (newLetters.join('') === correctOrder.join('')) {
+        //set droppedBoxes to disable Letters.
+        const lastDropped = [...droppedBoxIndexes]
+        lastDropped[index] = nowDroppedLetterIndx;
+        setDroppedBoxIndexes(lastDropped);
+
+        const lastDroppedLetters = [...droppedLetters]
+        lastDroppedLetters[index] = nowDroppedLetter
+        setDroppedLetters(lastDroppedLetters)
+
+        //set current answer to check with truth 
+        const responseSoFar = [...letters];
+        responseSoFar[index] = nowDroppedLetter;
+        setLetters([...responseSoFar]);
+
+        if (responseSoFar.join('') === correctOrder.join('')) {
             // checkAndRoute(true)
             setAns(true)
+            navigate('/correct', { state: { currGameImage, currGameHost, rightText, rightGreenText } })
         }
     };
 
@@ -135,25 +149,27 @@ const GameZone = (props) => {
                     <h3>{t("gameinstructions.drag")}</h3>
 
                     <Grid {...otherprops} gameAnswer={currGameAns}>
-                        {scambled.map((letter, index) => (
+                        {scrambled.map((letter, index) => (
                             <Letter
                                 key={`drag- ${index}- ${letter}`}
                                 index={index}
                                 letter={letter}
+                                isDisabled={isDropped(index)}
                                 handleDrop={handleDrop}
+
                             />
                         ))}
                         {[...currGameAns].map((_, index) => {
 
                             return (<div key={_.toString() + index}>
                                 < Dustbin
-
                                     accept='LETTER'
-                                    lastDroppedItem={lastDroppedItem[index]}
-                                    setLastDroppedItem={setLastDroppedItem}
-                                    onDrop={(item) => handleDrop(index, item)
+                                    droppedBoxIndexes={droppedBoxIndexes} // read data
+                                    setDroppedBoxIndexes={setDroppedBoxIndexes}  //put here dropped indexes and then check if the index matches the letter index
+                                    onDrop={(item) => handleDrop(index, item)} //call this to enter handledrop
+                                    isDropped={isDropped(index)}  // use this to disable drop 
+                                    lastDropped={droppedLetters[index]} // use this to display letter 
 
-                                    }
                                 />
                                 <br />
                             </div>)

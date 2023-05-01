@@ -17,6 +17,7 @@ import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCo
 // useMemo on pages useCallback on handlers should improve performance
 
 // add a store on homepage letters 
+// change drag and drop
 
 function App() {
   return (

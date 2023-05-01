@@ -30,7 +30,7 @@ function HomePage() {
     return (<Layout>
 
         <TopBar
-            barProps={{ style: { flexDirection: "row" } }}
+            barProps={{ style: { flexDirection: "row", justifyContent: "center" } }}
             imgProps={{ src: `/images/marielukas.png` }} >
 
             <Title>{t("title")}</Title>

@@ -21,7 +21,7 @@ function CorrectPage() {
 
       <MainAttraction>
         <img src={`/images${currGameHost}`} alt={`${currGameHost}`} width="auto" height="70%" style={{ alignSelf: 'flex-start', justifySelf: 'center', gridArea: "2/1/2/4" }} />
-        <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{rightGreenText.replace('{{playerName}}', playerName)}</h3>, rightText.replace('{{playerName}}', playerName)]} />
+        <Cloud arrowUp={true} text={[<h3 key={`new`} style={{ color: 'green' }}>{rightGreenText.replace('{{playerName}}', playerName || "")}</h3>, rightText.replace('{{playerName}}', playerName || "")]} />
 
       </MainAttraction>
 
