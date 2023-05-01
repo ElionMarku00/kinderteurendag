@@ -29,7 +29,7 @@ function InitialPage() {
 
     const { setPlayerName, setLanguage } = React.useContext(AppContext)
     const navigate = useNavigate();
-    const { t, i18n } = useTranslation();
+    const { t, } = useTranslation();
 
     return (
 

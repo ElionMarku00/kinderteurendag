@@ -87,7 +87,7 @@ const GameZone = (props) => {
 
         if (responseSoFar.join('') === correctOrder.join('')) {
             // checkAndRoute(true)
-            setAns(true)
+            checker(true, currentGame)
             navigate('/correct', { state: { currGameImage, currGameHost, rightText, rightGreenText } })
         }
     };

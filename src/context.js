@@ -55,6 +55,19 @@ const AppProvider = ({ children }) => {
     },
   ])
 
+  //store language on first boot
+  React.useEffect(() => {
+    const language = localStorage.getItem('language')
+
+    if (language) i18next.changeLanguage(language)
+    else {
+      i18next.changeLanguage('nl')
+      localStorage.setItem('language', 'nl')
+    }
+
+  }, []); // empty dependency array means this effect runs only once on mount
+
+
   // shuffle list only once at the very start
   React.useEffect(() => {
     const localData = localStorage.getItem('data')
@@ -68,6 +81,7 @@ const AppProvider = ({ children }) => {
 
   }, []); // empty dependency array means this effect runs only once on mount
 
+  // store playername on first boot
   React.useEffect(() => {
     const name = localStorage.getItem('playerName')
 
@@ -79,16 +93,15 @@ const AppProvider = ({ children }) => {
 
   }, []); // empty dependency array means this effect runs only once on mount
 
-  React.useEffect(() => {
-    const language = localStorage.getItem('language')
 
-    if (language) i18next.changeLanguage(language)
-    else {
-      i18next.changeLanguage('nl')
-      localStorage.setItem('language', 'nl')
-    }
+  //refresh data everytime language changes:
+  // React.useEffect(() => {
+  //   localStorage.setItem('data', JSON.stringify(data));
 
-  }, []); // empty dependency array means this effect runs only once on mount
+
+  // }, [i18next.language]);
+
+
 
   function getFoundLetters() {
 
@@ -156,16 +169,16 @@ const AppProvider = ({ children }) => {
           return false
         }
 
-        case GameTypes.number:
-          if (currGameAns.toString() === ans.toString()) {
-            setSolved(currentGame)
-            return true
-            // navigate('/correct', { state: { currGameImage, currGameHost } })
-          }
-          else {
-            // navigate('/incorrect', { state: { currGameImage, currGameHost } })
-            return false
-          }
+      case GameTypes.number:
+        if (currGameAns.toString() === ans.toString()) {
+          setSolved(currentGame)
+          return true
+          // navigate('/correct', { state: { currGameImage, currGameHost } })
+        }
+        else {
+          // navigate('/incorrect', { state: { currGameImage, currGameHost } })
+          return false
+        }
 
       case GameTypes.multipleChoice:
         if (ans) {

@@ -20,18 +20,10 @@ export const Dustbin = React.memo(function Dustbin({
         drop: (item, monitor) => {
 
             onDrop(item)
-            //display lastDropped
             console.log('lastDropped', lastDropped);
-            debugger;
-
-            //disable dropped boxes by index
-
-            // const draggedFrom = monitor.getItem().beginIndex;
-            // setDroppedBoxIndexes([draggedFrom, ...droppedBoxIndexes])
 
         },
 
-        // canDrop: (item) => { return lastDroppedItem !== item.id },
         collect: (monitor) => ({
             isOver: monitor.isOver(),
             canDrop: monitor.canDrop(),

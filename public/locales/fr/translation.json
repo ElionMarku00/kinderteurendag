@@ -142,17 +142,15 @@
             "green": "Exact!",
             "message": "Continue en cliquant sur la flèche."
         },
-        "answer":"embryon"
+        "answer": "embryon"
     },
     "finalpage": {
-        "green":"Félicitations  {{playerName}}!",
+        "green": "Félicitations  {{playerName}}!",
         "congrats": "Tu as trouvé le mot de passe dont le médecin a besoin pour aider le patient : embryon! Rends-toi à l`endroit où se trouve le ballon sur le plan et reçois ton cadeau. C'était très chouette de faire ta connaissance!"
     },
-    "initialPage":{
-        "languageQstn":"Langue"
-    },
-    "gameinstructions":{
-        "drag":"Rangez les lettres dans le bon ordre :",
-        "dropHere":"Déposer ici"
+    "languageQstn": "Choisissez votre langue",
+    "gameinstructions": {
+        "drag": "Rangez les lettres dans le bon ordre :",
+        "dropHere": "Déposer ici"
     }
 }

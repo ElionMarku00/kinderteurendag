@@ -15,12 +15,14 @@ export default function BasicSelect() {
     return (
         <Box style={{ width: '70vw' }}>
             <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">{t("initialPage.languageQstn")}</InputLabel>
+                <InputLabel id="demo-simple-select-label">{t("languageQstn")}</InputLabel>
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    defaultValue="<MenuItem value={'nl'} >NL</MenuItem>"
-                    value={localStorage.getItem('language') || 'nl'}
+                    // defaultValue="<MenuItem value={'nl'} >NL</MenuItem>"
+                    // value={localStorage.getItem('language') || 'nl'}
+                    // value={i18n.language || 'nl'}
+                    value={i18n.language}
                     label="Age"
                     onChange={
                         (e) => {
