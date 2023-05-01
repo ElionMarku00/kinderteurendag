@@ -8,10 +8,10 @@ const AppProvider = ({ children }) => {
 
   const { t } = useTranslation();
 
-  // const setLanguage = (lng) => {
-  //   console.log('language changed to:', lng);
-  //   i18next.changeLanguage(lng);
-  // };
+  const setLanguage = (lng) => {
+    console.log('language changed to:', lng);
+    i18next.changeLanguage(lng);
+  };
 
   const finalGameAnswer = t("guesscodepage.answer")
   const [playerName, setPlayerName] = React.useState('')
@@ -59,7 +59,12 @@ const AppProvider = ({ children }) => {
   React.useEffect(() => {
     const language = localStorage.getItem('language')
 
-    if (language) i18next.changeLanguage(language)
+    if (language) {
+
+      i18next.changeLanguage(language)
+      localStorage.setItem('data', JSON.stringify(data));
+
+    }
     else {
       i18next.changeLanguage('nl')
       localStorage.setItem('language', 'nl')
@@ -75,13 +80,13 @@ const AppProvider = ({ children }) => {
     if (localData) return; // if we already have some progress in the game keep it
     else { //if not shuffle it and start anew
       const shuffledList = data.sort(() => Math.random() - 0.5);
-      localStorage.setItem('data', JSON.stringify(data));
+      localStorage.setItem('data', JSON.stringify(shuffledList));
       setData(shuffledList);
     }
 
   }, []); // empty dependency array means this effect runs only once on mount
 
-  // store playername on first boot
+  // // store playername on first boot
   React.useEffect(() => {
     const name = localStorage.getItem('playerName')
 
@@ -94,12 +99,48 @@ const AppProvider = ({ children }) => {
   }, []); // empty dependency array means this effect runs only once on mount
 
 
-  //refresh data everytime language changes:
-  // React.useEffect(() => {
-  //   localStorage.setItem('data', JSON.stringify(data));
+  React.useEffect(() => {
 
+    setData([
+      {
+        name: "Bee", icon: '/bee.png', letter: "E", type: GameTypes.multipleChoice, choices: { [t('beepage.choices.choise1')]: true, [t('beepage.choices.choise2')]: false },
+        answer: t("beepage.answer"), solved: false, text: t('beepage.text'), prompt: t("beepage.prompt"), textp2: t('beepage.textp2'), numPages: 1,
+        gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png', wrongTextRed: t("beepage.wrongpage.redtext"), wrongPageMessage: t("beepage.wrongpage.message"),
+        rightTextGreen: t("beepage.correctpage.green"), rightPageMessage: t("beepage.correctpage.message")
+      },
+      {
+        name: "Butterfly", icon: '/butterfly.png', type: GameTypes.text, letter: "M", answer: t("butterflypage.answer"), solved: false,
+        text: t('butterflypage.text'), prompt: t("butterflypage.prompt"), textp2: t('butterflypage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+        , title: t('butterflypage.title'), wrongTextRed: t("butterflypage.wrongpage.redtext"), wrongPageMessage: t("butterflypage.wrongpage.message"),
+        rightTextGreen: t("butterflypage.correctpage.green"), rightPageMessage: t("butterflypage.correctpage.message")
+      },
+      {
+        name: "Ladybug", icon: '/Ladybug.png', type: GameTypes.number, letter: "B", answer: t("ladybugpage.answer"), solved: false,
+        text: t('ladybugpage.text'), prompt: t("ladybugpage.prompt"), textp2: t('ladybugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+        , title: t('ladybugpage.title'), wrongTextRed: t("ladybugpage.wrongpage.redtext"), wrongPageMessage: t("ladybugpage.wrongpage.message"),
+        rightTextGreen: t("ladybugpage.correctpage.green"), rightPageMessage: t("ladybugpage.correctpage.message")
+      },
+      {
+        name: "Slug", icon: '/Slug.png', type: GameTypes.drag, letter: "R", choices: { 'choise1': true, 'choise2': false }, answer: t("slugpage.answer"),
+        solved: false, text: t('slugpage.text'), prompt: t("slugpage.prompt"), textp2: t('slugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+        , title: t('slugpage.title'), wrongTextRed: t("slugpage.wrongpage.redtext"), wrongPageMessage: t("slugpage.wrongpage.message"),
+        rightTextGreen: t("slugpage.correctpage.green"), rightPageMessage: t("slugpage.correctpage.message")
+      },
+      {
+        name: "Chick", icon: '/Chick.png', type: GameTypes.multipleChoice, choices: { [t('chickpage.choices.choise1')]: false, [t('chickpage.choices.choise2')]: true }, answer: t("chickpage.answer"),
+        letter: "Y", solved: false, text: t('chickpage.text'), prompt: t("chickpage.prompt"), textp2: t('chickpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+        , title: t('chickpage.title'), wrongTextRed: t("chickpage.wrongpage.redtext"), wrongPageMessage: t("chickpage.wrongpage.message"),
+        rightTextGreen: t("chickpage.correctpage.green"), rightPageMessage: t("chickpage.correctpage.message")
+      },
+      {
+        name: "Plane", icon: '/Plane.png', type: GameTypes.multipleChoice, letter: "O", choices: { [t('planepage.choices.choise1')]: false, [t('planepage.choices.choise2')]: true }, answer: t("planepage.answer"),
+        solved: false, text: t('planepage.text'), prompt: t("planepage.prompt"), textp2: t('planepage.textp2'), numPages: 1, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+        , title: t('planepage.title'), wrongTextRed: t("planepage.wrongpage.redtext"), wrongPageMessage: t("planepage.wrongpage.message"),
+        rightTextGreen: t("planepage.correctpage.green"), rightPageMessage: t("planepage.correctpage.message")
+      },
+    ])
 
-  // }, [i18next.language]);
+  }, [i18next.language]); // e
 
 
 
@@ -134,6 +175,8 @@ const AppProvider = ({ children }) => {
   }
 
   const getGameDataByName = (currentGame) => {
+
+    let lang = i18next.language
 
     const gameType = data.find((i) => i.name === currentGame).type
     const currGameAns = data.find((i) => i.name === currentGame).answer
@@ -217,7 +260,7 @@ const AppProvider = ({ children }) => {
         playerName,
         setPlayerName,
 
-        // setLanguage,
+        setLanguage,
         checkAnsw,
         getGameDataByName,
 

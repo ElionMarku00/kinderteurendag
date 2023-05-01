@@ -9,7 +9,7 @@ import { useTranslation } from 'react-i18next';
 
 export default function BasicSelect() {
 
-    // const { setLanguage } = React.useContext(AppContext);
+    const { setLanguage } = React.useContext(AppContext);
     const { t, i18n } = useTranslation();
 
     return (
@@ -19,15 +19,16 @@ export default function BasicSelect() {
                 <Select
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
-                    // defaultValue="<MenuItem value={'nl'} >NL</MenuItem>"
+                    defaultValue="<MenuItem value={'nl'} >NL</MenuItem>"
                     // value={localStorage.getItem('language') || 'nl'}
                     // value={i18n.language || 'nl'}
                     value={i18n.language}
                     label="Age"
                     onChange={
                         (e) => {
-                            localStorage.setItem('language', e.target.value)
-                            i18n.changeLanguage(e.target.value)
+                            setLanguage(e.target.value)
+                            // i18n.changeLanguage(e.target.value)
+                            // localStorage.setItem('language', e.target.value)
                         }
                     }
                 >

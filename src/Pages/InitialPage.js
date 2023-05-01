@@ -14,7 +14,6 @@ const ImgContainer = styled.div`
 
 `;
 
-
 const MainAttraction = styled.div`
 
     display:flex;
