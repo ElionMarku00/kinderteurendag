@@ -53,7 +53,7 @@ function GuessCodePage() {
 
   function verifyAnswer() {
 
-    return givenAnswer.toLowerCase() === finalGameAnswer.toLowerCase()
+    return givenAnswer.trim().toLowerCase() === finalGameAnswer.trim().toLowerCase()
 
   }
 

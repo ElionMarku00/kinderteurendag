@@ -20,36 +20,36 @@ const AppProvider = ({ children }) => {
     {
       name: "Bee", icon: '/bee.png', letter: "E", type: GameTypes.multipleChoice, choices: { [t('beepage.choices.choise1')]: true, [t('beepage.choices.choise2')]: false },
       answer: t("beepage.answer"), solved: false, text: t('beepage.text'), prompt: t("beepage.prompt"), textp2: t('beepage.textp2'), numPages: 1,
-      gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png', wrongTextRed: t("beepage.wrongpage.redtext"), wrongPageMessage: t("beepage.wrongpage.message"),
+      gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png', wrongTextRed: t("beepage.wrongpage.redtext"), wrongPageMessage: t("beepage.wrongpage.message"),
       rightTextGreen: t("beepage.correctpage.green"), rightPageMessage: t("beepage.correctpage.message")
     },
     {
       name: "Butterfly", icon: '/butterfly.png', type: GameTypes.text, letter: "M", answer: t("butterflypage.answer"), solved: false,
-      text: t('butterflypage.text'), prompt: t("butterflypage.prompt"), textp2: t('butterflypage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      text: t('butterflypage.text'), prompt: t("butterflypage.prompt"), textp2: t('butterflypage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png'
       , title: t('butterflypage.title'), wrongTextRed: t("butterflypage.wrongpage.redtext"), wrongPageMessage: t("butterflypage.wrongpage.message"),
       rightTextGreen: t("butterflypage.correctpage.green"), rightPageMessage: t("butterflypage.correctpage.message")
     },
     {
       name: "Ladybug", icon: '/Ladybug.png', type: GameTypes.number, letter: "B", answer: t("ladybugpage.answer"), solved: false,
-      text: t('ladybugpage.text'), prompt: t("ladybugpage.prompt"), textp2: t('ladybugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      text: t('ladybugpage.text'), prompt: t("ladybugpage.prompt"), textp2: t('ladybugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png'
       , title: t('ladybugpage.title'), wrongTextRed: t("ladybugpage.wrongpage.redtext"), wrongPageMessage: t("ladybugpage.wrongpage.message"),
       rightTextGreen: t("ladybugpage.correctpage.green"), rightPageMessage: t("ladybugpage.correctpage.message")
     },
     {
       name: "Slug", icon: '/Slug.png', type: GameTypes.drag, letter: "R", choices: { 'choise1': true, 'choise2': false }, answer: t("slugpage.answer"),
-      solved: false, text: t('slugpage.text'), prompt: t("slugpage.prompt"), textp2: t('slugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      solved: false, text: t('slugpage.text'), prompt: t("slugpage.prompt"), textp2: t('slugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png'
       , title: t('slugpage.title'), wrongTextRed: t("slugpage.wrongpage.redtext"), wrongPageMessage: t("slugpage.wrongpage.message"),
       rightTextGreen: t("slugpage.correctpage.green"), rightPageMessage: t("slugpage.correctpage.message")
     },
     {
       name: "Chick", icon: '/Chick.png', type: GameTypes.multipleChoice, choices: { [t('chickpage.choices.choise1')]: false, [t('chickpage.choices.choise2')]: true }, answer: t("chickpage.answer"),
-      letter: "Y", solved: false, text: t('chickpage.text'), prompt: t("chickpage.prompt"), textp2: t('chickpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      letter: "Y", solved: false, text: t('chickpage.text'), prompt: t("chickpage.prompt"), textp2: t('chickpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png'
       , title: t('chickpage.title'), wrongTextRed: t("chickpage.wrongpage.redtext"), wrongPageMessage: t("chickpage.wrongpage.message"),
       rightTextGreen: t("chickpage.correctpage.green"), rightPageMessage: t("chickpage.correctpage.message")
     },
     {
       name: "Plane", icon: '/Plane.png', type: GameTypes.multipleChoice, letter: "O", choices: { [t('planepage.choices.choise1')]: false, [t('planepage.choices.choise2')]: true }, answer: t("planepage.answer"),
-      solved: false, text: t('planepage.text'), prompt: t("planepage.prompt"), textp2: t('planepage.textp2'), numPages: 1, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+      solved: false, text: t('planepage.text'), prompt: t("planepage.prompt"), textp2: t('planepage.textp2'), numPages: 1, gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png'
       , title: t('planepage.title'), wrongTextRed: t("planepage.wrongpage.redtext"), wrongPageMessage: t("planepage.wrongpage.message"),
       rightTextGreen: t("planepage.correctpage.green"), rightPageMessage: t("planepage.correctpage.message")
     },
@@ -61,7 +61,7 @@ const AppProvider = ({ children }) => {
 
     if (language) {
 
-      i18next.changeLanguage(language)
+      // i18next.changeLanguage(language)
       localStorage.setItem('data', JSON.stringify(data));
 
     }
@@ -99,49 +99,50 @@ const AppProvider = ({ children }) => {
   }, []); // empty dependency array means this effect runs only once on mount
 
 
+  //if language is changed reread data
   React.useEffect(() => {
 
     setData([
       {
         name: "Bee", icon: '/bee.png', letter: "E", type: GameTypes.multipleChoice, choices: { [t('beepage.choices.choise1')]: true, [t('beepage.choices.choise2')]: false },
         answer: t("beepage.answer"), solved: false, text: t('beepage.text'), prompt: t("beepage.prompt"), textp2: t('beepage.textp2'), numPages: 1,
-        gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png', wrongTextRed: t("beepage.wrongpage.redtext"), wrongPageMessage: t("beepage.wrongpage.message"),
+        gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png', wrongTextRed: t("beepage.wrongpage.redtext"), wrongPageMessage: t("beepage.wrongpage.message"),
         rightTextGreen: t("beepage.correctpage.green"), rightPageMessage: t("beepage.correctpage.message")
       },
       {
         name: "Butterfly", icon: '/butterfly.png', type: GameTypes.text, letter: "M", answer: t("butterflypage.answer"), solved: false,
-        text: t('butterflypage.text'), prompt: t("butterflypage.prompt"), textp2: t('butterflypage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+        text: t('butterflypage.text'), prompt: t("butterflypage.prompt"), textp2: t('butterflypage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png'
         , title: t('butterflypage.title'), wrongTextRed: t("butterflypage.wrongpage.redtext"), wrongPageMessage: t("butterflypage.wrongpage.message"),
         rightTextGreen: t("butterflypage.correctpage.green"), rightPageMessage: t("butterflypage.correctpage.message")
       },
       {
         name: "Ladybug", icon: '/Ladybug.png', type: GameTypes.number, letter: "B", answer: t("ladybugpage.answer"), solved: false,
-        text: t('ladybugpage.text'), prompt: t("ladybugpage.prompt"), textp2: t('ladybugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+        text: t('ladybugpage.text'), prompt: t("ladybugpage.prompt"), textp2: t('ladybugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png'
         , title: t('ladybugpage.title'), wrongTextRed: t("ladybugpage.wrongpage.redtext"), wrongPageMessage: t("ladybugpage.wrongpage.message"),
         rightTextGreen: t("ladybugpage.correctpage.green"), rightPageMessage: t("ladybugpage.correctpage.message")
       },
       {
         name: "Slug", icon: '/Slug.png', type: GameTypes.drag, letter: "R", choices: { 'choise1': true, 'choise2': false }, answer: t("slugpage.answer"),
-        solved: false, text: t('slugpage.text'), prompt: t("slugpage.prompt"), textp2: t('slugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+        solved: false, text: t('slugpage.text'), prompt: t("slugpage.prompt"), textp2: t('slugpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png'
         , title: t('slugpage.title'), wrongTextRed: t("slugpage.wrongpage.redtext"), wrongPageMessage: t("slugpage.wrongpage.message"),
         rightTextGreen: t("slugpage.correctpage.green"), rightPageMessage: t("slugpage.correctpage.message")
       },
       {
         name: "Chick", icon: '/Chick.png', type: GameTypes.multipleChoice, choices: { [t('chickpage.choices.choise1')]: false, [t('chickpage.choices.choise2')]: true }, answer: t("chickpage.answer"),
-        letter: "Y", solved: false, text: t('chickpage.text'), prompt: t("chickpage.prompt"), textp2: t('chickpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+        letter: "Y", solved: false, text: t('chickpage.text'), prompt: t("chickpage.prompt"), textp2: t('chickpage.textp2'), numPages: 2, gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png'
         , title: t('chickpage.title'), wrongTextRed: t("chickpage.wrongpage.redtext"), wrongPageMessage: t("chickpage.wrongpage.message"),
         rightTextGreen: t("chickpage.correctpage.green"), rightPageMessage: t("chickpage.correctpage.message")
       },
       {
         name: "Plane", icon: '/Plane.png', type: GameTypes.multipleChoice, letter: "O", choices: { [t('planepage.choices.choise1')]: false, [t('planepage.choices.choise2')]: true }, answer: t("planepage.answer"),
-        solved: false, text: t('planepage.text'), prompt: t("planepage.prompt"), textp2: t('planepage.textp2'), numPages: 1, gameHost: Math.random() < 0.5 ? '/Lukas.png' : '/Marie.png'
+        solved: false, text: t('planepage.text'), prompt: t("planepage.prompt"), textp2: t('planepage.textp2'), numPages: 1, gameHost: Math.random() < 0.5 ? '/Lukas2.png' : '/Marie2.png'
         , title: t('planepage.title'), wrongTextRed: t("planepage.wrongpage.redtext"), wrongPageMessage: t("planepage.wrongpage.message"),
         rightTextGreen: t("planepage.correctpage.green"), rightPageMessage: t("planepage.correctpage.message")
       },
     ])
 
-  }, [i18next.language]); // e
-
+    // }, [i18next.language]); // e
+  }, [localStorage.getItem('language')]); // e
 
 
   function getFoundLetters() {
@@ -202,7 +203,7 @@ const AppProvider = ({ children }) => {
 
     switch (gameType) {
       case GameTypes.text:
-        if (currGameAns.toUpperCase() === ans.toUpperCase()) {
+        if (currGameAns.trim().toUpperCase() === ans.trim().toUpperCase()) {
           setSolved(currentGame)
           return true
           // navigate('/correct', { state: { currGameImage, currGameHost } })
@@ -213,7 +214,7 @@ const AppProvider = ({ children }) => {
         }
 
       case GameTypes.number:
-        if (currGameAns.toString() === ans.toString()) {
+        if (currGameAns.toString().trim() === ans.toString().trim()) {
           setSolved(currentGame)
           return true
           // navigate('/correct', { state: { currGameImage, currGameHost } })

@@ -3,7 +3,7 @@ import styled from "styled-components";
 function TopBar({ imgProps, barProps, children }) {
     return (
         <Bar {...barProps}>
-            <Img {...imgProps} />
+            <Img {...imgProps}   />
 
             {children}
         </Bar>

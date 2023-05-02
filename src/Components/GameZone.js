@@ -10,6 +10,7 @@ import { Dustbin, Letter } from './';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { TouchBackend } from 'react-dnd-touch-backend';
 import { DndProvider } from 'react-dnd';
+
 import { AppContext } from '../context';
 
 import { useNavigate } from 'react-router-dom';
@@ -127,7 +128,8 @@ const GameZone = (props) => {
                 <TextField id="outlined-basic"
                     label={t("guesscodepage.textbox")}
                     type='number'
-                    defaultValue={ans || 1}
+                    // defaultValue={ans || 1}
+                    defaultValue={ans}
                     variant="outlined"
                     style={{ margin: '0 1rem', }}
                     // onChange={(e) => setText(e.target.value)

@@ -26,7 +26,7 @@ const MainAttraction = styled.div`
 
 function InitialPage() {
 
-    const { setPlayerName, setLanguage } = React.useContext(AppContext)
+    const { setPlayerName } = React.useContext(AppContext)
     const navigate = useNavigate();
     const { t, } = useTranslation();
 

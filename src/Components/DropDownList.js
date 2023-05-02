@@ -28,7 +28,7 @@ export default function BasicSelect() {
                         (e) => {
                             setLanguage(e.target.value)
                             // i18n.changeLanguage(e.target.value)
-                            // localStorage.setItem('language', e.target.value)
+                            localStorage.setItem('language', e.target.value)
                         }
                     }
                 >

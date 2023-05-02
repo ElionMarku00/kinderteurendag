@@ -137,6 +137,9 @@ const ImgContainer = styled.section`
   border: 2px solid black;
   overflow: hidden;
   text-transform: uppercase;
+
+   background-image: '/images/store.png';
+   background-repeat: no-repeat, no-repeat;
 }
 
 @media (max-width: 500px) {
