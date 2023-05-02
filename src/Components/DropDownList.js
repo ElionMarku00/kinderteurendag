@@ -27,7 +27,7 @@ export default function BasicSelect() {
                     onChange={
                         (e) => {
                             setLanguage(e.target.value)
-                            // i18n.changeLanguage(e.target.value)
+                            i18n.changeLanguage(e.target.value)
                             localStorage.setItem('language', e.target.value)
                         }
                     }

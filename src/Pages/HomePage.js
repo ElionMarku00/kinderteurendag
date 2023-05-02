@@ -42,7 +42,7 @@ function HomePage() {
         <CustomH4 style={{ padding: "0", margin: "0" }}>{t('homepage.text', { playerName })}</CustomH4>
         <Grid>
 
-            {data && data.map((item) => {
+            {hpData && hpData.map((item) => {
 
                 let { name, solved, letter, icon, text, type, prompt, numPages, gameHost, rightPageMessage, rightTextGreen } = item;
                 return (<ImgContainer key={name}
@@ -138,7 +138,9 @@ const ImgContainer = styled.section`
   overflow: hidden;
   text-transform: uppercase;
 
-   background-image: '/images/store.png';
+  background-image: 
+       url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png"),
+       url("https://amymhaddad.s3.amazonaws.com/oriental-tiles.png");
    background-repeat: no-repeat, no-repeat;
 }
 

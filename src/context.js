@@ -10,11 +10,16 @@ const AppProvider = ({ children }) => {
 
   const setLanguage = (lng) => {
     console.log('language changed to:', lng);
+    setLang(lng)
     i18next.changeLanguage(lng);
+    localStorage.setItem("language", lng)
+
   };
 
   const finalGameAnswer = t("guesscodepage.answer")
   const [playerName, setPlayerName] = React.useState('')
+  const [lang, setLang] = React.useState('nl');
+
 
   const [data, setData] = React.useState([
     {
@@ -56,21 +61,22 @@ const AppProvider = ({ children }) => {
   ])
 
   //store language on first boot
-  React.useEffect(() => {
-    const language = localStorage.getItem('language')
+  // React.useEffect(() => {
+  //   const language = localStorage.getItem('language')
 
-    if (language) {
+  //   if (language) {
 
-      // i18next.changeLanguage(language)
-      localStorage.setItem('data', JSON.stringify(data));
+  //     // i18next.changeLanguage(language)
+  //     // localStorage.setItem('data', JSON.stringify(data));
+  //     localStorage.setItem('language', 'nl')
 
-    }
-    else {
-      i18next.changeLanguage('nl')
-      localStorage.setItem('language', 'nl')
-    }
+  //   }
+  //   else {
+  //     i18next.changeLanguage('nl')
+  //     localStorage.setItem('language', 'nl')
+  //   }
 
-  }, []); // empty dependency array means this effect runs only once on mount
+  // }, []); // empty dependency array means this effect runs only once on mount
 
 
   // shuffle list only once at the very start
@@ -92,7 +98,6 @@ const AppProvider = ({ children }) => {
 
     if (name) return;
     else {
-
       setPlayerName(name);
     }
 
@@ -141,9 +146,8 @@ const AppProvider = ({ children }) => {
       },
     ])
 
-    // }, [i18next.language]); // e
-  }, [localStorage.getItem('language')]); // e
-
+  // }, [i18next.language]); // e
+  }, [lang]); // e
 
   function getFoundLetters() {
 
@@ -199,12 +203,14 @@ const AppProvider = ({ children }) => {
   function checkAnsw(ans, currentGame) {
 
     const [gameType, currGameAns, currGameImage, currGameHost, currGameTitle, currGameText, currGameTextp2, wrongRedText, wrongText, rightGreenText, rightText] = getGameDataByName(currentGame)
-    console.log('ans:', currGameAns, ans);
+    // console.log('ans:', currGameAns, ans);
 
     switch (gameType) {
       case GameTypes.text:
         if (currGameAns.trim().toUpperCase() === ans.trim().toUpperCase()) {
           setSolved(currentGame)
+          localStorage.setItem('data', JSON.stringify(data))
+
           return true
           // navigate('/correct', { state: { currGameImage, currGameHost } })
         }
@@ -233,7 +239,6 @@ const AppProvider = ({ children }) => {
         // else navigate('/incorrect', { state: { currGameImage, currGameHost } })
         return false
 
-
       case GameTypes.drag:
         if (ans) {
           setSolved(currentGame)
@@ -243,7 +248,6 @@ const AppProvider = ({ children }) => {
         }
         else return false
       // navigate('/incorrect', { state: { currGameImage, currGameHost } })
-
 
       default:
         throw new Error(`passed ${gameType} as GameType`)
@@ -267,7 +271,6 @@ const AppProvider = ({ children }) => {
 
         getFoundLetters,
         finalGameAnswer
-
 
       }}
     >
