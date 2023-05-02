@@ -24,10 +24,12 @@ function GiveAnswerPage() {
     // const [gameType, currGameAns, currGameImage, currGameHost, currGameTitle, currGameText, currGameTextp2] = getGameDataByName(currentGame)
     const [gameType, currGameAns, currGameImage, currGameHost, currGameTitle, currGameText, currGameTextp2, wrongRedText, wrongText, rightGreenText, rightText] = getGameDataByName(currentGame)
 
+    //used for text type games too
     function checkAndRoute(ans) {
         let answer = checkAnsw(ans, currentGame)
 
         if (answer) {
+            
             navigate('/correct', { state: { currGameImage, currGameHost, rightText, rightGreenText } })
         }
         else {

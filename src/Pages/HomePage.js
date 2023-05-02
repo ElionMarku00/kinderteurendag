@@ -11,21 +11,24 @@ import { Layout, TopBar } from '../Components'
 // base page with a grid and icons inside for the questions. each question will reveal a letter after answered correctly
 function HomePage() {
 
-    const [hpData, setHpData] = React.useState()
+    // const [hpData, setHpData] = React.useState()
+    const { data, playerName } = React.useContext(AppContext)
 
-    React.useEffect(() => {
-        const hpData = JSON.parse(localStorage.getItem('data'));
-        if (hpData) {
-            setHpData(hpData);
-        }
-    }, []);
+
+    const hpData = JSON.parse(localStorage.getItem('data'));
+    // React.useEffect(() => {
+    //     const hpData = JSON.parse(localStorage.getItem('data'));
+    //     if (hpData) {
+    //         setHpData(hpData);
+    //         console.log("hpData just changed");
+    //     }
+    // }, []);
 
     const { t } = useTranslation();
 
     const navigate = useNavigate();
     // const navToGuessPage = () => navigate(`/game`)
 
-    const { data, playerName } = React.useContext(AppContext)
 
     return (<Layout>
 
@@ -37,7 +40,6 @@ function HomePage() {
         </TopBar>
 
         {/* <Img src={`/images/marielukas.png`} alt={`marielukas`} /> */}
-
 
         <CustomH4 style={{ padding: "0", margin: "0" }}>{t('homepage.text', { playerName })}</CustomH4>
         <Grid>
@@ -53,7 +55,7 @@ function HomePage() {
                     }}>
                     {!solved
                         ? <img src={`/images${icon}`} alt={`${name}`} width="80%" height="auto" />
-                        : <ImgContainer><div className='letter'> <span> {letter}</span> </div> </ImgContainer>
+                        : <ImgContainer><div className={solved ? "house" : ""} > <span className='letter'> {letter}</span> </div> </ImgContainer>
                     }
                 </ImgContainer>)
 
@@ -70,7 +72,6 @@ function HomePage() {
                     gridColumn: "1/3",
                     textAlign: "center",
                     alignSelf: "end",
-
                     justifySelf: "center",
 
                 }}
@@ -78,8 +79,6 @@ function HomePage() {
                 {t('homepage.qstn')}
             </Button>
         </div>
-
-
 
     </Layout >
 
@@ -126,6 +125,18 @@ grid-area:1/2/1/5;
 `;
 
 const ImgContainer = styled.section`
+
+.house {
+    background-image: url("/images/store.png");
+    background-size: cover;
+    width: 100px; /* Adjust as needed */
+    height: auto; /* Adjust as needed */
+    background-repeat:none;
+   /* background-repeat: no-repeat, no-repeat; */
+
+}
+
+
 .letter {
   display: inline-flex;
   justify-content: center;
@@ -138,12 +149,9 @@ const ImgContainer = styled.section`
   overflow: hidden;
   text-transform: uppercase;
 
-  background-image: 
-       url("https://amymhaddad.s3.amazonaws.com/morocco-blue.png"),
-       url("https://amymhaddad.s3.amazonaws.com/oriental-tiles.png");
-   background-repeat: no-repeat, no-repeat;
-}
 
+}
+/* 
 @media (max-width: 500px) {
   .letter {
     width: 60px;
@@ -158,7 +166,7 @@ const ImgContainer = styled.section`
     height: 50px;
     font-size: 26px;
   }
-}
+} */
 `;
 
 export default HomePage

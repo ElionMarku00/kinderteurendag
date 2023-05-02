@@ -61,22 +61,22 @@ const AppProvider = ({ children }) => {
   ])
 
   //store language on first boot
-  // React.useEffect(() => {
-  //   const language = localStorage.getItem('language')
+  React.useEffect(() => {
+    const language = localStorage.getItem('language')
 
-  //   if (language) {
+    if (language) {
 
-  //     // i18next.changeLanguage(language)
-  //     // localStorage.setItem('data', JSON.stringify(data));
-  //     localStorage.setItem('language', 'nl')
+      // i18next.changeLanguage(language)
+      // localStorage.setItem('data', JSON.stringify(data));
+      localStorage.setItem('language', 'nl')
 
-  //   }
-  //   else {
-  //     i18next.changeLanguage('nl')
-  //     localStorage.setItem('language', 'nl')
-  //   }
+    }
+    else {
+      i18next.changeLanguage('nl')
+      localStorage.setItem('language', 'nl')
+    }
 
-  // }, []); // empty dependency array means this effect runs only once on mount
+  }, []); // empty dependency array means this effect runs only once on mount
 
 
   // shuffle list only once at the very start
@@ -146,7 +146,7 @@ const AppProvider = ({ children }) => {
       },
     ])
 
-  // }, [i18next.language]); // e
+    // }, [i18next.language]); // e
   }, [lang]); // e
 
   function getFoundLetters() {
@@ -168,14 +168,16 @@ const AppProvider = ({ children }) => {
   const setSolved = (currentGame) => {
 
     const localData = JSON.parse(localStorage.getItem('data'))
-    const currGameIndx = data.findIndex((i) => i.name === currentGame)
+    // const currGameIndx = data.findIndex((i) => i.name === currentGame)
+    const currGameIndx = localData.findIndex((i) => i.name === currentGame)
 
     let items = [...localData];
     let item = { ...localData[currGameIndx] };
     item.solved = true;
     items[currGameIndx] = item;
-    setData([...items]);
     localStorage.setItem('data', JSON.stringify([...items]));
+    setData([...items]);
+    console.log("saved to localstorage:", item);
 
   }
 
@@ -209,7 +211,7 @@ const AppProvider = ({ children }) => {
       case GameTypes.text:
         if (currGameAns.trim().toUpperCase() === ans.trim().toUpperCase()) {
           setSolved(currentGame)
-          localStorage.setItem('data', JSON.stringify(data))
+          // localStorage.setItem('data', JSON.stringify(data))
 
           return true
           // navigate('/correct', { state: { currGameImage, currGameHost } })
@@ -222,6 +224,7 @@ const AppProvider = ({ children }) => {
       case GameTypes.number:
         if (currGameAns.toString().trim() === ans.toString().trim()) {
           setSolved(currentGame)
+          // localStorage.setItem('data', JSON.stringify(data))
           return true
           // navigate('/correct', { state: { currGameImage, currGameHost } })
         }
@@ -233,6 +236,7 @@ const AppProvider = ({ children }) => {
       case GameTypes.multipleChoice:
         if (ans) {
           setSolved(currentGame)
+          // localStorage.setItem('data', JSON.stringify(data))
           return true
           // navigate('/correct', { state: { currGameImage, currGameHost } })
         }
@@ -242,6 +246,7 @@ const AppProvider = ({ children }) => {
       case GameTypes.drag:
         if (ans) {
           setSolved(currentGame)
+          // localStorage.setItem('data', JSON.stringify(data))
           return true
 
           // navigate('/correct', { state: { currGameImage, currGameHost } })
