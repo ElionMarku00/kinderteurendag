@@ -55,7 +55,13 @@ function HomePage() {
                     }}>
                     {!solved
                         ? <img src={`/images${icon}`} alt={`${name}`} width="80%" height="auto" />
-                        : <ImgContainer><div className={solved ? "house" : ""} > <span className='letter'> {letter}</span> </div> </ImgContainer>
+                        : <ImgContainer><div className={solved ? "house" : ""} >
+                            <span
+                                className='letter'
+                            >
+                                {letter}
+                            </span>
+                        </div> </ImgContainer>
                     }
                 </ImgContainer>)
 
@@ -144,10 +150,14 @@ const ImgContainer = styled.section`
   width: 70px;
   height: 70px;
   font-size: 44px;
-  border-radius: 50%;
-  border: 2px solid black;
+  /* border-radius: 50%; */
+  /* border: 2px solid black; */
   overflow: hidden;
   text-transform: uppercase;
+  font-weight:bold;
+  color:green;
+  
+  
 
 
 }
