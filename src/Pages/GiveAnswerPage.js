@@ -19,7 +19,7 @@ function GiveAnswerPage() {
     const navigate = useNavigate();
     const location = useLocation();
     const { currentGame, _ } = location.state;  //when passing checkAns as prop  i can;t take it because state = null for some reason. 
-    const {  checkAnsw } = React.useContext(AppContext)
+    const { checkAnsw } = React.useContext(AppContext)
 
     // const [gameType, currGameAns, currGameImage, currGameHost, currGameTitle, currGameText, currGameTextp2] = getGameDataByName(currentGame)
     const [gameType, currGameAns, currGameImage, currGameHost, currGameTitle, currGameText, currGameTextp2, wrongRedText, wrongText, rightGreenText, rightText] = getGameDataByName(currentGame)
@@ -29,7 +29,7 @@ function GiveAnswerPage() {
         let answer = checkAnsw(ans, currentGame)
 
         if (answer) {
-            
+
             navigate('/correct', { state: { currGameImage, currGameHost, rightText, rightGreenText } })
         }
         else {
@@ -48,7 +48,7 @@ function GiveAnswerPage() {
 
             <MainAttraction>
 
-                <img src={`/images${currGameHost}`} alt={`${currGameHost}`} width="auto" height="70%" style={{ alignSelf: 'flex-start', justifySelf: 'center', gridArea: "2/3/2/4" }} />
+                <img src={`/images${currGameHost}`} alt={`${currGameHost}`} width="auto" height="50%" style={{ alignSelf: 'flex-start', justifySelf: 'center', gridArea: "2/3/2/4" }} />
 
                 <Cloud arrowUp={true} style={{ gridArea: "3/3/4/5", marginBottom: "10px", justifySelf: 'center', alignSelf: 'flex-start' }} text={currGameTextp2} />
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 function TopBar({ imgProps, barProps, children }) {
     return (
         <Bar {...barProps}>
-            <Img {...imgProps}   />
+            <Img {...imgProps} />
 
             {children}
         </Bar>
@@ -37,10 +37,11 @@ const Img = styled.img`
     width:auto;
     /* max-height: 100%; */
     grid-area:1/5/1/6;
-    max-height:100px;
+    max-height:80px;
     /* align-self:flex-start; */
     /* justify-self:flex-start; */
-    /* margin-right:-5px; */
+    /* margin-right:-5px; 
+    */
     object-fit: cover;
     object-position: 25% 25%; 
 `;

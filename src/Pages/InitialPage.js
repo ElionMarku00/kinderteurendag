@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
 import { Layout, BottomBar, TopBar, DropDownList, ForwardButton } from '../Components';
 
+import { analytics, logEvent } from "../Analytics/firebaseConfig"
+import { LogType, logEventName } from '../Analytics/analyticsKeys';
+
 const ImgContainer = styled.div`
 
     height:50px;
@@ -29,6 +32,7 @@ function InitialPage() {
     const { setPlayerName } = React.useContext(AppContext)
     const navigate = useNavigate();
     const { t, } = useTranslation();
+
 
     return (
 
@@ -65,7 +69,15 @@ function InitialPage() {
                 style: { justifyContent: "center", },
             }}
                 renderBackward={false}
-                forwardprops={{ onClickEvent: () => navigate(`/home`, { replace: true }) }} />
+                forwardprops={{
+                    onClickEvent: () => {
+
+                        logEvent(analytics, logEventName.language)
+                        navigate(`/home`, { replace: true })
+                    }
+                }
+                }
+            />
         </Layout>
 
     )

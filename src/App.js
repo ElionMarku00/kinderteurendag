@@ -1,7 +1,10 @@
+import React from 'react';
 import './App.css';
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCodePage, FinalPage, InitialPage } from './Pages'
+import { firebase, analytics, logEvent } from './Analytics/firebaseConfig';
+
 
 //TODO
 
@@ -12,14 +15,13 @@ import { HomePage, GamePage, GiveAnswerPage, CorrectPage, IncorrectPage, GuessCo
 // add error page redirecting to home page when invalid link
 
 // improvements:
-// fix correct and incorrect pages for pc
-// drag doesn't work on pc and it glitches on iphones
+// lower logo now that its bigger. 
 // useMemo on pages useCallback on handlers should improve performance
 
-// add a store on homepage letters 
-// change drag and drop
 
 function App() {
+
+
   return (
     <div >
       <Router>
