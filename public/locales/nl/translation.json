@@ -22,7 +22,7 @@
         },
         "answer": "zaadcel",
         "solved": false,
-        "prompt": "Welkom bij het spermaspel! Weet jij wat je hier kan opvissen?  ",
+        "prompt": "Welkom bij het visspel! Weet jij wat je hier kan opvissen?  ",
         "text": "",
         "wrongpage": {
             "redtext": "Fout!",
@@ -38,7 +38,7 @@
         "letter": "M",
         "answer": "M",
         "solved": false,
-        "text": "Hier kan je zelf een operatie uitvoeren zoals een echte doktor! Wil je het graag proberen? Ga dan binnen.",
+        "text": "Hier kan je zelf een operatie uitvoeren zoals een echte dokter! Wil je het graag proberen? Ga dan binnen.",
         "textp2": "Wanneer je de operatie doet, moet je goed kijken en dan zie je een letter verschijnen. Welke letter zie je?",
         "prompt": "",
         "wrongpage": {
@@ -84,7 +84,7 @@
             "message": "Probeer opnieuw."
         },
         "correctpage": {
-            "green": "Juist, heel goed daan {{playerName}}!",
+            "green": "Juist, heel goed gedaan {{playerName}}!",
             "message": "Ga verder door op deze pijl te klikken."
         }
     },
@@ -150,7 +150,7 @@
     },
     "languageQstn": "Kies je taal",
     "gameinstructions": {
-        "drag": "Zet de letters in de juiste volgorde:",
+        "drag": "Sleep de letters in de juiste volgorde:",
         "dropHere": "Hier neerzetten"
     }
 }
