@@ -1,0 +1,147 @@
+{
+    "title": "DOCTOR FOR 1 DAY",
+    "welcome": "Welcome!",
+    "nameQuestion": "What's your name?",
+    "homepage": {
+        "text": "Help Lucas and Marie find the code word the doctor needs to help the patient. With this code word you receive a lovely gift ! Choose the image below that matches the activity and answer the questions to find the code word . Good luck {{playerName}}!",
+        "qstn": "WHAT IS THE CODE WORD WE ARE LOOKING FOR?"
+    },
+    "beepage": {
+        "letter": "E",
+        "choices": {
+            "choise1": "ZAADCEL",
+            "choise2": "EENDJES"
+        },
+        "answer": "choice2",
+        "solved": false,
+        "prompt": "Welcome to the sperm game! Do you know what you can fish up here?",
+        "text": "",
+        "wrongpage": {
+            "redtext": "Wrong!",
+            "message": "Try Again!"
+        },
+        "correctpage": {
+            "green": "Correct!",
+            "message": "You can continue when clicking on the arrow."
+        }
+    },
+    "butterflypage": {
+        "title": "Welcome to the laparoscopy demo!",
+        "letter": "M",
+        "answer": "test",
+        "solved": false,
+        "text": "Here you can perform an operation yourself like a real doctor! Do you want to give it a try? ",
+        "textp2": "When performing the operation, you will see a letter inside the box. Which letter is it? ",
+        "prompt": "",
+        "wrongpage": {
+            "redtext": "butterWrong!",
+            "message": "butterTry Again!"
+        },
+        "correctpage": {
+            "green": "butterCorrect!",
+            "message": "butterYou can continue when clicking on the arrow."
+        }
+    },
+    "ladybugpage": {
+        "title": "Welcome to the ultrasound! ",
+        "letter": "B",
+        "answer": "test",
+        "solved": false,
+        "text": "On the door you can find a number. This is the number of ultrasounds we performed in 2022. ",
+        "textp2": "Which number will you get when you make the sum of the first and the last number?",
+        "prompt": "On the door you can find a number. This is the number of ultrasounds we performed in 2022.",
+        "wrongpage": {
+            "redtext": "ladyWrong!",
+            "message": "ladyTry Again!"
+        },
+        "correctpage": {
+            "green": "ladyCorrect!",
+            "message": "ladyYou can continue when clicking on the arrow."
+        }
+    },
+    "slugpage": {
+        "title": "Welcome to the Lab demo!",
+        "letter": "R",
+        "choices": {
+            "choise1": "choise1",
+            "choise2": "choise2"
+        },
+        "answer": "test",
+        "solved": false,
+        "text": "Here you can see a lab person bringing the sperm cell into the egg cell with a very small needle. ",
+        "textp2": "How do they call this act?",
+        "prompt": "",
+        "wrongpage": {
+            "redtext": "slugWrong!",
+            "message": "slugTry Again!"
+        },
+        "correctpage": {
+            "green": "slugCorrect!",
+            "message": "slugYou can continue when clicking on the arrow."
+        }
+    },
+    "chickpage": {
+        "title": "Welcome to the auditorium where the doctor give a lecture!",
+        "choices": {
+            "choise1": "choiseee1",
+            "choise2": "choiseee2"
+        },
+        "answer": "test",
+        "letter": "Y",
+        "solved": false,
+        "text": "Listen very well to what the doctor says.  ",
+        "textp2": "In what year was the center founded?",
+        "prompt": "",
+        "wrongpage": {
+            "redtext": "chickWrong!",
+            "message": "chickTry Again!"
+        },
+        "correctpage": {
+            "green": "chickCorrect!",
+            "message": "chickYou can continue when clicking on the arrow."
+        }
+    },
+    "planepage": {
+        "title": "Welcome to the freezing demo!",
+        "letter": "O",
+        "choices": {
+            "choise1": true,
+            "choise2": false
+        },
+        "answer": "test",
+        "solved": false,
+        "text": "What can you freeze here?",
+        "textp2": "",
+        "prompt": "",
+        "wrongpage": {
+            "redtext": "planeWrong!",
+            "message": "planeTry Again!"
+        },
+        "correctpage": {
+            "green": "planeCorrect!",
+            "message": "planeYou can continue when clicking on the arrow."
+        }
+    },
+    "guesscodepage": {
+        "almostmsg": "You are almost there, you can do it!",
+        "text": "ENTER HERE THE CODE WORD WE ARE LOOKING FOR TO HELP THE PATIENT",
+        "textbox": "What's your answer?",
+        "wrongpage": {
+            "redtext": "Wrong!",
+            "message": "Try Again!"
+        },
+        "correctpage": {
+            "green": "Correct!",
+            "message": "You can continue when clicking on the arrow."
+        },
+        "answer": "embryo"
+    },
+    "finalpage": {
+        "congrats": "You have found the code word the doctor needs for the patient! In return you will receive a gift on the main floor. It was great to have met you!"
+    },
+    "languageQstn": "Choose your language",
+    "gameinstructions": {
+        "drag": "Arrange the letters in the correct order:",
+        "dropHere": "Drop here"
+    }
+}
